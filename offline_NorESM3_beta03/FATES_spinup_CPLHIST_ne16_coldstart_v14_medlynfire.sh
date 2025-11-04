@@ -17,7 +17,7 @@ project='nn9560k' #nn8057k: EMERALD, nn2806k: METOS, nn9188k: CICERO, nn9560k: N
 machine='betzy'
 
 #NorESM dir
-noresmrepo="ctsm5.3.045_noresm_v14" 
+noresmrepo="ctsm5.3.045_noresm_v14b" 
 noresmversion="ctsm5.3.045_noresm_v14"
 
 resolution="ne16pg3_tn14" #f19_g17, ne30pg3_tn14, f45_f45_mg37, ne16pg3_tn14 
@@ -117,7 +117,9 @@ DATM_CPLHIST_CASE=n1850.ne30_tn14.cplhist.3_0_a03b.20250606
 
         #Add following lines to user_nl_clm    
         echo "glacier_region_behavior = 'single_at_atm_topo','UNSET','virtual','virtual'" >> $workpath$casename/user_nl_clm
-	echo "fates_spitfire_mode=4 "	>> $casedir/user_nl_clm
+	echo " use_fates_nocomp = .true." >> $casedir/user_nl_clm
+ 	echo " use_fates_fixed_biogeog = .true." >> $casedir/user_nl_clm
+ 	echo "fates_spitfire_mode=1 "	>> $casedir/user_nl_clm
 	echo "fates_stomatal_model='medlyn2011' "  >> $casedir/user_nl_clm
     fi
 fi
