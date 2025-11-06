@@ -100,7 +100,7 @@ then
 
         ./xmlchange STOP_OPTION=nyears
         ./xmlchange STOP_N=10
-        ./xmlchange RESUBMIT=100
+        ./xmlchange RESUBMIT=10
         ./xmlchange --subgroup case.run JOB_WALLCLOCK_TIME=03:00:00
         ./xmlchange --subgroup case.st_archive JOB_WALLCLOCK_TIME=00:30:00        
         
