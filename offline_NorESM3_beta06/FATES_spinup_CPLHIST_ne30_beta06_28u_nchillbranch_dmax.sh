@@ -21,8 +21,8 @@ noresmrepo="noresm3_0_beta_06"
 noresmversion="noresm3_0_beta06"
 
 
-resolution="ne16pg3_tn14" #f19_g17, ne30pg3_tn14, f45_f45_mg37, ne16pg3_tn14 
-casename="i1850.$resolution.fatesnocomp.$noresmversion.CPLHIST_28u_nchill_branch.`date +"%Y-%m-%d"`"
+resolution="ne30pg3_tn14" #f19_g17, ne30pg3_tn14, f45_f45_mg37, ne16pg3_tn14 
+casename="i1850.$resolution.fatesnocomp.$noresmversion.CPLHIST_28u_nchill_branch_dmax.`date +"%Y-%m-%d"`"
 echo "casename: $casename"
 compset="1850_DATM%CPLHIST_CLM60%FATES_SICE_SOCN_SROF_SGLC_SWAV_SESP"
 
@@ -123,9 +123,10 @@ DATM_CPLHIST_CASE=n1850.ne30_tn14.cplhist.3_0_a03b.20250606
 
         #Add following lines to user_nl_clm    
         echo "glacier_region_behavior = 'single_at_atm_topo','UNSET','virtual','virtual'" >> $workpath$casename/user_nl_clm
-	echo "fates_paramfile='/cluster/work/users/rosief/NorESM_3_0_beta01_ctsm_v9/cime/scripts/fates_params_api.noresm_42.0.0_14pft__noresm_v28u.nc'" >> $casedir/user_nl_clm   
+	echo "fates_paramfile='/cluster/work/users/rosief/NorESM_3_0_beta01_ctsm_v9/cime/scripts/fates_params_api.noresm_42.0.0_14pft__noresm_v28u.nc'" >> $casedir/user_nl_clm
+        echo "paramfile = '/cluster/shared/noresm/inputdata/lnd/clm2/paramdata/ctsm60_params.5.3.045_noresm_beta07_c251120.nc'" >> $casedir/user_nl_clm
 	echo " use_fates_nocomp = .true." >> $casedir/user_nl_clm
- 	echo " use_fates_fixed_biogeog = .true." >> $casedir/user_nl_clm
+  	echo " use_fates_fixed_biogeog = .true." >> $casedir/user_nl_clm
 
         #Land use changes 
         echo "use_fates_luh = .true."  >> $casedir/user_nl_clm
