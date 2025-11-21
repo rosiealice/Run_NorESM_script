@@ -133,7 +133,7 @@ then
 
         #Add following lines to user_nl_clm    
         echo "glacier_region_behavior = 'single_at_atm_topo','UNSET','virtual','virtual'" >> $workpath$casename/user_nl_clm
-	echo "fates_paramfile='/cluster/work/users/rosief/NorESM_3_0_beta01_ctsm_v9/cime/scripts/fates_params_api.noresm_42.0.0_14pft__noresm_v28u.nc'" >> $casedir/user_nl_clm
+	echo "fates_paramfile='/cluster/shared/noresm/inputdata/lnd/clm2/paramdata/fates_params_sci.1.85.1_api.40.0.0_14pft_nor_sci2_api1_c251119.nc'" >> $casedir/user_nl_clm
         echo "paramfile = '/cluster/shared/noresm/inputdata/lnd/clm2/paramdata/ctsm60_params.5.3.045_noresm_beta07_c251120.nc'" >> $casedir/user_nl_clm
 	echo " use_fates_nocomp = .true." >> $casedir/user_nl_clm
   	echo " use_fates_fixed_biogeog = .true." >> $casedir/user_nl_clm
