@@ -1,0 +1,69 @@
+#!/usr/bin/env bash
+
+#==============USER MODS=======================================
+src_dir=/cluster/home/rosief/NorESM_ctsm5.2.005-noresm_v2
+case_dir_path=/cluster/home/rosief//NorESM_ctsm5.2.005-noresm_v2/cime/scripts/
+case=noresm_ctsm_6_CRU_FATES_NOCOMP_LHC
+
+scenario=betzy_test
+case_name=${case}${scenario}
+case_path=${case_dir_path}/${case_name}
+
+default_user_nl_clm_path=/cluster/home/rosief/fates-global-cal/rosie_ppe/user_nl_files/user_nl_clm_nocomp_sparsegrid 
+chargenum=NN9188K
+compset=2000_DATM%CRUv7_CLM50%FATES_SICE_SOCN_SROF_SGLC_SWAV
+
+# change into cime directory
+cd ${src_dir}/cime/scripts
+echo ${src_dir}/cime/scripts
+rm -rf ${case_path}
+
+## create a new case
+./create_newcase --case ${case_path} --compset ${compset} --res f19_g17  --project ${chargenum} --run-unsupported 
+cd ${case_path}
+
+## copy user_nl_clm and user_nl_datm_streams into this file
+cp ${default_user_nl_clm_path} .
+
+# env_run.xml
+./xmlchange RUN_STARTDATE=0001-01-01
+./xmlchange STOP_OPTION=nyears
+./xmlchange STOP_N=10
+./xmlchange RESUBMIT=1
+./xmlchange MASK_MESH='/cluster/home/rosief/fates-global-cal/rosie_ppe/sparse_grid_files/mesh_files/pft0_BET_grid_presence_mesh.nc'
+./xmlchange ATM_DOMAIN_MESH='/cluster/home/rosief/fates-global-cal/rosie_ppe/sparse_grid_files/mesh_files/pft0_BET_grid_presence_mesh.nc'
+./xmlchange LND_DOMAIN_MESH='/cluster/home/rosief/fates-global-cal/rosie_ppe/sparse_grid_files/mesh_files/pft0_BET_grid_presence_mesh.nc'
+./xmlchange DATM_YR_ALIGN=1
+./xmlchange DATM_YR_START=2005
+./xmlchange DATM_YR_END=2014
+
+./xmlchange CLM_ACCELERATED_SPINUP=off
+
+# env_mach_pes.xml
+./xmlchange NTASKS_OCN=112
+./xmlchange NTASKS_WAV=112
+./xmlchange NTASKS_GLC=112
+./xmlchange NTASKS_ICE=112
+./xmlchange NTASKS_ROF=112
+./xmlchange ROOTPE_LND=16
+./xmlchange ROOTPE_OCN=16
+./xmlchange ROOTPE_WAV=16
+./xmlchange ROOTPE_GLC=16
+./xmlchange ROOTPE_ICE=16
+./xmlchange ROOTPE_ROF=16
+./xmlchange ROOTPE_ATM=0
+./xmlchange ROOTPE_CPL=16
+./xmlchange NTASKS_LND=112
+./xmlchange NTASKS_ATM=16
+./xmlchange NTASKS_CPL=112
+
+
+# Setup case
+./case.setup
+
+# Generate namelists
+./preview_namelists
+
+# Build case
+#qcmd -- ./case.build
+./case.build

@@ -1,0 +1,85 @@
+#!/usr/bin/env bash
+
+#
+# #########################
+# Purpose: Clone a case for PPE
+# Author: Adrianna C. Foster
+# Date: April, 2022
+# bash version 4.2.46
+# #########################
+# #########################
+
+SAMPLE=$1
+
+## create file and folder names
+NAME=FATES_NOCOMP_FBG_PPE_LHC1${SAMPLE}
+PARAM_DIR=/glade/work/rfisher/FATES_calibration/FATES_NOCOMP_LHC/paramfiles
+PARAM_FILE=nocomp_lhc_v1_${SAMPLE}.nc
+
+## clone dir
+CLONE_ROOT=/glade/work/rfisher/FATES_calibration/FATES_NOCOMP_OAAT/ctsm51FATES_NOCOMP_OAAT_vertsc_dayl_SatPhen_derecho_2000
+#CLONE_ROOT=/glade/work/rfisher/FATES_calibration/FATES_SP_OAAT/ctsm51FATES_SP_OAAT_uscalibbranch_nocomp_warningoff__SatPhen_derecho_2000
+
+## these won't change
+CASE_DIR=/glade/work/rfisher/FATES_calibration/FATES_NOCOMP_LHC/ensemble_cases
+#SRCDIR=/glade/work/rfisher/FATES_calibration/CTSM_calib_branch
+SRCDIR=/glade/work/rfisher/FATES_calibration/CTSM_main_vertsc_dayl
+
+## output directory
+OUT_DIR=/glade/scratch/rfisher
+
+## Cime scripts directory
+base_dir=${SRCDIR}/cime/scripts
+
+## full path of case
+case_name=${CASE_DIR}/${NAME}
+
+## clone from the base case
+cd ${base_dir}
+echo "clone"  ${CLONE_ROOT}
+echo "case"  ${case_name}
+#if [ -d $casename]
+#then
+#  echo ' case already exists',$casename
+#else
+ echo 'making case', $case_name
+rm -rf $case_name
+
+./create_clone --case ${case_name} --clone ${CLONE_ROOT} --keepexe
+#--cime-output-root ${OUT_DIR}
+
+cd ${case_name}
+
+./case.setup
+
+## these options are reset in the clone
+./xmlchange --id STOP_N --val 10
+./xmlchange --id STOP_OPTION --val nyears
+./xmlchange --id REST_OPTION --val nyears
+./xmlchange --id RESUBMIT --val 6
+./xmlchange --id JOB_WALLCLOCK_TIME --val 03:00:00 --subgroup case.run
+#./xmlchange --id JOB_QUEUE --val economy --subgroup case.run
+./xmlchange --id CONTINUE_RUN --val FALSE
+
+# now we need to update the user_nl_clm file
+#comment out previous paramfile from user_nl_clm
+:> user_nl_clm.tmp
+while read line; do
+    if [[ $line != *"fates_paramfile"* ]]; then
+        echo $line>>user_nl_clm.tmp
+    else
+	echo '!'$line>>user_nl_clm.tmp
+    fi
+done<user_nl_clm
+mv user_nl_clm.tmp user_nl_clm
+echo "use_fates_fixed_biogeog=.true.">>user_nl_clm
+echo "use_fates_nocomp=.true.">>user_nl_clm
+
+#append correct paramfile
+pfile=${PARAM_DIR}/${PARAM_FILE}
+pfilestr="fates_paramfile = '"$pfile"'"
+echo -e "\n"$pfilestr >> user_nl_clm
+
+
+## submit the case - no need to build
+./case.submit
