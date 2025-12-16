@@ -1,0 +1,76 @@
+import numpy as np
+from scipy.stats import qmc
+from netCDF4 import Dataset
+import glob
+import datetime
+import os
+
+# -----------------------------
+# USER SETTINGS
+# -----------------------------
+paramsdir="/cluster/shared/noresm/inputdata/lnd/clm2/paramdata/"
+basefile = paramsdir+"fates_params_sci.1.88.6_api.42.0.0_14pft_nor_sci1_api1_c251204.nc"
+outdir   = "lhs_params/"
+nsamp    = 16  # number of ensemble members
+
+# Parameter ranges (min, max)
+param_ranges = {
+    "fates_allom_l2fr":  (0.75,  1.25),
+    "fates_leaf_slatop": (0.75, 1.25),
+    "fates_maintresp_leaf_ryan1991_baserate": (0.75, 1.25),
+    "fates_allom_d2bl1":  (0.75,  1.25)
+}
+
+# -----------------------------
+# MAKE OUTPUT DIRECTORY
+# -----------------------------
+os.makedirs(outdir, exist_ok=True)
+
+
+# -----------------------------
+# BUILD LATIN HYPERCUBE
+# -----------------------------
+param_names = list(param_ranges.keys())
+p_min = np.array([param_ranges[p][0] for p in param_names])
+p_max = np.array([param_ranges[p][1] for p in param_names])
+
+sampler = qmc.LatinHypercube(d=len(param_names))
+unit_samples = sampler.random(n=nsamp)
+
+# scale samples to physical ranges
+samples = qmc.scale(unit_samples, p_min, p_max)
+
+# -----------------------------
+# WRITE MODIFIED NETCDF FILES
+# -----------------------------
+for i in range(nsamp):
+    timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M")
+    outfile = os.path.join(outdir, f"params_lhs_{timestamp}_{i+1:03d}.nc")
+
+    # copy base file
+    with Dataset(basefile, 'r') as src, Dataset(outfile, 'w') as dst:
+
+        # --- copy global attributes ---
+        dst.setncatts(src.__dict__)
+
+        # --- copy dimensions ---
+        for name, dim in src.dimensions.items():
+            dst.createDimension(
+                name,
+                (len(dim) if not dim.isunlimited() else None)
+            )
+
+        # --- copy variables ---
+        for name, var in src.variables.items():
+            outvar = dst.createVariable(
+                name, var.datatype, var.dimensions
+            )
+            outvar.setncatts(var.__dict__)
+            outvar[:] = var[:]
+
+        # --- overwrite the parameters ---
+        for p, val in zip(param_names, samples[i]):
+            print(f"Writing {p} = {val:.4f} in {outfile}")
+            dst.variables[p][:] = np.multiply(dst.variables[p][:],val)
+    
+print("LHS parameter ensemble written to:", outdir)
