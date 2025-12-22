@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+
+## update this as needed
+NSAMP=9
+
+# What version are we using?
+noresmrepo="noresm3_0_beta_08"
+noresmversion="noresm3_0_beta08"
+
+# Where is the code?
+workpath="/cluster/work/users/$USER/"
+sourcedir=$workpath$noresmrepo
+
+# what is the base case?
+resolution="f45_f45_mg37" #f19_g17, ne30pg3_tn14, f45_f45_mg37, ne16pg3_tn14  
+basename="PPE_basecase_i2000.$resolution.fatesnocomp.$noresmversion.CRUJRA.`date +"%Y-%m-%d"`"
+
+# ./setup_ppe_basecase_v1 $workpath $noresmrepo $noresmversion $resolution $basename
+
+nums=(01 02 03 04 05 06 07 08 09 )
+nums=(10 11 12 13 14 15)
+
+for n in "${nums[@]}"; do
+    ./clone_case_ppe_v1 $n "$sourcedir" "$basename"
+done
+
