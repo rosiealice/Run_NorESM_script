@@ -22,9 +22,9 @@ noresmversion="noresm3_0_beta09"
 
 
 resolution="ne16pg3_tn14" #f19_g17, ne30pg3_tn14, f45_f45_mg37, ne16pg3_tn14 
-casename="i2000.$resolution.fatesSP.$noresmversion.CPLHIST.`date +"%Y-%m-%d"`"
+casename="i2000.$resolution.fatesSP.$noresmversion.CRUJRA.`date +"%Y-%m-%d"`"
 echo "casename: $casename"
-compset="2000_DATM%CPLHIST_CLM60%FATES-SP_SICE_SOCN_SROF_SGLC_SWAV_SESP"
+compset="2000_DATM%CRUJRA2024_CLM60%FATES-SP_SICE_SOCN_SROF_SGLC_SWAV_SESP"
 
 
 # aka where do you want the code?

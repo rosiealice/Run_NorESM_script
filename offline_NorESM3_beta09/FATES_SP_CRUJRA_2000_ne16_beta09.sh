@@ -22,9 +22,9 @@ noresmversion="noresm3_0_beta09"
 
 
 resolution="ne16pg3_tn14" #f19_g17, ne30pg3_tn14, f45_f45_mg37, ne16pg3_tn14 
-casename="i2000.$resolution.fatesSP.$noresmversion.CPLHIST.`date +"%Y-%m-%d"`"
+casename="i2000.$resolution.fatesSP.$noresmversion.CRUJRA.`date +"%Y-%m-%d"`"
 echo "casename: $casename"
-compset="2000_DATM%CPLHIST_CLM60%FATES-SP_SICE_SOCN_SROF_SGLC_SWAV_SESP"
+compset="2000_DATM%CRUJRA2024_CLM60%FATES-SP_SICE_SOCN_SROF_SGLC_SWAV_SESP"
 
 
 # aka where do you want the code?
@@ -96,13 +96,6 @@ then
 
         #XML changes
         echo 'updating settings'        
-DATM_CPLHIST_CASE=n1850.ne30_tn14.cplhist.3_0_a03b.20250606
-        #./xmlchange 
-        ./xmlchange DATM_CPLHIST_CASE=n1850.ne16pg3_tn14.noresm3_0_beta03b.CPLHIST.2025-10-29
-        ./xmlchange DATM_CPLHIST_DIR=/cluster/work/users/kjetisaa/archive/n1850.ne16pg3_tn14.noresm3_0_beta03b.CPLHIST.2025-10-29/cpl/hist/
-        ./xmlchange DATM_PRESNDEP=none
-        ./xmlchange DATM_YR_START=293
-        ./xmlchange DATM_YR_END=340
         ./xmlchange RUN_STARTDATE=0000-01-01
         ./xmlchange STOP_OPTION=nyears
         ./xmlchange STOP_N=10
