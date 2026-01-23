@@ -1,0 +1,3977 @@
+netcdf ctsm_params_lhs_20260107_1357_001 {
+dimensions:
+	pft = 79 ;
+	ndecomp_pools_max = 8 ;
+	segment = 4 ;
+	variants = 2 ;
+	string_length = 40 ;
+	ntill_stages_max = 3 ;
+	ntill_intensities_max = 2 ;
+variables:
+	double C2_liq_Brun89 ;
+		C2_liq_Brun89:_FillValue = NaN ;
+		C2_liq_Brun89:long_name = "Constant for liquid water grain growth [m3 s-1],from Brun89: corrected for LWC in units o\nf percent" ;
+		C2_liq_Brun89:units = "m3/s" ;
+	double FUN_fracfixers(pft) ;
+		FUN_fracfixers:_FillValue = NaN ;
+		FUN_fracfixers:long_name = "The maximum fraction of assimilated carbon that can be used to pay for N fixation" ;
+		FUN_fracfixers:units = "fraction" ;
+		FUN_fracfixers:coordinates = "pftname" ;
+	double a_coef ;
+		a_coef:_FillValue = NaN ;
+		a_coef:long_name = "Drag coeff. under less dense canopy" ;
+		a_coef:units = "unitless" ;
+	double a_exp ;
+		a_exp:_FillValue = NaN ;
+		a_exp:long_name = "Drag exponent under less dense canopy" ;
+		a_exp:units = "unitless" ;
+	double a_fix(pft) ;
+		a_fix:_FillValue = NaN ;
+		a_fix:long_name = "Parameter \'a\' of temp response of N fixation (Houlton et al.  2008)" ;
+		a_fix:units = "unitless" ;
+		a_fix:coordinates = "pftname" ;
+	double accum_factor ;
+		accum_factor:_FillValue = NaN ;
+		accum_factor:long_name = "Accumulation constant for fractional snow covered area" ;
+		accum_factor:units = "unitless" ;
+	double act25 ;
+		act25:_FillValue = NaN ;
+		act25:long_name = "Specific activity of Rubisco at 25degC" ;
+		act25:units = "mumol(CO2)/(gRubisco s)" ;
+	double aereoxid ;
+		aereoxid:_FillValue = NaN ;
+		aereoxid:comment = "Use with the namelist switch use_aereoxid_prog.  If use_aereoxid_prog is equal to false, then read aereoxid from this parameter file.  Set to value between 0 & 1 (inclusive) for sensitivity tests." ;
+		aereoxid:long_name = "Fraction of methane flux entering aerenchyma rhizosphere that will be oxidized rather than emitted" ;
+		aereoxid:units = "unitless" ;
+	double akc_active(pft) ;
+		akc_active:_FillValue = NaN ;
+		akc_active:long_name = "Constant relating root C to arbuscular mycorrhizal root active uptake cost." ;
+		akc_active:units = "gC/m3" ;
+		akc_active:coordinates = "pftname" ;
+	double akn_active(pft) ;
+		akn_active:_FillValue = NaN ;
+		akn_active:long_name = "Constant relating soil layer Nitrogen content to arbuscular mycorrhizal root active uptake cost." ;
+		akn_active:units = "gC/m2" ;
+		akn_active:coordinates = "pftname" ;
+	double aleaff(pft) ;
+		aleaff:_FillValue = NaN ;
+		aleaff:long_name = "Leaf Allocation coefficient parameter used in CNAllocationn" ;
+		aleaff:units = "unitless" ;
+		aleaff:coordinates = "pftname" ;
+	double allconsl(pft) ;
+		allconsl:_FillValue = 0. ;
+		allconsl:long_name = "Leaf Allocation coefficient parameter power used in CNAllocation" ;
+		allconsl:units = "unitless" ;
+		allconsl:coordinates = "pftname" ;
+	double allconss(pft) ;
+		allconss:_FillValue = 0. ;
+		allconss:long_name = "Stem Allocation coefficient parameter power used in CNAllocation" ;
+		allconss:units = "unitless" ;
+		allconss:coordinates = "pftname" ;
+	double aq_sp_yield_min ;
+		aq_sp_yield_min:_FillValue = NaN ;
+		aq_sp_yield_min:long_name = "Min. aquifer specific yield" ;
+		aq_sp_yield_min:units = "unitless" ;
+	double arootf(pft) ;
+		arootf:_FillValue = 0. ;
+		arootf:long_name = "Root Allocation coefficient parameter used in CNAllocation" ;
+		arootf:units = "unitless" ;
+		arootf:coordinates = "pftname" ;
+	double arooti(pft) ;
+		arooti:_FillValue = 0. ;
+		arooti:long_name = "Root Allocation coefficient parameter used in CNAllocation" ;
+		arooti:units = "unitless" ;
+		arooti:coordinates = "pftname" ;
+	double astemf(pft) ;
+		astemf:_FillValue = 0. ;
+		astemf:long_name = "Stem Allocation coefficient parameter used in CNAllocation" ;
+		astemf:units = "unitless" ;
+		astemf:coordinates = "pftname" ;
+	double atmch4 ;
+		atmch4:_FillValue = NaN ;
+		atmch4:long_name = "Atmospheric CH4 mixing ratio to prescribe if not provided by the atmospheric model" ;
+		atmch4:units = "mol/mol" ;
+	double b_fix(pft) ;
+		b_fix:_FillValue = NaN ;
+		b_fix:long_name = "Parameter \'b\' of temp response of N fixation (Houlton et al.  2008)" ;
+		b_fix:units = "1/C" ;
+		b_fix:coordinates = "pftname" ;
+	double baset(pft) ;
+		baset:_FillValue = NaN ;
+		baset:long_name = "Base Temperature, parameter used in accFlds" ;
+		baset:units = "C" ;
+		baset:coordinates = "pftname" ;
+	double bdnr ;
+		bdnr:_FillValue = NaN ;
+		bdnr:long_name = "bulk denitrification rate" ;
+		bdnr:units = "1/day" ;
+	double bfact(pft) ;
+		bfact:_FillValue = 0. ;
+		bfact:long_name = "Exponential factor used in CNAllocation for fraction allocated to leaf" ;
+		bfact:units = "unitless" ;
+		bfact:coordinates = "pftname" ;
+	double bgc_cn_s1 ;
+		bgc_cn_s1:_FillValue = NaN ;
+		bgc_cn_s1:long_name = "C:N for SOM 1" ;
+		bgc_cn_s1:units = "unitless" ;
+	double bgc_cn_s2 ;
+		bgc_cn_s2:_FillValue = NaN ;
+		bgc_cn_s2:long_name = "C:N for SOM pool 2" ;
+		bgc_cn_s2:units = "gC/gN" ;
+	double bgc_cn_s3 ;
+		bgc_cn_s3:_FillValue = NaN ;
+		bgc_cn_s3:long_name = "C:N for SOM pool 3" ;
+		bgc_cn_s3:units = "gC/gN" ;
+	double bgc_cwd_fcel ;
+		bgc_cwd_fcel:_FillValue = NaN ;
+		bgc_cwd_fcel:long_name = "Cellulose fraction for CWD" ;
+		bgc_cwd_fcel:units = "unitless" ;
+	double bgc_initial_Cstocks(ndecomp_pools_max) ;
+		bgc_initial_Cstocks:_FillValue = NaN ;
+		bgc_initial_Cstocks:long_name = "Initial C stocks for a cold start" ;
+		bgc_initial_Cstocks:units = "g/m2" ;
+	double bgc_initial_Cstocks_depth ;
+		bgc_initial_Cstocks_depth:_FillValue = NaN ;
+		bgc_initial_Cstocks_depth:long_name = "Soil depth for initial C stocks for a cold start" ;
+		bgc_initial_Cstocks_depth:units = "m" ;
+	double bgc_rf_cwdl3 ;
+		bgc_rf_cwdl3:_FillValue = NaN ;
+		bgc_rf_cwdl3:long_name = "respiration fraction from CWD to litter 3" ;
+		bgc_rf_cwdl3:units = "unitless" ;
+	double bgc_rf_l1s1 ;
+		bgc_rf_l1s1:_FillValue = NaN ;
+		bgc_rf_l1s1:long_name = "Respiration fraction for litter 1 -> SOM 1" ;
+		bgc_rf_l1s1:units = "unitless" ;
+	double bgc_rf_l2s1 ;
+		bgc_rf_l2s1:_FillValue = NaN ;
+		bgc_rf_l2s1:long_name = "respiration fraction litter 2 to SOM 1" ;
+		bgc_rf_l2s1:units = "unitless" ;
+	double bgc_rf_l3s2 ;
+		bgc_rf_l3s2:_FillValue = NaN ;
+		bgc_rf_l3s2:long_name = "respiration fraction from litter 3 to SOM 2" ;
+		bgc_rf_l3s2:units = "unitless" ;
+	double bgc_rf_s2s1 ;
+		bgc_rf_s2s1:_FillValue = NaN ;
+		bgc_rf_s2s1:long_name = "respiration fraction SOM 2 to SOM 1" ;
+		bgc_rf_s2s1:units = "unitless" ;
+	double bgc_rf_s2s3 ;
+		bgc_rf_s2s3:_FillValue = NaN ;
+		bgc_rf_s2s3:long_name = "Respiration fraction for SOM 2 -> SOM 3" ;
+		bgc_rf_s2s3:units = "unitless" ;
+	double bgc_rf_s3s1 ;
+		bgc_rf_s3s1:_FillValue = NaN ;
+		bgc_rf_s3s1:long_name = "respiration fraction SOM 3 to SOM 1" ;
+		bgc_rf_s3s1:units = "unitless" ;
+	double bgc_tau_l1 ;
+		bgc_tau_l1:_FillValue = NaN ;
+		bgc_tau_l1:long_name = "1/Turnover time of  litter 1 (1/18.5)" ;
+		bgc_tau_l1:units = "1/year" ;
+	double bgc_tau_l2_l3 ;
+		bgc_tau_l2_l3:_FillValue = NaN ;
+		bgc_tau_l2_l3:long_name = "1/Turnover time of  litter 2 and litter 3 (1/4.9)" ;
+		bgc_tau_l2_l3:units = "1/year" ;
+	double bgc_tau_s1 ;
+		bgc_tau_s1:_FillValue = NaN ;
+		bgc_tau_s1:long_name = "1/Turnover time of soil organic matter (SOM) 1 (1/7.3)" ;
+		bgc_tau_s1:units = "1/year" ;
+	double bgc_tau_s2 ;
+		bgc_tau_s2:_FillValue = NaN ;
+		bgc_tau_s2:long_name = "1/Turnover time of soil organic matter (SOM) 2 (1/0.2)" ;
+		bgc_tau_s2:units = "1/year" ;
+	double bgc_tau_s3 ;
+		bgc_tau_s3:_FillValue = NaN ;
+		bgc_tau_s3:long_name = "1/Turnover time of soil organic matter (SOM) 3 (1/0.0045)" ;
+		bgc_tau_s3:units = "1/year" ;
+	double biofuel_harvfrac(pft) ;
+		biofuel_harvfrac:_FillValue = NaN ;
+		biofuel_harvfrac:long_name = "Fraction of stem and leaf cut for harvest, sent to biofuels" ;
+		biofuel_harvfrac:units = "unitless" ;
+		biofuel_harvfrac:coordinates = "pftname" ;
+	double br_mr ;
+		br_mr:_FillValue = NaN ;
+		br_mr:long_name = "Base rate for maintenance respiration" ;
+		br_mr:units = "gC/gN/s" ;
+	double bsw_adjustfactor ;
+		bsw_adjustfactor:_FillValue = NaN ;
+		bsw_adjustfactor:long_name = "Adjustment factor for bsw" ;
+		bsw_adjustfactor:units = "unitless" ;
+	double bsw_sf ;
+		bsw_sf:_FillValue = NaN ;
+		bsw_sf:long_name = "Scale factor for bsw" ;
+		bsw_sf:units = "unitless" ;
+	double c3psn(pft) ;
+		c3psn:_FillValue = NaN ;
+		c3psn:long_name = "Photosynthetic pathway" ;
+		c3psn:units = "flag" ;
+		c3psn:valid_range = 0., 1. ;
+		c3psn:flag_meanings = "C4 C3" ;
+		c3psn:flag_values = 0., 1. ;
+		c3psn:coordinates = "pftname" ;
+	double c_fix(pft) ;
+		c_fix:_FillValue = NaN ;
+		c_fix:long_name = "Parameter \'c\' of temp response of N fixation (Houlton et al.  2008)" ;
+		c_fix:units = "C" ;
+		c_fix:coordinates = "pftname" ;
+	double capthick ;
+		capthick:_FillValue = NaN ;
+		capthick:long_name = "Minimum thickness before assuming h2osfc is impermeable" ;
+		capthick:units = "mm" ;
+	double cc_dstem(pft) ;
+		cc_dstem:_FillValue = -999.99 ;
+		cc_dstem:units = "0 to 1" ;
+		cc_dstem:long_name = "Combustion completeness factor for dead stem" ;
+		cc_dstem:coordinates = "pftname" ;
+	double cc_leaf(pft) ;
+		cc_leaf:_FillValue = -999.99 ;
+		cc_leaf:units = "0 to 1" ;
+		cc_leaf:long_name = "Combustion completeness factor for leaf" ;
+		cc_leaf:coordinates = "pftname" ;
+	double cc_lstem(pft) ;
+		cc_lstem:_FillValue = -999.99 ;
+		cc_lstem:units = "0 to 1" ;
+		cc_lstem:long_name = "Combustion completeness factor for live stem" ;
+		cc_lstem:coordinates = "pftname" ;
+	double cc_other(pft) ;
+		cc_other:_FillValue = -999.99 ;
+		cc_other:units = "0 to 1" ;
+		cc_other:long_name = "Combustion completeness factor for other plant" ;
+		cc_other:coordinates = "pftname" ;
+	double ceta ;
+		ceta:_FillValue = NaN ;
+		ceta:units = "kg/m3" ;
+		ceta:long_name = "Overburden compaction constant" ;
+	double ck(segment, pft) ;
+		ck:_FillValue = NaN ;
+		ck:units = "unitless" ;
+		ck:long_name = "weibull curve shape parameter" ;
+		ck:coordinates = "segment pftname" ;
+	double clay_pf ;
+		clay_pf:_FillValue = NaN ;
+		clay_pf:long_name = "Perturbation factor  (via addition) for percent clay of clay+silt" ;
+		clay_pf:units = "percent" ;
+	double cn_s1 ;
+		cn_s1:_FillValue = NaN ;
+		cn_s1:long_name = "C:N for SOM pool 1" ;
+		cn_s1:units = "gC/gN" ;
+	double cn_s2 ;
+		cn_s2:_FillValue = NaN ;
+		cn_s2:long_name = "C:N for SOM pool 2" ;
+		cn_s2:units = "gC/gN" ;
+	double cn_s3 ;
+		cn_s3:_FillValue = NaN ;
+		cn_s3:long_name = "C:N for SOM pool 3" ;
+		cn_s3:units = "gC/gN" ;
+	double cn_s4 ;
+		cn_s4:_FillValue = NaN ;
+		cn_s4:long_name = "C:N for SOM pool 4" ;
+		cn_s4:units = "gC/gN" ;
+	double cnscalefactor ;
+		cnscalefactor:_FillValue = NaN ;
+		cnscalefactor:long_name = "Scale factor on CN decomposition for assigning methane flux" ;
+		cnscalefactor:units = "unitless" ;
+	double compet_decomp_nh4 ;
+		compet_decomp_nh4:_FillValue = NaN ;
+		compet_decomp_nh4:long_name = "Relative competitiveness of immobilizers for NH4" ;
+		compet_decomp_nh4:units = "unitless" ;
+	double compet_decomp_no3 ;
+		compet_decomp_no3:_FillValue = NaN ;
+		compet_decomp_no3:long_name = "Relative competitiveness of immobilizers for NO3" ;
+		compet_decomp_no3:units = "unitless" ;
+	double compet_denit ;
+		compet_denit:_FillValue = NaN ;
+		compet_denit:long_name = "Relative competitiveness of denitrifiers for NO3" ;
+		compet_denit:units = "unitless" ;
+	double compet_nit ;
+		compet_nit:_FillValue = NaN ;
+		compet_nit:long_name = "Relative competitiveness of nitrifiers for NH4" ;
+		compet_nit:units = "unitless" ;
+	double compet_plant_nh4 ;
+		compet_plant_nh4:_FillValue = NaN ;
+		compet_plant_nh4:long_name = "Relative compettiveness of plants for NH4" ;
+		compet_plant_nh4:units = "unitless" ;
+	double compet_plant_no3 ;
+		compet_plant_no3:_FillValue = NaN ;
+		compet_plant_no3:long_name = "Relative compettiveness of plants for NO3" ;
+		compet_plant_no3:units = "unitless" ;
+	double cp25_yr2000 ;
+		cp25_yr2000:_FillValue = NaN ;
+		cp25_yr2000:long_name = "CO2 compensation point at 25degC at present day O2" ;
+		cp25_yr2000:units = "mol/mol" ;
+	double cpha ;
+		cpha:_FillValue = NaN ;
+		cpha:long_name = "Activation energy for cp" ;
+		cpha:units = "J/mol" ;
+	double crit_dayl ;
+		crit_dayl:_FillValue = NaN ;
+		crit_dayl:long_name = "Critical day length for senescence" ;
+		crit_dayl:units = "seconds" ;
+	double crit_dayl_at_high_lat ;
+		crit_dayl_at_high_lat:_FillValue = NaN ;
+		crit_dayl_at_high_lat:long_name = "Critical day length for senescence at high latitude when latitude or vegetation dependence is activated" ;
+		crit_dayl_at_high_lat:units = "seconds" ;
+	double crit_dayl_lat_slope ;
+		crit_dayl_lat_slope:_FillValue = NaN ;
+		crit_dayl_lat_slope:long_name = "Slope of critical day length with latitude for senescence at high latitudes when latitude dependence is activated" ;
+		crit_dayl_lat_slope:units = "sec/degree" ;
+	double crit_offset_fdd ;
+		crit_offset_fdd:_FillValue = NaN ;
+		crit_offset_fdd:long_name = "Critical number of freezing days to initiate offset" ;
+		crit_offset_fdd:units = "days" ;
+	double crit_onset_gdd_sf(pft) ;
+		crit_onset_gdd_sf:_FillValue = NaN ;
+		crit_onset_gdd_sf:long_name = "Scale factor for crit_onset_gdd" ;
+		crit_onset_gdd_sf:units = "unitless" ;
+		crit_onset_gdd_sf:coordinates = "pftname" ;
+	double crit_offset_swi ;
+		crit_offset_swi:_FillValue = NaN ;
+		crit_offset_swi:long_name = "Critical number of water stress days to initiate offset" ;
+		crit_offset_swi:units = "days" ;
+	double crit_onset_fdd ;
+		crit_onset_fdd:_FillValue = NaN ;
+		crit_onset_fdd:long_name = "Critical number of freezing days to set gdd counter" ;
+		crit_onset_fdd:units = "days" ;
+	double crit_onset_swi ;
+		crit_onset_swi:_FillValue = NaN ;
+		crit_onset_swi:long_name = "Critical number of days > soilpsi_on for onset" ;
+		crit_onset_swi:units = "days" ;
+	double croot_stem(pft) ;
+		croot_stem:_FillValue = NaN ;
+		croot_stem:long_name = "Allocation parameter: new coarse root C per new stem C" ;
+		croot_stem:units = "gC/gC" ;
+		croot_stem:coordinates = "pftname" ;
+	double crop(pft) ;
+		crop:_FillValue = NaN ;
+		crop:long_name = "Binary crop PFT flag:" ;
+		crop:units = "logical flag" ;
+		crop:valid_range = 0., 1. ;
+		crop:flag_values = 0., 1. ;
+		crop:flag_meanings = "NOT_crop crop_PFT" ;
+		crop:coordinates = "pftname" ;
+	double cryoturb_diffusion_k ;
+		cryoturb_diffusion_k:_FillValue = NaN ;
+		cryoturb_diffusion_k:long_name = "The cryoturbation diffusive constant for vertical mixing of SOM" ;
+		cryoturb_diffusion_k:units = "m^2/sec" ;
+	double csoilc ;
+		csoilc:_FillValue = NaN ;
+		csoilc:long_name = "Drag coeff. for soil under dense canopy" ;
+		csoilc:units = "unitless" ;
+	double csol_clay ;
+		csol_clay:_FillValue = NaN ;
+		csol_clay:long_name = "Heat capacity of clay *10^6" ;
+		csol_clay:units = "J/K/m3" ;
+	double csol_om ;
+		csol_om:_FillValue = NaN ;
+		csol_om:long_name = "Heat capacity of peat soil *10^6" ;
+		csol_om:units = "J/K/m3" ;
+	double csol_sand ;
+		csol_sand:_FillValue = NaN ;
+		csol_sand:long_name = "Heat capacity of sand *10^6" ;
+		csol_sand:units = "J/K/m3" ;
+	double cv ;
+		cv:_FillValue = NaN ;
+		cv:long_name = "Turbulent transfer coeff. between canopy surface and canopy air" ;
+		cv:units = "m/s^(1/2)" ;
+	double cwd_flig ;
+		cwd_flig:_FillValue = NaN ;
+		cwd_flig:long_name = "Lignin fraction of coarse woody debris" ;
+		cwd_flig:units = "unitless" ;
+	double d_max ;
+		d_max:_FillValue = NaN ;
+		d_max:long_name = "Dry surface layer parameter" ;
+		d_max:units = "mm" ;
+	double dayscrecover ;
+		dayscrecover:_FillValue = NaN ;
+		dayscrecover:long_name = "days to recover negative cpool" ;
+		dayscrecover:units = "unitless" ;
+	double dbh(pft) ;
+		dbh:_FillValue = NaN ;
+		dbh:units = "meters" ;
+		dbh:long_name = "diameter at breast height" ;
+		dbh:coordinates = "pftname" ;
+	double deadwdcn(pft) ;
+		deadwdcn:_FillValue = NaN ;
+		deadwdcn:long_name = "Dead wood (xylem and heartwood) C:N" ;
+		deadwdcn:units = "gC/gN" ;
+		deadwdcn:coordinates = "pftname" ;
+	double declfact(pft) ;
+		declfact:_FillValue = 0. ;
+		declfact:long_name = "Decline factor for gddmaturity used in CNAllocation" ;
+		declfact:units = "unitless" ;
+		declfact:coordinates = "pftname" ;
+	double decomp_depth_efolding ;
+		decomp_depth_efolding:_FillValue = NaN ;
+		decomp_depth_efolding:long_name = "e-folding depth for reduction in decomposition. Sset to large number for depth-independance" ;
+		decomp_depth_efolding:units = "m" ;
+	double denitrif_nitrateconc_coefficient ;
+		denitrif_nitrateconc_coefficient:_FillValue = NaN ;
+		denitrif_nitrateconc_coefficient:long_name = "Multiplier for nitrate concentration for max denitrif rates" ;
+		denitrif_nitrateconc_coefficient:units = "unitless" ;
+	double denitrif_nitrateconc_exponent ;
+		denitrif_nitrateconc_exponent:_FillValue = NaN ;
+		denitrif_nitrateconc_exponent:long_name = "Exponent for nitrate concentration for max denitrif rates" ;
+		denitrif_nitrateconc_exponent:units = "unitless" ;
+	double denitrif_respiration_coefficient ;
+		denitrif_respiration_coefficient:_FillValue = NaN ;
+		denitrif_respiration_coefficient:long_name = "Multiplier for heterotrophic respiration for max denitrif rates" ;
+		denitrif_respiration_coefficient:units = "unitless" ;
+	double denitrif_respiration_exponent ;
+		denitrif_respiration_exponent:_FillValue = NaN ;
+		denitrif_respiration_exponent:long_name = "Exponent for heterotrophic respiration for max denitrif rates" ;
+		denitrif_respiration_exponent:units = "unitless" ;
+	double depth_runoff_Nloss ;
+		depth_runoff_Nloss:_FillValue = NaN ;
+		depth_runoff_Nloss:long_name = "Depth over which runoff mixes with soil water for N loss to runoff" ;
+		depth_runoff_Nloss:units = "m" ;
+	double displar(pft) ;
+		displar:_FillValue = NaN ;
+		displar:long_name = "Ratio of displacement height to canopy top height" ;
+		displar:units = "unitless" ;
+		displar:coordinates = "pftname" ;
+	double dleaf(pft) ;
+		dleaf:_FillValue = NaN ;
+		dleaf:long_name = "Characteristic leaf dimension" ;
+		dleaf:units = "m" ;
+		dleaf:coordinates = "pftname" ;
+	double dnp ;
+		dnp:_FillValue = NaN ;
+		dnp:long_name = "Denitrification proportion" ;
+		dnp:units = "unitless" ;
+	double drift_gs ;
+		drift_gs:_FillValue = NaN ;
+		drift_gs:long_name = "Wind drift compaction / grain size (fixed value for now)" ;
+		drift_gs:units = "unitless" ;
+	double dsladlai(pft) ;
+		dsladlai:_FillValue = NaN ;
+		dsladlai:long_name = "Through canopy, projected area basis: dSLA/dLAI" ;
+		dsladlai:units = "m^2/gC" ;
+		dsladlai:coordinates = "pftname" ;
+	double e_ice ;
+		e_ice:_FillValue = NaN ;
+		e_ice:long_name = "Soil ice impedance factor" ;
+		e_ice:units = "unitless" ;
+	double ef_time ;
+		ef_time:_FillValue = NaN ;
+		ef_time:long_name = "e-folding time constant" ;
+		ef_time:units = "years" ;
+	double ekc_active(pft) ;
+		ekc_active:_FillValue = NaN ;
+		ekc_active:long_name = "Constant relating root C to ectomycorrhizal root active uptake cost." ;
+		ekc_active:units = "gC/m3" ;
+		ekc_active:coordinates = "pftname" ;
+	double ekn_active(pft) ;
+		ekn_active:_FillValue = NaN ;
+		ekn_active:long_name = "Constant relating soil layer Nitrogen content to ectomycorrhizal root active uptake cost." ;
+		ekn_active:units = "gC/m2" ;
+		ekn_active:coordinates = "pftname" ;
+	double enzyme_turnover_daily ;
+		enzyme_turnover_daily:_FillValue = NaN ;
+		enzyme_turnover_daily:long_name = "The daily turnover rate for photosynthetic enzyme at 25oC in view of ~7 days of half-life time for Rubisco (Suzuki et al. 2001)" ;
+		enzyme_turnover_daily:units = "unitless" ;
+	double eta0_anderson ;
+		eta0_anderson:_FillValue = NaN ;
+		eta0_anderson:long_name = "Viscosity coefficent from Anderson1976" ;
+		eta0_anderson:units = "kg*s/m2" ;
+	double eta0_vionnet ;
+		eta0_vionnet:_FillValue = NaN ;
+		eta0_vionnet:long_name = "Viscosity coefficent from Vionnet2012" ;
+		eta0_vionnet:units = "kg*s/m2" ;
+	double evergreen(pft) ;
+		evergreen:_FillValue = NaN ;
+		evergreen:long_name = "Binary flag for evergreen leaf habit" ;
+		evergreen:units = "logical flag" ;
+		evergreen:flag_meanings = "NON-evergreen evergreen" ;
+		evergreen:flag_values = 0., 1. ;
+		evergreen:coordinates = "pftname" ;
+	double f_ch4 ;
+		f_ch4:_FillValue = NaN ;
+		f_ch4:long_name = "Ratio of CH4 production to total C mineralization" ;
+		f_ch4:units = "unitless" ;
+	double f_sat ;
+		f_sat:_FillValue = NaN ;
+		f_sat:long_name = "Volumetric soil water defining top of water table or where production is allowed" ;
+		f_sat:units = "unitless" ;
+	double fbw(pft) ;
+		fbw:_FillValue = NaN ;
+		fbw:units = "unitless" ;
+		fbw:long_name = "fraction of biomass that is water" ;
+		fbw:coordinates = "pftname" ;
+	double fcur(pft) ;
+		fcur:_FillValue = NaN ;
+		fcur:long_name = "Allocation parameter: fraction of allocation that goes to currently displayed growth, remainder to storage" ;
+		fcur:units = "fraction" ;
+		fcur:coordinates = "pftname" ;
+	double fcurdv(pft) ;
+		fcurdv:_FillValue = NaN ;
+		fcurdv:long_name = "Alternate fcur for use with CNDV" ;
+		fcurdv:units = "fraction" ;
+		fcurdv:coordinates = "pftname" ;
+	double fd_pft(pft) ;
+		fd_pft:_FillValue = -999.99 ;
+		fd_pft:units = "hr" ;
+		fd_pft:long_name = "Fire duration" ;
+		fd_pft:coordinates = "pftname" ;
+	double fff ;
+		fff:_FillValue = NaN ;
+		fff:long_name = "Decay factor for fractional saturated area" ;
+		fff:units = "1/m" ;
+	double ffrootcn(pft) ;
+		ffrootcn:_FillValue = NaN ;
+		ffrootcn:long_name = "Fine root C:N during organ fill" ;
+		ffrootcn:units = "gC/gN" ;
+		ffrootcn:coordinates = "pftname" ;
+	double fleafcn(pft) ;
+		fleafcn:_FillValue = NaN ;
+		fleafcn:long_name = "Leaf C:N during organ fill" ;
+		fleafcn:units = "gC/gN" ;
+		fleafcn:coordinates = "pftname" ;
+	double fleafi(pft) ;
+		fleafi:_FillValue = 0. ;
+		fleafi:long_name = "Leaf Allocation coefficient parameter fraction used in CNAllocation" ;
+		fleafi:units = "unitless" ;
+		fleafi:coordinates = "pftname" ;
+	double flivewd(pft) ;
+		flivewd:_FillValue = NaN ;
+		flivewd:long_name = "Allocation parameter: fraction of new wood that is live (phloem and ray parenchyma)" ;
+		flivewd:units = "fraction" ;
+		flivewd:coordinates = "pftname" ;
+	double flnr(pft) ;
+		flnr:_FillValue = NaN ;
+		flnr:long_name = "Fraction of leaf N in Rubisco enzyme" ;
+		flnr:units = "fraction" ;
+		flnr:coordinates = "pftname" ;
+	double fm_droot(pft) ;
+		fm_droot:_FillValue = -999.99 ;
+		fm_droot:units = "0 to 1" ;
+		fm_droot:long_name = "Fire-related mortality factor for dead roots" ;
+		fm_droot:coordinates = "pftname" ;
+	double fm_dstem(pft) ;
+		fm_dstem:_FillValue = -999.99 ;
+		fm_dstem:units = "0 to 1" ;
+		fm_dstem:long_name = "Fire-related mortality factor for dead roots" ;
+		fm_dstem:coordinates = "pftname" ;
+	double fm_leaf(pft) ;
+		fm_leaf:_FillValue = -999.99 ;
+		fm_leaf:units = "0 to 1" ;
+		fm_leaf:long_name = "Fire-related mortality factor for leaf" ;
+		fm_leaf:coordinates = "pftname" ;
+	double fm_lroot(pft) ;
+		fm_lroot:_FillValue = -999.99 ;
+		fm_lroot:units = "0 to 1" ;
+		fm_lroot:long_name = "Fire-related mortality factor for live roots" ;
+		fm_lroot:coordinates = "pftname" ;
+	double fm_lstem(pft) ;
+		fm_lstem:_FillValue = -999.99 ;
+		fm_lstem:units = "0 to 1" ;
+		fm_lstem:long_name = "Fire-related mortality factor for live stem" ;
+		fm_lstem:coordinates = "pftname" ;
+	double fm_other(pft) ;
+		fm_other:_FillValue = -999.99 ;
+		fm_other:units = "0 to 1" ;
+		fm_other:long_name = "Fire-related mortality factor for other plant" ;
+		fm_other:coordinates = "pftname" ;
+	double fm_root(pft) ;
+		fm_root:_FillValue = -999.99 ;
+		fm_root:units = "0 to 1" ;
+		fm_root:long_name = "Fire-related mortality factor for fine roots" ;
+		fm_root:coordinates = "pftname" ;
+	double fnitr(pft) ;
+		fnitr:_FillValue = NaN ;
+		fnitr:long_name = "Foliage nitrogen limitation factor" ;
+		fnitr:units = "unitless" ;
+		fnitr:coordinates = "pftname" ;
+	double fnps ;
+		fnps:_FillValue = NaN ;
+		fnps:long_name = "Fraction of light absorbed by non-photosynthetic pigment" ;
+		fnps:units = "unitless" ;
+	double fnr ;
+		fnr:_FillValue = NaN ;
+		fnr:long_name = "Mass ratio of total Rubisco molecular mass to N in Rubisco" ;
+		fnr:units = "gRubisco/gN(Rubisco)" ;
+	double fr_fcel(pft) ;
+		fr_fcel:_FillValue = NaN ;
+		fr_fcel:long_name = "Fine root litter cellulose fraction" ;
+		fr_fcel:units = "fraction" ;
+		fr_fcel:coordinates = "pftname" ;
+	double fr_flab(pft) ;
+		fr_flab:_FillValue = NaN ;
+		fr_flab:long_name = "Fine root litter labile fraction" ;
+		fr_flab:units = "fraction" ;
+		fr_flab:coordinates = "pftname" ;
+	double fr_flig(pft) ;
+		fr_flig:_FillValue = NaN ;
+		fr_flig:long_name = "Fine root litter lignin fraction" ;
+		fr_flig:units = "fraction" ;
+		fr_flig:coordinates = "pftname" ;
+	double frac_sat_soil_dsl_init ;
+		frac_sat_soil_dsl_init:_FillValue = NaN ;
+		frac_sat_soil_dsl_init:long_name = "Fraction of saturated soil for moisture value at which DSL initiates" ;
+		frac_sat_soil_dsl_init:units = "unitless" ;
+	double froot_leaf(pft) ;
+		froot_leaf:_FillValue = NaN ;
+		froot_leaf:long_name = "Allocation parameter: new fine root C per new leaf C" ;
+		froot_leaf:units = "gC/gC" ;
+		froot_leaf:coordinates = "pftname" ;
+	double frootcn(pft) ;
+		frootcn:_FillValue = NaN ;
+		frootcn:long_name = "Fine root C:N" ;
+		frootcn:units = "gC/gN" ;
+		frootcn:coordinates = "pftname" ;
+	double frootcn_max(pft) ;
+		frootcn_max:_FillValue = NaN ;
+		frootcn_max:long_name = "Maximum fine root CN ratio" ;
+		frootcn_max:units = "gC/gN" ;
+		frootcn_max:coordinates = "pftname" ;
+	double frootcn_min(pft) ;
+		frootcn_min:_FillValue = NaN ;
+		frootcn_min:long_name = "Minimum fine root CN ratio" ;
+		frootcn_min:units = "gC/gN" ;
+		frootcn_min:coordinates = "pftname" ;
+	double froz_q10 ;
+		froz_q10:_FillValue = NaN ;
+		froz_q10:long_name = "Separate q10 for frozen soil respiration rates" ;
+		froz_q10:units = "unitless" ;
+	double fsr_pft(pft) ;
+		fsr_pft:_FillValue = -999.99 ;
+		fsr_pft:units = "m/s" ;
+		fsr_pft:long_name = "Fire spread rate" ;
+		fsr_pft:coordinates = "pftname" ;
+	double fstemcn(pft) ;
+		fstemcn:_FillValue = NaN ;
+		fstemcn:long_name = "Stem C:N during organ fill" ;
+		fstemcn:units = "gC/gN" ;
+		fstemcn:coordinates = "pftname" ;
+	double fstor2tran ;
+		fstor2tran:_FillValue = NaN ;
+		fstor2tran:long_name = "Fraction of storage to move to transfer for each onset" ;
+		fstor2tran:units = "unitless" ;
+	double fun_cn_flex_a(pft) ;
+		fun_cn_flex_a:_FillValue = NaN ;
+		fun_cn_flex_a:long_name = "Parameter \'a\' of FUN-flexcn code linking leafCN content and N cost to FUN C expenditure" ;
+		fun_cn_flex_a:units = "unitless" ;
+		fun_cn_flex_a:coordinates = "pftname" ;
+	double fun_cn_flex_b(pft) ;
+		fun_cn_flex_b:_FillValue = NaN ;
+		fun_cn_flex_b:long_name = "Parameter \'b\' of FUN-flexcn linking leafCN content and N cost to FUN C expenditure" ;
+		fun_cn_flex_b:units = "unitless" ;
+		fun_cn_flex_b:coordinates = "pftname" ;
+	double fun_cn_flex_c(pft) ;
+		fun_cn_flex_c:_FillValue = NaN ;
+		fun_cn_flex_c:long_name = "Parameter \'c\' of FUN-flexcn  linking leafCN content and N cost to FUN C expenditure" ;
+		fun_cn_flex_c:units = "unitless" ;
+		fun_cn_flex_c:coordinates = "pftname" ;
+	double gddfunc_p1 ;
+		gddfunc_p1:_FillValue = NaN ;
+		gddfunc_p1:long_name = "Parameter 1 to calculate GDD threshold as fn of annual T" ;
+		gddfunc_p1:units = "unitless" ;
+	double gddfunc_p2 ;
+		gddfunc_p2:_FillValue = NaN ;
+		gddfunc_p2:long_name = "Parameter 2 to calculate GDD threshold as fn of annual T" ;
+		gddfunc_p2:units = "unitless" ;
+	double gddmin(pft) ;
+		gddmin:_FillValue = 0. ;
+		gddmin:long_name = "Minimim growing degree days used in CNPhenology" ;
+		gddmin:units = "unitless" ;
+		gddmin:coordinates = "pftname" ;
+	double graincn(pft) ;
+		graincn:_FillValue = 0. ;
+		graincn:long_name = "Grain C:N" ;
+		graincn:units = "gC/gN" ;
+		graincn:coordinates = "pftname" ;
+	double grnfill(pft) ;
+		grnfill:_FillValue = 0. ;
+		grnfill:long_name = "Grain fill parameter used in CNPhenology" ;
+		grnfill:units = "unitless" ;
+		grnfill:coordinates = "pftname" ;
+	double grperc(pft) ;
+		grperc:_FillValue = NaN ;
+		grperc:long_name = "Growth respiration factor" ;
+		grperc:units = "unitless" ;
+		grperc:coordinates = "pftname" ;
+	double grpnow(pft) ;
+		grpnow:_FillValue = NaN ;
+		grpnow:long_name = "Growth respiration factor" ;
+		grpnow:units = "unitless" ;
+		grpnow:coordinates = "pftname" ;
+	double highlatfact ;
+		highlatfact:_FillValue = NaN ;
+		highlatfact:long_name = "Multiple of qflxlagd for high latitudes" ;
+		highlatfact:units = "unitless" ;
+	double hksat_adjustfactor ;
+		hksat_adjustfactor:_FillValue = NaN ;
+		hksat_adjustfactor:long_name = "Adjustment factor for hksat" ;
+		hksat_adjustfactor:units = "unitless" ;
+	double hksat_sf ;
+		hksat_sf:_FillValue = NaN ;
+		hksat_sf:long_name = "Scale factor for hksat" ;
+		hksat_sf:units = "unitless" ;
+	double hybgdd(pft) ;
+		hybgdd:_FillValue = 0. ;
+		hybgdd:long_name = "Growing Degree Days for maturity used in CNPhenology" ;
+		hybgdd:units = "unitless" ;
+		hybgdd:coordinates = "pftname" ;
+	double i_flnr(pft) ;
+		i_flnr:_FillValue = NaN ;
+		i_flnr:long_name = "intercept of the relationship between leaf N per unit area (gN/m2) and fraction leaf N in Rubisco (for vcmax_opt=4)" ;
+		i_flnr:units = "fraction" ;
+		i_flnr:coordinates = "pftname" ;
+	double i_vcad(pft) ;
+		i_vcad:_FillValue = NaN ;
+		i_vcad:long_name = "intercept of the relationship between leaf N per unit area (gN/m2) and Vcmax25top (umol CO2/m2/s)" ;
+		i_vcad:units = "umol CO2/m2/s" ;
+		i_vcad:coordinates = "pftname" ;
+	double ignition_efficiency ;
+		ignition_efficiency:_FillValue = NaN ;
+		ignition_efficiency:long_name = "ignition efficiency of cloud-to-ground lightning for Li2016 fire model" ;
+		ignition_efficiency:units = "count/flash" ;
+	double interception_fraction ;
+		interception_fraction:_FillValue = NaN ;
+		interception_fraction:long_name = "Fraction of intercepted precipitation" ;
+		interception_fraction:units = "unitless" ;
+	double irrigated(pft) ;
+		irrigated:_FillValue = NaN ;
+		irrigated:long_name = "Binary Irrigated PFT flag" ;
+		irrigated:units = "logical flag" ;
+		irrigated:valid_range = 0., 1. ;
+		irrigated:flag_meanings = "NOT_irrigated irrigated" ;
+		irrigated:flag_values = 0., 1. ;
+		irrigated:coordinates = "pftname" ;
+	double jmax25top_sf ;
+		jmax25top_sf:_FillValue = NaN ;
+		jmax25top_sf:long_name = "Scale factor for jmax25top" ;
+		jmax25top_sf:units = "unitless" ;
+	double jmaxb0(pft) ;
+		jmaxb0:_FillValue = NaN ;
+		jmaxb0:long_name = "Baseline proportion of nitrogen allocated for electron transport" ;
+		jmaxb0:units = "J" ;
+		jmaxb0:coordinates = "pftname" ;
+	double jmaxb1(pft) ;
+		jmaxb1:_FillValue = NaN ;
+		jmaxb1:long_name = "Coefficient determining the response of electron transport rate to light availability" ;
+		jmaxb1:units = "unitless" ;
+		jmaxb1:coordinates = "pftname" ;
+	double jmaxha ;
+		jmaxha:_FillValue = NaN ;
+		jmaxha:long_name = "Activation energy for jmax" ;
+		jmaxha:units = "J/mol" ;
+	double jmaxhd ;
+		jmaxhd:_FillValue = NaN ;
+		jmaxhd:long_name = "Deactivation energy for jmax" ;
+		jmaxhd:units = "J/mol" ;
+	double jmaxse_sf ;
+		jmaxse_sf:_FillValue = NaN ;
+		jmaxse_sf:long_name = "Scale factor for jmaxse" ;
+		jmaxse_sf:units = "unitless" ;
+	double k_l1 ;
+		k_l1:_FillValue = NaN ;
+		k_l1:long_name = "Decomposition rate for litter 1" ;
+		k_l1:units = "1/day" ;
+	double k_l2 ;
+		k_l2:_FillValue = NaN ;
+		k_l2:long_name = "Decomposition rate for litter 2" ;
+		k_l2:units = "1/day" ;
+	double k_l3 ;
+		k_l3:_FillValue = NaN ;
+		k_l3:long_name = "Decomposition rate for litter 3" ;
+		k_l3:units = "1/day" ;
+	double k_m ;
+		k_m:_FillValue = NaN ;
+		k_m:long_name = "Michaelis-Menten oxidation rate constant for CH4 concentration" ;
+		k_m:units = "mol/m3-w" ;
+	double k_m_o2 ;
+		k_m_o2:_FillValue = NaN ;
+		k_m_o2:long_name = "Michaelis-Menten oxidation rate constant for O2 concentration" ;
+		k_m_o2:units = "mol/m3-w" ;
+	double k_m_unsat ;
+		k_m_unsat:_FillValue = NaN ;
+		k_m_unsat:long_name = "Michaelis-Menten oxidation rate constant for CH4 concentration" ;
+		k_m_unsat:units = "mol/m3-w" ;
+	double k_mort ;
+		k_mort:_FillValue = NaN ;
+		k_mort:long_name = "Coefficient of growth efficiency in mortality equation" ;
+		k_mort:units = "unitless" ;
+	double k_nitr_max_perday ;
+		k_nitr_max_perday:_FillValue = NaN ;
+		k_nitr_max_perday:long_name = "Maximum nitrification rate constant" ;
+		k_nitr_max_perday:units = "1/day" ;
+	double k_s1 ;
+		k_s1:_FillValue = NaN ;
+		k_s1:long_name = "Decomposition rate for SOM 1" ;
+		k_s1:units = "1/day" ;
+	double k_s2 ;
+		k_s2:_FillValue = NaN ;
+		k_s2:long_name = "Decomposition rate for SOM 2" ;
+		k_s2:units = "1/day" ;
+	double k_s3 ;
+		k_s3:_FillValue = NaN ;
+		k_s3:long_name = "Decomposition rate for SOM 3" ;
+		k_s3:units = "1/day" ;
+	double k_s4 ;
+		k_s4:_FillValue = NaN ;
+		k_s4:long_name = "Decomposition rate for SOM 4" ;
+		k_s4:units = "1/day" ;
+	double kc25_coef ;
+		kc25_coef:_FillValue = NaN ;
+		kc25_coef:long_name = "Michaelis-Menten constant at 25degC for CO2" ;
+		kc25_coef:units = "mol/mol" ;
+	double kc_nonmyc(pft) ;
+		kc_nonmyc:_FillValue = NaN ;
+		kc_nonmyc:long_name = "Constant relating root C to non-mycorrhizal root active uptake cost." ;
+		kc_nonmyc:units = "gC/m3" ;
+		kc_nonmyc:coordinates = "pftname" ;
+	double kcha ;
+		kcha:_FillValue = NaN ;
+		kcha:long_name = "Activation energy for kc" ;
+		kcha:units = "J/mol" ;
+	double kmax(segment, pft) ;
+		kmax:_FillValue = NaN ;
+		kmax:units = "mm h2o (transpired)/mm h2o (water potential gradient)/sec" ;
+		kmax:long_name = "plant segment max conductance" ;
+		kmax:coordinates = "segment pftname" ;
+	double kn_nonmyc(pft) ;
+		kn_nonmyc:_FillValue = NaN ;
+		kn_nonmyc:long_name = "Constant relating soil layer Nitrogen content to non-mycorrhizal root active uptake cost." ;
+		kn_nonmyc:units = "gC/m2" ;
+		kn_nonmyc:coordinates = "pftname" ;
+	double ko25_coef ;
+		ko25_coef:_FillValue = NaN ;
+		ko25_coef:long_name = "Michaelis-Menten constant at 25degC for O2" ;
+		ko25_coef:units = "mol/mol" ;
+	double koha ;
+		koha:_FillValue = NaN ;
+		koha:long_name = "Activation energy for ko" ;
+		koha:units = "J/mol" ;
+	double kp25ratio ;
+		kp25ratio:_FillValue = NaN ;
+		kp25ratio:long_name = "Ratio of kp25top to vcmax25top" ;
+		kp25ratio:units = "unitless" ;
+	double kr_resorb(pft) ;
+		kr_resorb:_FillValue = NaN ;
+		kr_resorb:long_name = "Constant relating leaf N of senesced leaves (gN/m2) to N resorption cost." ;
+		kr_resorb:units = "unitless" ;
+		kr_resorb:coordinates = "pftname" ;
+	double krmax(pft) ;
+		krmax:_FillValue = NaN ;
+		krmax:units = "mm h2o (transpired)/mm h2o (water potential gradient)/sec" ;
+		krmax:long_name = "root segment max conductance" ;
+		krmax:coordinates = "pftname" ;
+	double lai_dl ;
+		lai_dl:_FillValue = NaN ;
+		lai_dl:long_name = "Plant litter area index" ;
+		lai_dl:units = "m2/m2" ;
+	double laimx(pft) ;
+		laimx:_FillValue = 0. ;
+		laimx:long_name = "Maximum Leaf Area Index used in CNVegStructUpdate" ;
+		laimx:units = "unitless" ;
+		laimx:coordinates = "pftname" ;
+	double lake_decomp_fact ;
+		lake_decomp_fact:_FillValue = NaN ;
+		lake_decomp_fact:long_name = "Base decomposition rate (1/s) at 25oC in lake" ;
+		lake_decomp_fact:units = "1/s" ;
+	double leaf_long(pft) ;
+		leaf_long:_FillValue = NaN ;
+		leaf_long:long_name = "Leaf longevity" ;
+		leaf_long:units = "years" ;
+		leaf_long:coordinates = "pftname" ;
+	double leafcn(pft) ;
+		leafcn:_FillValue = NaN ;
+		leafcn:long_name = "Leaf C:N" ;
+		leafcn:units = "gC/gN" ;
+		leafcn:coordinates = "pftname" ;
+	double leafcn_co2_base ;
+		leafcn_co2_base:_FillValue = NaN ;
+		leafcn_co2_base:long_name = "ppm CO2 for target leaf CN scaling" ;
+		leafcn_co2_base:units = "ppm CO2" ;
+	double leafcn_co2_slope ;
+		leafcn_co2_slope:_FillValue = NaN ;
+		leafcn_co2_slope:long_name = "CO2 effects on target leaf CN scaling" ;
+		leafcn_co2_slope:units = "unitless" ;
+	double leafcn_max(pft) ;
+		leafcn_max:_FillValue = NaN ;
+		leafcn_max:long_name = "Maximum leaf CN ratio" ;
+		leafcn_max:units = "gC/gN" ;
+		leafcn_max:coordinates = "pftname" ;
+	double leafcn_min(pft) ;
+		leafcn_min:_FillValue = NaN ;
+		leafcn_min:long_name = "Minimum leaf CN ratio" ;
+		leafcn_min:units = "gC/gN" ;
+		leafcn_min:coordinates = "pftname" ;
+	double lf_fcel(pft) ;
+		lf_fcel:_FillValue = NaN ;
+		lf_fcel:long_name = "Leaf litter cellulose fraction" ;
+		lf_fcel:units = "fraction" ;
+		lf_fcel:coordinates = "pftname" ;
+	double lf_flab(pft) ;
+		lf_flab:_FillValue = NaN ;
+		lf_flab:long_name = "Leaf litter labile fraction" ;
+		lf_flab:units = "fraction" ;
+		lf_flab:coordinates = "pftname" ;
+	double lf_flig(pft) ;
+		lf_flig:_FillValue = NaN ;
+		lf_flig:long_name = "Leaf litter lignin fraction" ;
+		lf_flig:units = "fraction" ;
+		lf_flig:coordinates = "pftname" ;
+	double lfemerg(pft) ;
+		lfemerg:_FillValue = 0. ;
+		lfemerg:long_name = "Leaf emergence parameter used in CNPhenology" ;
+		lfemerg:units = "unitless" ;
+		lfemerg:coordinates = "pftname" ;
+	double lflitcn(pft) ;
+		lflitcn:_FillValue = NaN ;
+		lflitcn:long_name = "Leaf litter C:N" ;
+		lflitcn:units = "gC/gN" ;
+		lflitcn:coordinates = "pftname" ;
+	double liq_canopy_storage_scalar ;
+		liq_canopy_storage_scalar:_FillValue = NaN ;
+		liq_canopy_storage_scalar:long_name = "Canopy-storage-of-liquid-water parameter" ;
+		liq_canopy_storage_scalar:units = "kg/m2" ;
+	double livewdcn(pft) ;
+		livewdcn:_FillValue = NaN ;
+		livewdcn:long_name = "Live wood (phloem and ray parenchyma) C:N" ;
+		livewdcn:units = "gC/gN" ;
+		livewdcn:coordinates = "pftname" ;
+	double livewdcn_max(pft) ;
+		livewdcn_max:_FillValue = NaN ;
+		livewdcn_max:long_name = "Maximum live wood CN ratio" ;
+		livewdcn_max:units = "gC/gN" ;
+		livewdcn_max:coordinates = "pftname" ;
+	double livewdcn_min(pft) ;
+		livewdcn_min:_FillValue = NaN ;
+		livewdcn_min:long_name = "Minimum live wood CN ratio" ;
+		livewdcn_min:units = "gC/gN" ;
+		livewdcn_min:coordinates = "pftname" ;
+	double lmr_intercept_atkin(pft) ;
+		lmr_intercept_atkin:_FillValue = NaN ;
+		lmr_intercept_atkin:long_name = "Intercept in the calculation of the top of canopy leaf maintenance respiration base rate. Original values from Atkin et al. in prep 2016." ;
+		lmr_intercept_atkin:units = "umol CO2/m**2/s" ;
+		lmr_intercept_atkin:coordinates = "pftname" ;
+	double lmrha ;
+		lmrha:_FillValue = NaN ;
+		lmrha:long_name = "Activation energy for lmr" ;
+		lmrha:units = "J/mol" ;
+	double lmrhd ;
+		lmrhd:_FillValue = NaN ;
+		lmrhd:long_name = "Deactivation energy for lmr" ;
+		lmrhd:units = "J/mol" ;
+	double lmrse ;
+		lmrse:_FillValue = NaN ;
+		lmrse:long_name = " Entropy term for lmr" ;
+		lmrse:units = "J/mol/K" ;
+	double luna_theta_cj ;
+		luna_theta_cj:_FillValue = NaN ;
+		luna_theta_cj:long_name = "LUNA empirical curvature parameter for ac, aj photosynthesis co-limitation" ;
+		luna_theta_cj:units = "unitless" ;
+	double lwtop_ann ;
+		lwtop_ann:_FillValue = NaN ;
+		lwtop_ann:long_name = "Live wood turnover proportion" ;
+		lwtop_ann:units = "unitless" ;
+	double manunitro(pft) ;
+		manunitro:_FillValue = NaN ;
+		manunitro:long_name = "Max manure to be applied in total" ;
+		manunitro:units = "kg N/m2" ;
+		manunitro:coordinates = "pftname" ;
+	double maximum_leaf_wetted_fraction ;
+		maximum_leaf_wetted_fraction:_FillValue = NaN ;
+		maximum_leaf_wetted_fraction:long_name = "Maximum fraction of leaf that may be wet" ;
+		maximum_leaf_wetted_fraction:units = "unitless" ;
+	int max_NH_planting_date(pft) ;
+		max_NH_planting_date:_FillValue = 0 ;
+		max_NH_planting_date:long_name = "Maximum planting date for the Northern Hemipsphere" ;
+		max_NH_planting_date:units = "YYYYMMDD" ;
+		max_NH_planting_date:comment = "Typical U.S. latest planting dates according to AgroIBIS: Maize May 10th; soybean Jun 20th; spring wheat mid-May; winter wheat early Nov." ;
+		max_NH_planting_date:coordinates = "pftname" ;
+	int max_SH_planting_date(pft) ;
+		max_SH_planting_date:_FillValue = 0 ;
+		max_SH_planting_date:long_name = "Maximum planting date for the Southern Hemipsphere" ;
+		max_SH_planting_date:units = "YYYYMMDD" ;
+		max_SH_planting_date:comment = "Same as max_NH_planting_date, but offset by six months" ;
+		max_SH_planting_date:coordinates = "pftname" ;
+	double max_altdepth_cryoturbation ;
+		max_altdepth_cryoturbation:_FillValue = NaN ;
+		max_altdepth_cryoturbation:long_name = "Maximum active layer thickness for cryoturbation to occur" ;
+		max_altdepth_cryoturbation:units = "m" ;
+	double max_altmultiplier_cryoturb ;
+		max_altmultiplier_cryoturb:_FillValue = NaN ;
+		max_altmultiplier_cryoturb:long_name = "Ratio of the maximum extent of cryoturbation to the active layer thickness" ;
+		max_altmultiplier_cryoturb:units = "unitless" ;
+	double maxpsi_hr ;
+		maxpsi_hr:_FillValue = NaN ;
+		maxpsi_hr:long_name = "Maximum soil water potential for heterotrophic resp" ;
+		maxpsi_hr:units = "MPa" ;
+	double mbbopt(pft) ;
+		mbbopt:_FillValue = NaN ;
+		mbbopt:long_name = "Ball-Berry slope of conductance-photosynthesis relationship, unstressed" ;
+		mbbopt:units = "umol H2O/umol CO2" ;
+		mbbopt:coordinates = "pftname" ;
+	double me_herb ;
+		me_herb:_FillValue = NaN ;
+		me_herb:long_name = "Moisture of extinction for herbaceous PFTs (proportion)" ;
+		me_herb:units = "unitless" ;
+	double me_woody ;
+		me_woody:_FillValue = NaN ;
+		me_woody:long_name = "Moisture of extinction for woody PFTs (proportion)" ;
+		me_woody:units = "unitless" ;
+	double medlynintercept(pft) ;
+		medlynintercept:_FillValue = NaN ;
+		medlynintercept:long_name = "Medlyn intercept of conductance-photosynthesis relationship" ;
+		medlynintercept:units = "umol H2O" ;
+		medlynintercept:coordinates = "pftname" ;
+	double medlynslope(pft) ;
+		medlynslope:_FillValue = NaN ;
+		medlynslope:long_name = "Medlyn slope of conductance-photosynthesis relationship" ;
+		medlynslope:units = "umol H2O/umol CO2" ;
+		medlynslope:comment = "Values come from the values used in the CABLE model" ;
+		medlynslope:coordinates = "pftname" ;
+	int mergetoclmpft(pft) ;
+		mergetoclmpft:_FillValue = 0 ;
+		mergetoclmpft:long_name = "CLM pft to merge this pft to" ;
+		mergetoclmpft:units = "index" ;
+		mergetoclmpft:coordinates = "pftname" ;
+	double mimics_cn_k ;
+		mimics_cn_k:_FillValue = NaN ;
+		mimics_cn_k:long_name = "C:N of oligotrophic microbes" ;
+		mimics_cn_k:units = "gC/gN" ;
+	double mimics_cn_mod_num ;
+		mimics_cn_mod_num:_FillValue = NaN ;
+		mimics_cn_mod_num:long_name = "Adjustment of microbial C:N based on litter quality (fmet)" ;
+		mimics_cn_mod_num:units = "unitless" ;
+	double mimics_cn_r ;
+		mimics_cn_r:_FillValue = NaN ;
+		mimics_cn_r:long_name = "C:N of copiotrophic microbes" ;
+		mimics_cn_r:units = "gC/gN" ;
+	double mimics_densdep ;
+		mimics_densdep:_FillValue = NaN ;
+		mimics_densdep:long_name = "Exponent controlling the density dependence of microbial turnover" ;
+		mimics_densdep:reference = "K Georgiou et al., Nat Commun (2017), https://doi.org/10.1038/s41467-017-01116-z" ;
+		mimics_densdep:units = "unitless" ;
+	double mimics_desorpQ10 ;
+		mimics_desorpQ10:_FillValue = NaN ;
+		mimics_desorpQ10:long_name = "Desorption Q10 = 1.1 with reference temperature of 25 degrees C" ;
+		mimics_desorpQ10:units = "unitless" ;
+	double mimics_desorp(variants) ;
+		mimics_desorp:_FillValue = NaN ;
+		mimics_desorp:coordinates = "variantnames" ;
+		mimics_desorp:long_name = "Base and exponent involved in determining desorption from SOMp as a function of clay fraction" ;
+		mimics_desorp:units = "h-1, unitless" ;
+	double mimics_fchem_k(variants) ;
+		mimics_fchem_k:_FillValue = NaN ;
+		mimics_fchem_k:long_name = "Base and exponent determining fraction of oligotrophic microbial turnover allocated to chemically protected  SOM as a function of input litter quality (fmet)" ;
+		mimics_fchem_k:units = "unitless" ;
+		mimics_fchem_k:coordinates = "variantnames" ;
+	double mimics_fchem_r(variants) ;
+		mimics_fchem_r:_FillValue = NaN ;
+		mimics_fchem_r:long_name = "Base and exponent determining fraction of copiotrophic microbial turnover allocated to chemically protected  SOM as a function of input litter quality (fmet)" ;
+		mimics_fchem_r:units = "unitless" ;
+		mimics_fchem_r:coordinates = "variantnames" ;
+	double mimics_fi(variants) ;
+		mimics_fi:long_name = "fraction of litter inputs that bypass litter pools, directly contributing to SOM.  p1 = fraction of metabolic inputs inputs to SOMp, p2 = structural inputs to SOMc" ;
+		mimics_fi:units = "fraction" ;
+		mimics_fi:coordinates = "variantnames" ;
+	double mimics_fmet(segment) ;
+		mimics_fmet:_FillValue = NaN ;
+		mimics_fmet:long_name = "Four parameters involved in determining fmet as a function of ligninNratioAvg, p1 = modifier, p2 = slope from Century, p3 = intercept from CENTURY, p4 = maximum Lignin:N ratio" ;
+		mimics_fmet:units = "fraction" ;
+	double mimics_fphys_k(variants) ;
+		mimics_fphys_k:_FillValue = NaN ;
+		mimics_fphys_k:long_name = "Base and exponent determining fraction of oligotrophic microbial turnover allocated to physically protected  SOM as a function of clay fraction" ;
+		mimics_fphys_k:units = "fraction, unitless" ;
+		mimics_fphys_k:coordinates = "variantnames" ;
+	double mimics_fphys_r(variants) ;
+		mimics_fphys_r:_FillValue = NaN ;
+		mimics_fphys_r:long_name = "Base and exponent determining fraction of copiotrophic microbial turnover allocated to physically protected  SOM as a function of clay fraction" ;
+		mimics_fphys_r:units = "fraction, unitless" ;
+		mimics_fphys_r:coordinates = "variantnames" ;
+	double mimics_initial_Cstocks(ndecomp_pools_max) ;
+		mimics_initial_Cstocks:_FillValue = NaN ;
+		mimics_initial_Cstocks:long_name = "Initial C stocks for a cold start w MIMICS" ;
+		mimics_initial_Cstocks:units = "g/m2" ;
+	double mimics_initial_Cstocks_depth ;
+		mimics_initial_Cstocks_depth:_FillValue = NaN ;
+		mimics_initial_Cstocks_depth:long_name = "Soil depth for initial C stocks for a cold start w MIMICS" ;
+		mimics_initial_Cstocks_depth:units = "m" ;
+	double mimics_kint(ndecomp_pools_max) ;
+		mimics_kint:_FillValue = NaN ;
+		mimics_kint:long_name = "Regression intercept for half-saturation constant for transition into microbial biomass pools" ;
+		mimics_kint:units = "ln(mgC cm^-3)" ;
+	double mimics_kmod(ndecomp_pools_max) ;
+		mimics_kmod:_FillValue = NaN ;
+		mimics_kmod:long_name = "Transition and pool specific modifier for half-saturation constant" ;
+		mimics_kmod:units = "unitless" ;
+	double mimics_ko_k ;
+		mimics_ko_k:_FillValue = NaN ;
+		mimics_ko_k:long_name = "Additional modifier for half-saturation constant of oligotropic microbes and the transition for SOMc to SOMa" ;
+		mimics_ko_k:units = "unitless" ;
+	double mimics_ko_r ;
+		mimics_ko_r:_FillValue = NaN ;
+		mimics_ko_r:long_name = "Additional modifier for half-saturation constant of copiotropic microbes and the transition for SOMc to SOMa" ;
+		mimics_ko_r:units = "unitless" ;
+	double mimics_kslope(ndecomp_pools_max) ;
+		mimics_kslope:_FillValue = NaN ;
+		mimics_kslope:long_name = "Regression intercept for temperature effects on the half-saturation constant for transition into microbial biomass pools" ;
+		mimics_kslope:units = "ln(mgC cm-3) degC-1" ;
+	double mimics_mge(ndecomp_pools_max) ;
+		mimics_mge:_FillValue = NaN ;
+		mimics_mge:long_name = "Microbial growth efficiency for each transition into microbial biomass pools" ;
+		mimics_mge:units = "mgC/mgC" ;
+	double mimics_nue_into_mic ;
+		mimics_nue_into_mic:_FillValue = NaN ;
+		mimics_nue_into_mic:long_name = "Microbial nitrogen use efficiency for each transition into microbial biomass pools" ;
+		mimics_nue_into_mic:units = "mgN/mgN" ;
+	double mimics_p_scalar(variants) ;
+		mimics_p_scalar:_FillValue = NaN ;
+		mimics_p_scalar:long_name = "Base and exponent involved in determining soil clay effects on microbial half-saturation constant" ;
+		mimics_p_scalar:units = "unitless, unitless" ;
+		mimics_p_scalar:coordinates = "variantnames" ;
+	double mimics_t_soi_ref ;
+		mimics_t_soi_ref:_FillValue = NaN ;
+		mimics_t_soi_ref:long_name = "Reference soil temperature used in Q10 of desorption of SOMp" ;
+		mimics_t_soi_ref:units = "degrees C" ;
+	double mimics_tau_k(variants) ;
+		mimics_tau_k:_FillValue = NaN ;
+		mimics_tau_k:long_name = "Base and exponent determining oligotrophic microbial turnover rates as a function of input litter quality (fmet)" ;
+		mimics_tau_k:units = "h-1, unitless" ;
+		mimics_tau_k:coordinates = "variantnames" ;
+	double mimics_tau_mod_factor ;
+		mimics_tau_mod_factor:_FillValue = NaN ;
+		mimics_tau_mod_factor:long_name = "Used to modify microbial turnover as a function of annual net primary productivity" ;
+		mimics_tau_mod_factor:units = "m2 yr / gC" ;
+	double mimics_tau_mod_max ;
+		mimics_tau_mod_max:_FillValue = NaN ;
+		mimics_tau_mod_max:long_name = "maximum modification to microbial turnover rates" ;
+		mimics_tau_mod_max:units = "unitless" ;
+	double mimics_tau_mod_min ;
+		mimics_tau_mod_min:_FillValue = NaN ;
+		mimics_tau_mod_min:long_name = "minimum modification to microbial turnover rates" ;
+		mimics_tau_mod_min:units = "unitless" ;
+	double mimics_tau_r(variants) ;
+		mimics_tau_r:_FillValue = NaN ;
+		mimics_tau_r:long_name = "Base and exponent determining copiotrophic microbial turnover rates as a function of input litter quality (fmet)" ;
+		mimics_tau_r:units = "h-1, unitless" ;
+		mimics_tau_r:coordinates = "variantnames" ;
+	double mimics_vint(ndecomp_pools_max) ;
+		mimics_vint:_FillValue = NaN ;
+		mimics_vint:long_name = "Regression intercept for Vmax for transition into microbial biomass pools" ;
+		mimics_vint:units = "ln(mgCs (mg MIC)-1 h-1)" ;
+	double mimics_vmod(ndecomp_pools_max) ;
+		mimics_vmod:_FillValue = NaN ;
+		mimics_vmod:long_name = "Transition and pool specific modifier for Vmax" ;
+		mimics_vmod:units = "unitless" ;
+	double mimics_vslope(ndecomp_pools_max) ;
+		mimics_vslope:_FillValue = NaN ;
+		mimics_vslope:long_name = "Regression slope for for temperature effects on Vmax for transition into microbial biomass pools" ;
+		mimics_vslope:units = "ln(mgCs (mg MIC)-1 h-1) degC-1" ;
+	int min_NH_planting_date(pft) ;
+		min_NH_planting_date:_FillValue = 0 ;
+		min_NH_planting_date:long_name = "Minimum planting date for the Northern Hemipsphere" ;
+		min_NH_planting_date:units = "YYYYMMDD" ;
+		min_NH_planting_date:comment = "Typical U.S. earliest planting dates according to AgroIBIS: Maize Apr 10th; soybean May 15th; spring wheat early Apr; winter wheat Sep 1st" ;
+		min_NH_planting_date:coordinates = "pftname" ;
+	int min_SH_planting_date(pft) ;
+		min_SH_planting_date:_FillValue = 0 ;
+		min_SH_planting_date:long_name = "Minimum planting date for the Southern Hemipsphere" ;
+		min_SH_planting_date:units = "YYYYMMDD" ;
+		min_SH_planting_date:comment = "Same as min_NH_planting_date, but offset by six months" ;
+		min_SH_planting_date:coordinates = "pftname" ;
+	double min_planting_temp(pft) ;
+		min_planting_temp:_FillValue = 1000. ;
+		min_planting_temp:long_name = "Average 5 day daily minimum temperature needed for planting" ;
+		min_planting_temp:units = "K" ;
+		min_planting_temp:comment = "From AGROIBIS derived from EPIC model parameterizations" ;
+		min_planting_temp:coordinates = "pftname" ;
+	double minfuel ;
+		minfuel:_FillValue = NaN ;
+		minfuel:long_name = "Dead fuel threshold to carry a fire" ;
+		minfuel:units = "gC/m2" ;
+	double mino2lim ;
+		mino2lim:_FillValue = NaN ;
+		mino2lim:long_name = "Minimum anaerobic decomposition rate as a fraction of potential aerobic rate" ;
+		mino2lim:units = "unitless" ;
+	double minpsi_hr ;
+		minpsi_hr:_FillValue = NaN ;
+		minpsi_hr:long_name = "Minimum soil water potential for heterotrophic resp" ;
+		minpsi_hr:units = "MPa" ;
+	double minrelh ;
+		minrelh:_FillValue = NaN ;
+		minrelh:long_name = "Minimum relative humidity for nitrogen optimization" ;
+		minrelh:units = "fraction" ;
+	double mu ;
+		mu:_FillValue = NaN ;
+		mu:long_name = "Threshold probability for surface water" ;
+		mu:units = "unitless" ;
+	int mxmat(pft) ;
+		mxmat:_FillValue = 0 ;
+		mxmat:long_name = "Maximum number of days to maturity parameter in CNPhenology" ;
+		mxmat:coordinates = "pftname" ;
+		mxmat:units = "days" ;
+	double mxtmp(pft) ;
+		mxtmp:_FillValue = 0. ;
+		mxtmp:long_name = "Max Temperature, parameter used in accFlds" ;
+		mxtmp:units = "C" ;
+		mxtmp:coordinates = "pftname" ;
+	double n_baseflow ;
+		n_baseflow:_FillValue = NaN ;
+		n_baseflow:long_name = "Drainage power law exponent" ;
+		n_baseflow:units = "unitless" ;
+	double n_melt_coef ;
+		n_melt_coef:_FillValue = NaN ;
+		n_melt_coef:long_name = "N_melt parameter" ;
+		n_melt_coef:units = "unitless" ;
+	double ndays_off ;
+		ndays_off:_FillValue = NaN ;
+		ndays_off:long_name = "Number of days to complete leaf offset" ;
+		ndays_off:units = "days" ;
+	double ndays_on(pft) ;
+		ndays_on:_FillValue = NaN ;
+		ndays_on:long_name = "Number of days to complete leaf onset" ;
+		ndays_on:coordinates = "pftname" ;
+		ndays_on:units = "days" ;
+	double nongrassporosratio ;
+		nongrassporosratio:_FillValue = NaN ;
+		nongrassporosratio:long_name = "Ratio of root porosity in non-grass to grass, used for aerenchyma transport" ;
+		nongrassporosratio:units = "unitless" ;
+	double nstem(pft) ;
+		nstem:_FillValue = NaN ;
+		nstem:units = "number m-2" ;
+		nstem:long_name = "stem number" ;
+		nstem:coordinates = "pftname" ;
+	double om_frac_sf ;
+		om_frac_sf:_FillValue = NaN ;
+		om_frac_sf:long_name = "Scale factor for organic matter fraction" ;
+		om_frac_sf:units = "unitless" ;
+	double organic_max ;
+		organic_max:_FillValue = NaN ;
+		organic_max:long_name = "Organic matter content where soil is assumed to act like peat for diffusion" ;
+		organic_max:units = "kg/m3" ;
+	double oxinhib ;
+		oxinhib:_FillValue = NaN ;
+		oxinhib:long_name = "Inhibition of methane production by oxygen" ;
+		oxinhib:units = "m^3/mol" ;
+	double pHmax ;
+		pHmax:_FillValue = NaN ;
+		pHmax:long_name = "Maximum pH for methane production" ;
+		pHmax:units = "unitless" ;
+	double pHmin ;
+		pHmin:_FillValue = NaN ;
+		pHmin:long_name = "Minimum pH for methane production" ;
+		pHmin:units = "unitless" ;
+	double pc ;
+		pc:_FillValue = NaN ;
+		pc:long_name = "Connectivity exponent for surface water" ;
+		pc:units = "unitless" ;
+	double pconv(pft) ;
+		pconv:_FillValue = NaN ;
+		pconv:long_name = "Deadstem proportions to send to conversion flux" ;
+		pconv:units = "fraction" ;
+		pconv:valid_range = 0., 1. ;
+		pconv:comment = "pconv+pprod10+pprod100 must sum to 1.0" ;
+		pconv:coordinates = "pftname" ;
+	double pd ;
+		pd:_FillValue = NaN ;
+		pd:long_name = "particle density of soil" ;
+		pd:units = "kg/m3" ;
+	double perched_baseflow_scalar ;
+		perched_baseflow_scalar:_FillValue = NaN ;
+		perched_baseflow_scalar:long_name = "Scalar multiplier for perched base flow rate" ;
+		perched_baseflow_scalar:units = "kg/m2/s" ;
+	double perecm(pft) ;
+		perecm:_FillValue = NaN ;
+		perecm:long_name = "Fraction of N uptake conducted via Ectomycorrhizal fungal associations" ;
+		perecm:units = "fraction" ;
+		perecm:coordinates = "pftname" ;
+	char pftname(pft, string_length) ;
+		pftname:long_name = "Description of plant type" ;
+		pftname:units = "unitless" ;
+	short pftnum(pft) ;
+		pftnum:long_name = "Plant Functional Type number" ;
+		pftnum:units = "unitless" ;
+		pftnum:coordinates = "pftname" ;
+	double pftpar20(pft) ;
+		pftpar20:_FillValue = 9999.9 ;
+		pftpar20:long_name = "Tree maximum crown area" ;
+		pftpar20:units = "m2" ;
+		pftpar20:coordinates = "pftname" ;
+	double pftpar28(pft) ;
+		pftpar28:_FillValue = 9999.9 ;
+		pftpar28:long_name = "Minimum coldest monthly mean temperature" ;
+		pftpar28:units = "degrees_Celsius" ;
+		pftpar28:coordinates = "pftname" ;
+	double pftpar29(pft) ;
+		pftpar29:_FillValue = 1000. ;
+		pftpar29:long_name = "Maximum coldest monthly mean temperature" ;
+		pftpar29:units = "degrees_Celsius" ;
+		pftpar29:coordinates = "pftname" ;
+	double pftpar30(pft) ;
+		pftpar30:_FillValue = NaN ;
+		pftpar30:long_name = "Minimum growing degree days (>= 5 degree Celsius)" ;
+		pftpar30:units = "degree_C_days" ;
+		pftpar30:coordinates = "pftname" ;
+	double pftpar31(pft) ;
+		pftpar31:_FillValue = 1000. ;
+		pftpar31:long_name = "Upper limit of temperature of the warmest month (twmax)" ;
+		pftpar31:units = "degrees_Celsius" ;
+		pftpar31:coordinates = "pftname" ;
+	double phenology_soil_depth ;
+		phenology_soil_depth:_FillValue = NaN ;
+		phenology_soil_depth:long_name = "Soil depth used for measuring states for phenology triggers" ;
+		phenology_soil_depth:units = "m" ;
+		phenology_soil_depth:comment = "Chosen to maintain current behavior with both CLM45 and CLM50 (layer 3)" ;
+	double planting_temp(pft) ;
+		planting_temp:_FillValue = 1000. ;
+		planting_temp:long_name = "Average 10 day temperature needed for planting" ;
+		planting_temp:units = "K" ;
+		planting_temp:comment = "From AGROIBIS derived from EPIC model parameterizations" ;
+		planting_temp:coordinates = "pftname" ;
+	double porosmin ;
+		porosmin:_FillValue = NaN ;
+		porosmin:long_name = "Minimum aerenchyma porosity" ;
+		porosmin:units = "unitless" ;
+	double pprod10(pft) ;
+		pprod10:_FillValue = NaN ;
+		pprod10:long_name = "Deadstem proportions to send to 10 year product pool" ;
+		pprod10:units = "fraction" ;
+		pprod10:valid_range = 0., 1. ;
+		pprod10:comment = "pconv+pprod10+pprod100 must sum to 1.0" ;
+		pprod10:coordinates = "pftname" ;
+	double pprod100(pft) ;
+		pprod100:_FillValue = NaN ;
+		pprod100:long_name = "Deadstem proportions to send to 100 year product pool" ;
+		pprod100:units = "fraction" ;
+		pprod100:valid_range = 0., 1. ;
+		pprod100:comment = "pconv+pprod10+pprod100 must sum to 1.0" ;
+		pprod100:coordinates = "pftname" ;
+	double pprodharv10(pft) ;
+		pprodharv10:_FillValue = 0. ;
+		pprodharv10:long_name = "Deadstem proportions to send to 10 year harvest pool" ;
+		pprodharv10:units = "fraction" ;
+		pprodharv10:valid_range = 0., 1. ;
+		pprodharv10:comment = "100 year harvest is one minus this value" ;
+		pprodharv10:coordinates = "pftname" ;
+	double prh30 ;
+		prh30:_FillValue = NaN ;
+		prh30:long_name = "factor related to dependence of fuel combustibility on 30-day running mean of relative humidity for Li2016 fire model" ;
+		prh30:units = "unitless" ;
+	double psi50(segment, pft) ;
+		psi50:_FillValue = NaN ;
+		psi50:units = "mm" ;
+		psi50:long_name = "water potential at 50% loss of conductance" ;
+		psi50:coordinates = "segment pftname" ;
+	double q10_ch4oxid ;
+		q10_ch4oxid:_FillValue = NaN ;
+		q10_ch4oxid:long_name = "Q10 oxidation constant" ;
+		q10_ch4oxid:units = "unitless" ;
+	double q10_hr ;
+		q10_hr:_FillValue = NaN ;
+		q10_hr:long_name = "Q10 for heterotrophic respiration" ;
+		q10_hr:units = "unitless" ;
+	double q10_mr ;
+		q10_mr:_FillValue = NaN ;
+		q10_mr:units = "unitless" ;
+		q10_mr:long_name = "Q10 for maintenance respiration" ;
+	double q10ch4 ;
+		q10ch4:_FillValue = NaN ;
+		q10ch4:long_name = "Q10 for methane production" ;
+		q10ch4:units = "unitless" ;
+	double q10ch4base ;
+		q10ch4base:_FillValue = NaN ;
+		q10ch4base:long_name = "Temperature at which the effective f_ch4 actually equals the constant f_ch4" ;
+	double q10lakebase ;
+		q10lakebase:_FillValue = NaN ;
+		q10lakebase:long_name = "Base temperature for lake CH4 production" ;
+		q10lakebase:units = "K" ;
+	double qflxlagd ;
+		qflxlagd:_FillValue = NaN ;
+		qflxlagd:long_name = "Days to lag time-lagged surface runoff (qflx_surf_lag) in the tropics" ;
+		qflxlagd:units = "days" ;
+	double r_mort(pft) ;
+		r_mort:_FillValue = NaN ;
+		r_mort:long_name = "Mortality rate" ;
+		r_mort:units = "1/year" ;
+		r_mort:coordinates = "pftname" ;
+	double rc_npool ;
+		rc_npool:_FillValue = NaN ;
+		rc_npool:long_name = "resistance for uptake from plant n pool" ;
+		rc_npool:units = "unitless" ;
+	double redoxlag ;
+		redoxlag:_FillValue = NaN ;
+		redoxlag:long_name = "Number of days to lag in the calculation of finundated_lag" ;
+		redoxlag:units = "days" ;
+	double redoxlag_vertical ;
+		redoxlag_vertical:_FillValue = NaN ;
+		redoxlag_vertical:long_name = "Time lag (days) to inhibit production for newly unsaturated layers" ;
+		redoxlag_vertical:units = "days" ;
+	double relhExp ;
+		relhExp:_FillValue = NaN ;
+		relhExp:long_name = "Specifies the impact of relative humidity on electron transport rate" ;
+		relhExp:units = "unitless" ;
+	double rf_cwdl2 ;
+		rf_cwdl2:_FillValue = NaN ;
+		rf_cwdl2:long_name = "respiration fraction from CWD to litter 2" ;
+		rf_cwdl2:units = "unitless" ;
+	double rf_l1s1 ;
+		rf_l1s1:_FillValue = NaN ;
+		rf_l1s1:long_name = "Respiration fraction for litter 1 -> SOM 1" ;
+		rf_l1s1:units = "unitless" ;
+	double rf_l2s2 ;
+		rf_l2s2:_FillValue = NaN ;
+		rf_l2s2:long_name = "Respiration fraction for litter 2 -> SOM 2" ;
+		rf_l2s2:units = "unitless" ;
+	double rf_l3s3 ;
+		rf_l3s3:_FillValue = NaN ;
+		rf_l3s3:long_name = "Respiration fraction for litter 3 -> SOM 3" ;
+		rf_l3s3:units = "unitless" ;
+	double rf_s1s2 ;
+		rf_s1s2:_FillValue = NaN ;
+		rf_s1s2:long_name = "Respiration fraction for SOM 1 -> SOM 2" ;
+		rf_s1s2:units = "unitless" ;
+	double rf_s2s3 ;
+		rf_s2s3:_FillValue = NaN ;
+		rf_s2s3:long_name = "Respiration fraction for SOM 2 -> SOM 3" ;
+		rf_s2s3:units = "unitless" ;
+	double rf_s3s4 ;
+		rf_s3s4:_FillValue = NaN ;
+		rf_s3s4:long_name = "Respiration fraction for SOM 3 -> SOM 4" ;
+		rf_s3s4:units = "unitless" ;
+	double rho_max ;
+		rho_max:_FillValue = NaN ;
+		rho_max:long_name = "Wind drift compaction / maximum density" ;
+		rho_max:units = "kg/m3" ;
+	double rholnir(pft) ;
+		rholnir:_FillValue = NaN ;
+		rholnir:long_name = "Leaf reflectance: near-IR" ;
+		rholnir:units = "fraction" ;
+		rholnir:coordinates = "pftname" ;
+	double rholvis(pft) ;
+		rholvis:_FillValue = NaN ;
+		rholvis:long_name = "Leaf reflectance: visible" ;
+		rholvis:units = "fraction" ;
+		rholvis:coordinates = "pftname" ;
+	double rhosnir(pft) ;
+		rhosnir:_FillValue = NaN ;
+		rhosnir:long_name = "Stem reflectance: near-IR" ;
+		rhosnir:units = "fraction" ;
+		rhosnir:coordinates = "pftname" ;
+	double rhosvis(pft) ;
+		rhosvis:_FillValue = NaN ;
+		rhosvis:long_name = "Stem reflectance: visible" ;
+		rhosvis:units = "fraction" ;
+		rhosvis:coordinates = "pftname" ;
+	double rij_kro_a ;
+		rij_kro_a:_FillValue = NaN ;
+		rij_kro_a:long_name = "Best-fit parameter of simple-structure model (Arah and Vinten 1995)" ;
+		rij_kro_a:units = "unitless" ;
+	double rij_kro_alpha ;
+		rij_kro_alpha:_FillValue = NaN ;
+		rij_kro_alpha:long_name = "Simple-structure model parameter (Arah and Vinten 1995)" ;
+		rij_kro_alpha:units = "unitless" ;
+	double rij_kro_beta ;
+		rij_kro_beta:_FillValue = NaN ;
+		rij_kro_beta:long_name = "Simple-structure model parameter (Arah and Vinten 1995)" ;
+		rij_kro_beta:units = "unitless" ;
+	double rij_kro_delta ;
+		rij_kro_delta:_FillValue = NaN ;
+		rij_kro_delta:long_name = "Simple-structure model parameter (Arah and Vinten 1995)" ;
+		rij_kro_delta:units = "unitless" ;
+	double rij_kro_gamma ;
+		rij_kro_gamma:_FillValue = NaN ;
+		rij_kro_gamma:long_name = "Simple-structure model parameter (Arah and Vinten 1995)" ;
+		rij_kro_gamma:units = "unitless" ;
+	double rob ;
+		rob:_FillValue = NaN ;
+		rob:long_name = "Ratio of root length to vertical depth (root obliquity)" ;
+		rob:units = "unitless" ;
+	double root_dmx(pft) ;
+		root_dmx:_FillValue = NaN ;
+		root_dmx:long_name = "maximum rooting depth of crops" ;
+		root_dmx:units = "m" ;
+		root_dmx:coordinates = "pftname" ;
+	double roota_par(pft) ;
+		roota_par:_FillValue = NaN ;
+		roota_par:long_name = "CLM rooting distribution parameter" ;
+		roota_par:units = "1/m" ;
+		roota_par:coordinates = "pftname" ;
+	double rootb_par(pft) ;
+		rootb_par:_FillValue = NaN ;
+		rootb_par:long_name = "CLM rooting distribution parameter" ;
+		rootb_par:units = "1/m" ;
+		rootb_par:coordinates = "pftname" ;
+	double rootlitfrac ;
+		rootlitfrac:_FillValue = NaN ;
+		rootlitfrac:long_name = "Fraction of soil organic matter associated with roots" ;
+		rootlitfrac:units = "unitless" ;
+	double rootprof_beta(variants, pft) ;
+		rootprof_beta:_FillValue = NaN ;
+		rootprof_beta:long_name = "Rooting beta parameter, for C and N vertical discretization" ;
+		rootprof_beta:units = "unitless" ;
+		rootprof_beta:coordinates = "variantnames pftname" ;
+	double rstem(pft) ;
+		rstem:_FillValue = NaN ;
+		rstem:units = "s m-2" ;
+		rstem:long_name = "stem resistance to heat transfer (per dbh)" ;
+		rstem:coordinates = "pftname" ;
+	double rswf_max(pft) ;
+		rswf_max:_FillValue = NaN ;
+		rswf_max:long_name = "max. root-zone soil wetness for fire module" ;
+		rswf_max:units = "unitless" ;
+		rswf_max:coordinates = "pftname" ;
+	double rswf_min(pft) ;
+		rswf_min:_FillValue = NaN ;
+		rswf_min:units = "unitless" ;
+		rswf_min:long_name = "min. root-zone soil wetness for fire module" ;
+		rswf_min:coordinates = "pftname" ;
+	double s_fix(pft) ;
+		s_fix:_FillValue = NaN ;
+		s_fix:long_name = "Baseline cost of N fixation in gC/gN" ;
+		s_fix:units = "gC/gN" ;
+		s_fix:coordinates = "pftname" ;
+	double s_flnr(pft) ;
+		s_flnr:_FillValue = NaN ;
+		s_flnr:long_name = "slope of the relationship between leaf N per unit area (gN/m2) and fraction leaf N in Rubisco (for vcmax_opt=4)" ;
+		s_flnr:units = "fraction/gN/m2" ;
+		s_flnr:coordinates = "pftname" ;
+	double s_vcad(pft) ;
+		s_vcad:_FillValue = NaN ;
+		s_vcad:long_name = "slope of the relationship between leaf N per unit area (gN/m2) and Vcmax25top (umol CO2/m2/s)" ;
+		s_vcad:units = "umol CO2/s/gN" ;
+		s_vcad:coordinates = "pftname" ;
+	double sand_pf ;
+		sand_pf:_FillValue = NaN ;
+		sand_pf:long_name = "Perturbation factor (via addition) for percent sand" ;
+		sand_pf:units = "percent" ;
+	double satpow ;
+		satpow:_FillValue = NaN ;
+		satpow:long_name = "Exponent on watsat for saturated soil solute diffusion" ;
+		satpow:units = "unitless" ;
+	double scale_factor_aere ;
+		scale_factor_aere:_FillValue = NaN ;
+		scale_factor_aere:long_name = "Scale factor on the aerenchyma area for sensitivity tests" ;
+		scale_factor_aere:units = "unitless" ;
+	double scale_factor_gasdiff ;
+		scale_factor_gasdiff:_FillValue = NaN ;
+		scale_factor_gasdiff:long_name = "Scale factor for gas diffusion" ;
+		scale_factor_gasdiff:units = "unitless" ;
+	double scale_factor_liqdiff ;
+		scale_factor_liqdiff:_FillValue = NaN ;
+		scale_factor_liqdiff:long_name = "Scale factor for solute diffusion in liquid (water)" ;
+		scale_factor_liqdiff:units = "unitless" ;
+	double scvng_fct_mlt_sf ;
+		scvng_fct_mlt_sf:_FillValue = NaN ;
+		scvng_fct_mlt_sf:long_name = "Scaling factor modifying scavenging factors for BC, OC, and dust species inclusion in meltwater" ;
+		scvng_fct_mlt_sf:units = "unitless" ;
+	double scvng_fct_mlt_bcphi ;
+		scvng_fct_mlt_bcphi:_FillValue = NaN ;
+		scvng_fct_mlt_bcphi:long_name = "Scavenging factor for hydrophillic BC inclusion in meltwater" ;
+		scvng_fct_mlt_bcphi:units = "fraction" ;
+	double scvng_fct_mlt_bcpho ;
+		scvng_fct_mlt_bcpho:_FillValue = NaN ;
+		scvng_fct_mlt_bcpho:long_name = "Scavenging factor for hydrophobic BC inclusion in meltwater" ;
+		scvng_fct_mlt_bcpho:units = "fraction" ;
+	double scvng_fct_mlt_dst1 ;
+		scvng_fct_mlt_dst1:_FillValue = NaN ;
+		scvng_fct_mlt_dst1:long_name = "Scavenging factor for dust species 1 inclusion in meltwater" ;
+		scvng_fct_mlt_dst1:units = "fraction" ;
+	double scvng_fct_mlt_dst2 ;
+		scvng_fct_mlt_dst2:_FillValue = NaN ;
+		scvng_fct_mlt_dst2:long_name = "Scavenging factor for dust species 2 inclusion in meltwater" ;
+		scvng_fct_mlt_dst2:units = "fraction" ;
+	double scvng_fct_mlt_dst3 ;
+		scvng_fct_mlt_dst3:_FillValue = NaN ;
+		scvng_fct_mlt_dst3:long_name = "Scavenging factor for dust species 2 inclusion in meltwater" ;
+		scvng_fct_mlt_dst3:units = "fraction" ;
+	double scvng_fct_mlt_dst4 ;
+		scvng_fct_mlt_dst4:_FillValue = NaN ;
+		scvng_fct_mlt_dst4:long_name = "Scavenging factor for dust species 2 inclusion in meltwater" ;
+		scvng_fct_mlt_dst4:units = "fraction" ;
+	double season_decid(pft) ;
+		season_decid:_FillValue = NaN ;
+		season_decid:long_name = "Binary flag for seasonal-deciduous leaf habit" ;
+		season_decid:units = "logical flag" ;
+		season_decid:flag_meanings = "NOT seasonal-deciduous" ;
+		season_decid:flag_values = 0., 1. ;
+		season_decid:coordinates = "pftname" ;
+	double season_decid_temperate(pft) ;
+		season_decid_temperate:_FillValue = NaN ;
+		season_decid_temperate:long_name = "Binary flag for seasonal-deciduous temperate leaf habit" ;
+		season_decid_temperate:units = "logical flag" ;
+		season_decid_temperate:flag_meanings = "NOT seasonal-deciduous temperate" ;
+		season_decid_temperate:flag_values = 0., 1. ;
+		season_decid_temperate:coordinates = "pftname" ;
+	char segment(segment, string_length) ;
+		segment:units = "unitless" ;
+		segment:long_name = "description of hydraulic segment" ;
+	double sf_minn ;
+		sf_minn:_FillValue = NaN ;
+		sf_minn:long_name = "Soluble fraction of mineral N" ;
+		sf_minn:units = "unitless" ;
+	double sf_no3 ;
+		sf_no3:_FillValue = NaN ;
+		sf_no3:long_name = "Soluble fraction of NO3" ;
+		sf_no3:units = "unitless" ;
+	double shape_fluxprof_param1 ;
+		shape_fluxprof_param1:_FillValue = NaN ;
+		shape_fluxprof_param1:long_name = "Shape parameter of advection/diffusion profile" ;
+		shape_fluxprof_param1:units = "unitless" ;
+	double slatop(pft) ;
+		slatop:_FillValue = NaN ;
+		slatop:long_name = "Specific Leaf Area (SLA) at top of canopy, projected area basis" ;
+		slatop:units = "m^2/gC" ;
+		slatop:coordinates = "pftname" ;
+	double slopebeta ;
+		slopebeta:_FillValue = NaN ;
+		slopebeta:long_name = "Exponent for microtopography pdf sigma" ;
+		slopebeta:units = "unitless" ;
+	double slopemax ;
+		slopemax:_FillValue = NaN ;
+		slopemax:long_name = "Max topographic slope for microtopography pdf sigma" ;
+		slopemax:units = "unitless" ;
+	double smp_crit ;
+		smp_crit:_FillValue = NaN ;
+		smp_crit:long_name = "Critical soil moisture potential to reduce oxidation (mm) due to dessication of methanotrophs above the water table" ;
+		smp_crit:units = "mm" ;
+	double smpsc(pft) ;
+		smpsc:_FillValue = NaN ;
+		smpsc:long_name = "Soil water potential at full stomatal closure" ;
+		smpsc:units = "mm" ;
+		smpsc:coordinates = "pftname" ;
+	double smpso(pft) ;
+		smpso:_FillValue = NaN ;
+		smpso:long_name = "Soil water potential at full stomatal opening" ;
+		smpso:units = "mm" ;
+		smpso:coordinates = "pftname" ;
+	double snow_canopy_storage_scalar ;
+		snow_canopy_storage_scalar:_FillValue = NaN ;
+		snow_canopy_storage_scalar:long_name = "Canopy-storage-of-snow parameter" ;
+		snow_canopy_storage_scalar:units = "kg/m2" ;
+	double snowcan_unload_temp_fact ;
+		snowcan_unload_temp_fact:_FillValue = NaN ;
+		snowcan_unload_temp_fact:long_name = "Temperature canopy snow unload scaling" ;
+		snowcan_unload_temp_fact:units = "K*s" ;
+	double snowcan_unload_wind_fact ;
+		snowcan_unload_wind_fact:_FillValue = NaN ;
+		snowcan_unload_wind_fact:long_name = "Wind canopy snow unload scaling" ;
+		snowcan_unload_wind_fact:units = "unitless" ;
+	double snow5d_thresh_for_onset ;
+		snow5d_thresh_for_onset:_FillValue = NaN ;
+		snow5d_thresh_for_onset:long_name = "5-day snow depth threshold for leaf onset" ;
+		snow5d_thresh_for_onset:units = "m" ;
+	double snw_rds_refrz ;
+		snw_rds_refrz:_FillValue = NaN ;
+		snw_rds_refrz:long_name = "Effective radius of re-frozen snow" ;
+		snw_rds_refrz:units = "microns" ;
+	double snw_rds_min ;
+		snw_rds_min:_FillValue = NaN ;
+		snw_rds_min:long_name = "Cold fresh snow grain size" ;
+		snw_rds_min:units = "microns" ;
+	double fresh_snw_rds_max ;
+		fresh_snw_rds_max:_FillValue = NaN ;
+		fresh_snw_rds_max:long_name = "Max fresh snow grain size" ;
+		fresh_snw_rds_max:units = "microns" ;
+	double soilpsi_off ;
+		soilpsi_off:_FillValue = NaN ;
+		soilpsi_off:long_name = "Critical soil water potential for leaf offset" ;
+		soilpsi_off:units = "MPa" ;
+	double soilpsi_on ;
+		soilpsi_on:_FillValue = NaN ;
+		soilpsi_on:long_name = "Critical soil water potential for leaf onset" ;
+		soilpsi_on:units = "MPa" ;
+	double som_diffus ;
+		som_diffus:_FillValue = NaN ;
+		som_diffus:long_name = "Vertical soil organic matter diffusion coefficient for flat adv/diff profile " ;
+		som_diffus:units = "m^2/sec" ;
+	double ssi ;
+		ssi:_FillValue = NaN ;
+		ssi:long_name = "Irreducible water saturation of snow" ;
+		ssi:units = "unitless" ;
+	double stem_leaf(pft) ;
+		stem_leaf:_FillValue = NaN ;
+		stem_leaf:long_name = "Allocation parameter: new stem C per new leaf C (-1 means use dynamic stem allocation)" ;
+		stem_leaf:units = "gC/gC" ;
+		stem_leaf:coordinates = "pftname" ;
+	double stress_decid(pft) ;
+		stress_decid:_FillValue = NaN ;
+		stress_decid:long_name = "Binary flag for stress-deciduous leaf habit" ;
+		stress_decid:units = "logical flag" ;
+		stress_decid:valid_range = 0., 1. ;
+		stress_decid:flag_values = 0., 1. ;
+		stress_decid:flag_meanings = "NOT stress_decidious" ;
+		stress_decid:coordinates = "pftname" ;
+	double sucsat_adjustfactor ;
+		sucsat_adjustfactor:_FillValue = NaN ;
+		sucsat_adjustfactor:long_name = "Adjustment factor for sucsat" ;
+		sucsat_adjustfactor:units = "unitless" ;
+	double sucsat_sf ;
+		sucsat_sf:_FillValue = NaN ;
+		sucsat_sf:long_name = "Scale factor for sucsat" ;
+		sucsat_sf:units = "unitless" ;
+	double surface_tension_water ;
+		surface_tension_water:_FillValue = NaN ;
+		surface_tension_water:long_name = "Surface tension of water (Arah and Vinten 1995)" ;
+		surface_tension_water:units = "J/m^2" ;
+	double taper(pft) ;
+		taper:_FillValue = NaN ;
+		taper:long_name = "Tapering ratio of height:radius_breast_height" ;
+		taper:units = "unitless" ;
+		taper:coordinates = "pftname" ;
+	double tau_cwd ;
+		tau_cwd:_FillValue = NaN ;
+		tau_cwd:long_name = "Corrected fragmentation rate constant CWD (1/0.3)" ;
+		tau_cwd:units = "1/year" ;
+	double tau_ref ;
+		tau_ref:_FillValue = NaN ;
+		tau_ref:long_name = "Wind drift compaction / reference time (48*3600)" ;
+		tau_ref:units = "s" ;
+	double taulnir(pft) ;
+		taulnir:_FillValue = NaN ;
+		taulnir:long_name = "Leaf transmittance: near-IR" ;
+		taulnir:units = "fraction" ;
+		taulnir:coordinates = "pftname" ;
+	double taulvis(pft) ;
+		taulvis:_FillValue = NaN ;
+		taulvis:long_name = "Leaf transmittance: visible" ;
+		taulvis:units = "fraction" ;
+		taulvis:coordinates = "pftname" ;
+	double tausnir(pft) ;
+		tausnir:_FillValue = NaN ;
+		tausnir:long_name = "Stem transmittance: near-IR" ;
+		tausnir:units = "fraction" ;
+		tausnir:coordinates = "pftname" ;
+	double tausvis(pft) ;
+		tausvis:_FillValue = NaN ;
+		tausvis:long_name = "Stem transmittance: visible" ;
+		tausvis:units = "fraction" ;
+		tausvis:coordinates = "pftname" ;
+	double theta_cj(pft) ;
+		theta_cj:_FillValue = NaN ;
+		theta_cj:long_name = "Empirical curvature parameter for ac, aj photosynthesis co-limitation" ;
+		theta_cj:units = "unitless" ;
+		theta_cj:coordinates = "pftname" ;
+	double theta_ip ;
+		theta_ip:_FillValue = NaN ;
+		theta_ip:long_name = "Empirical curvature parameter for ap photosynthesis co-limitation" ;
+		theta_ip:units = "unitless" ;
+	double theta_psii ;
+		theta_psii:_FillValue = NaN ;
+		theta_psii:long_name = "Empirical curvature parameter for electron transport rate" ;
+		theta_psii:units = "unitless" ;
+	double tkd_clay ;
+		tkd_clay:_FillValue = NaN ;
+		tkd_clay:long_name = "Thermal conductivity of clay" ;
+		tkd_clay:units = "W/m/K" ;
+	double tkd_om ;
+		tkd_om:_FillValue = NaN ;
+		tkd_om:long_name = "Thermal conductivity of dry organic matter" ;
+		tkd_om:units = "W/m/K" ;
+	double tkd_sand ;
+		tkd_sand:_FillValue = NaN ;
+		tkd_sand:long_name = "Thermal conductivity of sand" ;
+		tkd_sand:units = "W/m/K" ;
+	double tkm_om ;
+		tkm_om:_FillValue = NaN ;
+		tkm_om:long_name = "Thermal conductivity of organic matter" ;
+		tkm_om:units = "W/m/K" ;
+	double tpu25ratio ;
+		tpu25ratio:_FillValue = NaN ;
+		tpu25ratio:long_name = "Ratio of tpu25top to vcmax25top" ;
+		tpu25ratio:units = "unitless" ;
+	double tpuha ;
+		tpuha:_FillValue = NaN ;
+		tpuha:long_name = "Activation energy for tpu" ;
+		tpuha:units = "J/mol" ;
+	double tpuhd ;
+		tpuhd:_FillValue = NaN ;
+		tpuhd:long_name = "Deactivation energy for tpu" ;
+		tpuhd:units = "J/mol" ;
+	double tpuse_sf ;
+		tpuse_sf:_FillValue = NaN ;
+		tpuse_sf:long_name = "Scale factor for tpuse" ;
+		tpuse_sf:units = "unitless" ;
+	double unsat_aere_ratio ;
+		unsat_aere_ratio:_FillValue = NaN ;
+		unsat_aere_ratio:long_name = "Ratio to multiply upland vegetation aerenchyma porosity by compared to inundated systems" ;
+		unsat_aere_ratio:units = "unitless" ;
+	double upplim_destruct_metamorph ;
+		upplim_destruct_metamorph:_FillValue = NaN ;
+		upplim_destruct_metamorph:long_name = "Upper limit on destructive metamorphism compaction" ;
+		upplim_destruct_metamorph:units = "kg/m3" ;
+	char variantnames(variants, string_length) ;
+		variantnames:_FillValue = "" ;
+		variantnames:long_name = "Description of variant names" ;
+		variantnames:units = "unitless" ;
+	double vcmaxha ;
+		vcmaxha:_FillValue = NaN ;
+		vcmaxha:long_name = "Activation energy for vcmax" ;
+		vcmaxha:units = "J/mol" ;
+	double vcmaxhd ;
+		vcmaxhd:_FillValue = NaN ;
+		vcmaxhd:long_name = "Deactivation energy for vcmax" ;
+		vcmaxhd:units = "J/mol" ;
+	double vcmaxse_sf ;
+		vcmaxse_sf:_FillValue = NaN ;
+		vcmaxse_sf:long_name = "Scale factor for vcmaxse" ;
+		vcmaxse_sf:units = "unitless" ;
+	double vgc_max ;
+		vgc_max:_FillValue = NaN ;
+		vgc_max:long_name = "Ratio of saturation pressure triggering ebullition" ;
+		vgc_max:units = "unitless" ;
+	double vmax_ch4_oxid ;
+		vmax_ch4_oxid:_FillValue = NaN ;
+		vmax_ch4_oxid:long_name = "Oxidation rate constant" ;
+		vmax_ch4_oxid:units = "mol/m3-w/s" ;
+	double vmax_oxid_unsat ;
+		vmax_oxid_unsat:_FillValue = NaN ;
+		vmax_oxid_unsat:long_name = "Oxidation rate constant" ;
+		vmax_oxid_unsat:units = "mol/m3-w/s" ;
+	double watsat_adjustfactor ;
+		watsat_adjustfactor:_FillValue = NaN ;
+		watsat_adjustfactor:long_name = "Adjustment factor for watsat" ;
+		watsat_adjustfactor:units = "unitless" ;
+	double watsat_sf ;
+		watsat_sf:_FillValue = NaN ;
+		watsat_sf:long_name = "Scale factor for watsat" ;
+		watsat_sf:units = "unitless" ;
+	double wc2wjb0(pft) ;
+		wc2wjb0:_FillValue = NaN ;
+		wc2wjb0:long_name = "The baseline ratio of rubisco limited rate vs light limited photosynthetic rate (Wc:Wj)" ;
+		wc2wjb0:units = "unitless" ;
+		wc2wjb0:coordinates = "pftname" ;
+	double wcf ;
+		wcf:_FillValue = NaN ;
+		wcf:long_name = "Wood combustion fraction" ;
+		wcf:units = "unitless" ;
+	double wimp ;
+		wimp:_FillValue = NaN ;
+		wimp:long_name = "Water impremeable if porosity less than wimp" ;
+		wimp:units = "unitless" ;
+	double wind_min ;
+		wind_min:_FillValue = NaN ;
+		wind_min:long_name = "Minimum wind speed at the atmospheric forcing height" ;
+		wind_min:units = "m/s" ;
+	double wind_snowcompact_fact ;
+		wind_snowcompact_fact:_FillValue = NaN ;
+		wind_snowcompact_fact:long_name = "Reference wind above which fresh snow density is (substantially) increased" ;
+		wind_snowcompact_fact:units = "m/s" ;
+	double wood_density(pft) ;
+		wood_density:_FillValue = NaN ;
+		wood_density:units = "kg m-3" ;
+		wood_density:long_name = "wood density" ;
+		wood_density:coordinates = "pftname" ;
+	double woody(pft) ;
+		woody:_FillValue = NaN ;
+		woody:long_name = "Binary woody lifeform flag" ;
+		woody:units = "logical flag" ;
+		woody:valid_range = 0., 1. ;
+		woody:flag_values = 0., 1. ;
+		woody:flag_meanings = "NON_woody woody" ;
+		woody:coordinates = "pftname" ;
+	double xdrdt ;
+		xdrdt:_FillValue = NaN ;
+		xdrdt:long_name = "Arbitrary factor applied to snow aging rate" ;
+		xdrdt:units = "unitless" ;
+	double xl(pft) ;
+		xl:_FillValue = NaN ;
+		xl:long_name = "Leaf/stem orientation index" ;
+		xl:units = "unitless" ;
+		xl:valid_range = -1., 1. ;
+		xl:coordinates = "pftname" ;
+	double z0mr(pft) ;
+		z0mr:_FillValue = NaN ;
+		z0mr:long_name = "Ratio of momentum roughness length to canopy top height" ;
+		z0mr:units = "unitless" ;
+		z0mr:coordinates = "pftname" ;
+	double z_dl ;
+		z_dl:_FillValue = NaN ;
+		z_dl:long_name = "Litter layer thickness" ;
+		z_dl:units = "m" ;
+	double zlnd ;
+		zlnd:_FillValue = NaN ;
+		zlnd:long_name = "Momentum roughness length for soils and wetland" ;
+		zlnd:units = "m" ;
+	double zsno ;
+		zsno:_FillValue = NaN ;
+		zsno:long_name = "Momentum roughness length for snow" ;
+		zsno:units = "m" ;
+	double ztopmx(pft) ;
+		ztopmx:_FillValue = 0. ;
+		ztopmx:long_name = "Canopy top coefficient used in CNVegStructUpdate" ;
+		ztopmx:units = "m" ;
+		ztopmx:coordinates = "pftname" ;
+	double z0v_Cr(pft) ;
+		z0v_Cr:_FillValue = NaN ;
+		z0v_Cr:long_name = "Roughness-element drag coefficient for Raupach92 parameterization" ;
+		z0v_Cr:units = "unitless" ;
+		z0v_Cr:coordinates = "pftname" ;
+	double z0v_Cs(pft) ;
+		z0v_Cs:_FillValue = NaN ;
+		z0v_Cs:long_name = "Substrate-element drag coefficient for Raupach92 parameterization" ;
+		z0v_Cs:units = "unitless" ;
+		z0v_Cs:coordinates = "pftname" ;
+	double z0v_LAImax(pft) ;
+		z0v_LAImax:_FillValue = NaN ;
+		z0v_LAImax:long_name = "Onset of over-sheltering for Raupach92 parameterization" ;
+		z0v_LAImax:units = "unitless" ;
+		z0v_LAImax:coordinates = "pftname" ;
+	double z0v_LAIoff(pft) ;
+		z0v_LAIoff:_FillValue = NaN ;
+		z0v_LAIoff:long_name = "Leaf area index offset for Raupach92 parameterization" ;
+		z0v_LAIoff:units = "unitless" ;
+		z0v_LAIoff:coordinates = "pftname" ;
+	double z0v_c(pft) ;
+		z0v_c:_FillValue = NaN ;
+		z0v_c:long_name = "c parameter for Raupach92 parameterization" ;
+		z0v_c:units = "unitless" ;
+		z0v_c:coordinates = "pftname" ;
+	double z0v_cw(pft) ;
+		z0v_cw:_FillValue = NaN ;
+		z0v_cw:long_name = "Roughness sublayer depth coefficient for Raupach92 parameterization" ;
+		z0v_cw:units = "unitless" ;
+		z0v_cw:coordinates = "pftname" ;
+	double zglc ;
+		zglc:_FillValue = NaN ;
+		zglc:long_name = "Momentum roughness length for glacier" ;
+		zglc:units = "m" ;
+	double bgc_till_decompk_multipliers(ntill_stages_max, ndecomp_pools_max, ntill_intensities_max) ;
+		bgc_till_decompk_multipliers:_FillValue = NaN ;
+		bgc_till_decompk_multipliers:long_name = "Value by which decomp_k should be multiplied during tillage with CENTURY soil" ;
+		bgc_till_decompk_multipliers:units = "unitless" ;
+	double mimics_till_decompk_multipliers(ntill_stages_max, ndecomp_pools_max, ntill_intensities_max) ;
+		mimics_till_decompk_multipliers:_FillValue = NaN ;
+		mimics_till_decompk_multipliers:long_name = "Value by which decomp_k should be multiplied during tillage with MIMICS soil" ;
+		mimics_till_decompk_multipliers:units = "unitless" ;
+	double zbedrock ;
+		zbedrock:_FillValue = NaN ;
+		zbedrock:units = "m" ;
+		zbedrock:long_name = "Depth to bedrock" ;
+		zbedrock:note = "This parameter is used to overwrite the zbedrock from the surface dataset if the param is >=0. Default value is -1, which leaves zbedrock from fsurdat." ;
+	double zbedrock_sf ;
+		zbedrock_sf:_FillValue = NaN ;
+		zbedrock_sf:units = "unitless" ;
+		zbedrock_sf:long_name = "Zbedrock scalar adjustment factor" ;
+		zbedrock_sf:note = "This parameter multiplies the zbedrock from the surface dataset. Default=1." ;
+	double nfix_tmax(pft) ;
+		nfix_tmax:_FillValue = NaN ;
+		nfix_tmax:long_name = "Parameter \'Tmax\' of temp response of N fixation (Bytnerowiczet al.  2022)" ;
+		nfix_tmax:units = "unitless" ;
+		nfix_tmax:coordinates = "pftname" ;
+	double nfix_tmin(pft) ;
+		nfix_tmin:_FillValue = NaN ;
+		nfix_tmin:long_name = "Parameter \'Tmin\' of temp response of N fixation (Bytnerowiczet al.  2022)" ;
+		nfix_tmin:units = "unitless" ;
+		nfix_tmin:coordinates = "pftname" ;
+	double nfix_topt(pft) ;
+		nfix_topt:_FillValue = NaN ;
+		nfix_topt:long_name = "Parameter \'Topt\' of temp response of N fixation (Bytnerowiczet al.  2022)" ;
+		nfix_topt:units = "unitless" ;
+		nfix_topt:coordinates = "pftname" ;
+
+// global attributes:
+		:Conventions = "CF-1.0" ;
+		:title = "Vegetation (Plant Function Type or PFT) constants" ;
+		:NCO = "netCDF Operators version 5.2.4 (Homepage = http://nco.sf.net, Code = http://github.com/nco/nco, Citation = 10.1016/j.envsoft.2008.03.004)" ;
+		:nco_openmp_thread_number = 1 ;
+		:history = "Tue Nov 19 14:57:50 2024: ncks -A -v nfix_tmin,nfix_tmax,nfix_topt /glade/campaign/cesm/cesmdata/inputdata/lnd/clm2/paramdata/ctsm60_params_nfix.c241101.nc /glade/campaign/cesm/cesmdata/inputdata/lnd/clm2/paramdata/ctsm60_params_nfix.c241119.nc\nThu Feb  8 14:13:42 2024: ncatted -a history,global,a,c, : Dead Veg changes: froot_leaf(11:12)=1.2, FUN_fracfixers(11:12)=1, xdrdt=5, scvng_fct_mlt_sf=0.5, snw_rds_refrz=1500, fresh_snw_rds_max=400 ctsm51_params.c240208.nc\n : Dead Veg changes: froot_leaf(11:12)=1.2, FUN_fracfixers(11:12)=1, xdrdt=5, scvng_fct_mlt_sf=0.5, snw_rds_refrz=1500, fresh_snw_rds_max=400" ;
+		:history_of_appended_files = "Tue Nov 19 14:57:50 2024: Appended file /glade/campaign/cesm/cesmdata/inputdata/lnd/clm2/paramdata/ctsm60_params_nfix.c241101.nc had following \"history\" attribute:\nThu Feb  8 14:13:42 2024: ncatted -a history,global,a,c, : Dead Veg changes: froot_leaf(11:12)=1.2, FUN_fracfixers(11:12)=1, xdrdt=5, scvng_fct_mlt_sf=0.5, snw_rds_refrz=1500, fresh_snw_rds_max=400 ctsm51_params.c240208.nc\n : Dead Veg changes: froot_leaf(11:12)=1.2, FUN_fracfixers(11:12)=1, xdrdt=5, scvng_fct_mlt_sf=0.5, snw_rds_refrz=1500, fresh_snw_rds_max=400\n" ;
+data:
+
+ C2_liq_Brun89 = 4.22e-13 ;
+
+ FUN_fracfixers = 0, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 
+    0.25, 1, 1, 0.25, 0.25, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.25, 0.25, 0.25, 0.25, 
+    0, 0, 1, 1 ;
+
+ a_coef = 0.13 ;
+
+ a_exp = 0.45 ;
+
+ a_fix = -3.61999988555908, -3.61999988555908, -3.61999988555908, 
+    -3.61999988555908, -3.61999988555908, -3.61999988555908, 
+    -3.61999988555908, -3.61999988555908, -3.61999988555908, 
+    -3.61999988555908, -3.61999988555908, -3.61999988555908, 
+    -3.61999988555908, -3.61999988555908, -3.61999988555908, 
+    -3.61999988555908, -3.61999988555908, -3.61999988555908, 
+    -3.61999988555908, -3.61999988555908, -3.61999988555908, 
+    -3.61999988555908, -3.61999988555908, -3.61999988555908, 
+    -3.61999988555908, -3.61999988555908, -3.61999988555908, 
+    -3.61999988555908, -3.61999988555908, -3.61999988555908, 
+    -3.61999988555908, -3.61999988555908, -3.61999988555908, 
+    -3.61999988555908, -3.61999988555908, -3.61999988555908, 
+    -3.61999988555908, -3.61999988555908, -3.61999988555908, 
+    -3.61999988555908, -3.61999988555908, -3.61999988555908, 
+    -3.61999988555908, -3.61999988555908, -3.61999988555908, 
+    -3.61999988555908, -3.61999988555908, -3.61999988555908, 
+    -3.61999988555908, -3.61999988555908, -3.61999988555908, 
+    -3.61999988555908, -3.61999988555908, -3.61999988555908, 
+    -3.61999988555908, -3.61999988555908, -3.61999988555908, 
+    -3.61999988555908, -3.61999988555908, -3.61999988555908, 
+    -3.61999988555908, -3.61999988555908, -3.61999988555908, 
+    -3.61999988555908, -3.61999988555908, -3.61999988555908, 
+    -3.61999988555908, -3.61999988555908, -3.61999988555908, 
+    -3.61999988555908, -3.61999988555908, -3.61999988555908, 
+    -3.61999988555908, -3.61999988555908, -3.61999988555908, 
+    -3.61999988555908, -3.61999988555908, -3.61999988555908, -3.61999988555908 ;
+
+ accum_factor = 0.1 ;
+
+ act25 = 60 ;
+
+ aereoxid = 0 ;
+
+ akc_active = 0, 0.06, 0.06, 0.06, 0.06, 0.06, 0.006, 0.06, 0.06, 0.06, 0.06, 
+    0.06, 0.06, 0.06, 0.6, 0.06, 0.06, 0.6, 0.6, 0.06, 0.06, 0.06, 0.06, 
+    0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 
+    0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 
+    0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 
+    0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.6, 0.6, 0.06, 0.06, 
+    0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.06, 0.06 ;
+
+ akn_active = 0, 0.12, 0.12, 0.12, 0.12, 0.12, 0.012, 0.12, 0.12, 0.12, 0.12, 
+    0.12, 0.12, 0.12, 1.2, 0.12, 0.12, 1.2, 1.2, 0.12, 0.12, 0.12, 0.12, 
+    0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 
+    0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 
+    0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 
+    0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 1.2, 1.2, 0.12, 0.12, 
+    1.2, 1.2, 1.2, 1.2, 1.2, 1.2, 0.12, 0.12 ;
+
+ aleaff = 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0 ;
+
+ allconsl = _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, 5, 5, 3, 3, 3, 
+    3, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, _, _, _, _, _, _, _, _, 2, 2, _, _, _, 
+    _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, 3, 3, _, _, _, _, 5, 5, _, 
+    _, 5, 5, 5, 5, 5, 5, 2, 2 ;
+
+ allconss = _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, 2, 2, 1, 1, 1, 
+    1, 5, 5, 1, 1, 1, 1, 1, 1, 1, 1, _, _, _, _, _, _, _, _, 5, 5, _, _, _, 
+    _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, 1, 1, _, _, _, _, 2, 2, _, 
+    _, 2, 2, 2, 2, 2, 2, 5, 5 ;
+
+ aq_sp_yield_min = 0.02 ;
+
+ arootf = _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, 0.05, 0.05, _, 
+    _, _, _, 0.2, 0.2, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, 0.2, 
+    0.2, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, 
+    _, 0.05, 0.05, _, _, 0.09, 0.09, 0.09, 0.09, 0.05, 0.05, 0.2, 0.2 ;
+
+ arooti = _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, 0.1, 0.1, 0.05, 
+    0.05, 0.2, 0.2, 0.200000002980232, 0.200000002980232, 0.3, 0.3, 0.3, 0.3, 
+    0.3, 0.3, 0.3, 0.3, _, _, _, _, _, _, _, _, 0.200000002980232, 
+    0.200000002980232, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, 
+    0.100000001490116, 0.100000001490116, _, _, _, _, 0.1, 0.1, _, _, 0.11, 
+    0.11, 0.14, 0.14, 0.1, 0.1, 0.200000002980232, 0.200000002980232 ;
+
+ astemf = _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, 0.05, 
+    0.05, 0.05, 0.05, 0.3, 0.3, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 
+    0.05, _, _, _, _, _, _, _, _, 0.3, 0.3, _, _, _, _, _, _, _, _, _, _, _, 
+    _, _, _, _, _, _, _, 0.05, 0.05, _, _, _, _, _, _, _, _, _, _, _, _, _, 
+    _, 0.3, 0.3 ;
+
+ atmch4 = 1.7e-06 ;
+
+ b_fix = 0.270000010728836, 0.270000010728836, 0.270000010728836, 
+    0.270000010728836, 0.270000010728836, 0.270000010728836, 
+    0.270000010728836, 0.270000010728836, 0.270000010728836, 
+    0.270000010728836, 0.270000010728836, 0.270000010728836, 
+    0.270000010728836, 0.270000010728836, 0.270000010728836, 
+    0.270000010728836, 0.270000010728836, 0.270000010728836, 
+    0.270000010728836, 0.270000010728836, 0.270000010728836, 
+    0.270000010728836, 0.270000010728836, 0.270000010728836, 
+    0.270000010728836, 0.270000010728836, 0.270000010728836, 
+    0.270000010728836, 0.270000010728836, 0.270000010728836, 
+    0.270000010728836, 0.270000010728836, 0.270000010728836, 
+    0.270000010728836, 0.270000010728836, 0.270000010728836, 
+    0.270000010728836, 0.270000010728836, 0.270000010728836, 
+    0.270000010728836, 0.270000010728836, 0.270000010728836, 
+    0.270000010728836, 0.270000010728836, 0.270000010728836, 
+    0.270000010728836, 0.270000010728836, 0.270000010728836, 
+    0.270000010728836, 0.270000010728836, 0.270000010728836, 
+    0.270000010728836, 0.270000010728836, 0.270000010728836, 
+    0.270000010728836, 0.270000010728836, 0.270000010728836, 
+    0.270000010728836, 0.270000010728836, 0.270000010728836, 
+    0.270000010728836, 0.270000010728836, 0.270000010728836, 
+    0.270000010728836, 0.270000010728836, 0.270000010728836, 
+    0.270000010728836, 0.270000010728836, 0.270000010728836, 
+    0.270000010728836, 0.270000010728836, 0.270000010728836, 
+    0.270000010728836, 0.270000010728836, 0.270000010728836, 
+    0.270000010728836, 0.270000010728836, 0.270000010728836, 0.270000010728836 ;
+
+ baset = 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 8, 0, 0, 0, 0, 
+    10, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 0, 0, 0, 0, 10, 10, 
+    0, 0, 8, 8, 8, 8, 10, 10, 10, 10 ;
+
+ bdnr = 0.5 ;
+
+ bfact = _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, 0.1, 0.1, -1, -1, 
+    -10, -10, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 
+    0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 
+    0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 
+    0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 
+    0.1, 0.1 ;
+
+ bgc_cn_s1 = 8 ;
+
+ bgc_cn_s2 = 11 ;
+
+ bgc_cn_s3 = 11 ;
+
+ bgc_cwd_fcel = 0.76 ;
+
+ bgc_initial_Cstocks = 0, 0, 0, 2, 2, 2, 0, 2 ;
+
+ bgc_initial_Cstocks_depth = 0.2 ;
+
+ bgc_rf_cwdl3 = 0.5 ;
+
+ bgc_rf_l1s1 = 0.55 ;
+
+ bgc_rf_l2s1 = 0.5 ;
+
+ bgc_rf_l3s2 = 0.5 ;
+
+ bgc_rf_s2s1 = 0.55 ;
+
+ bgc_rf_s2s3 = 0.55 ;
+
+ bgc_rf_s3s1 = 0.55 ;
+
+ bgc_tau_l1 = 0.0540540553629398 ;
+
+ bgc_tau_l2_l3 = 0.204081624746323 ;
+
+ bgc_tau_s1 = 0.136986300349236 ;
+
+ bgc_tau_s2 = 5 ;
+
+ bgc_tau_s3 = 222.222229003906 ;
+
+ biofuel_harvfrac = 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0.7, 0.7, 0.7, 0.7, 0, 0, 0, 0 ;
+
+ br_mr = 2.525e-06 ;
+
+ bsw_adjustfactor = 1 ;
+
+ bsw_sf = 1 ;
+
+ c3psn = 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
+    1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 
+    0, 0, 0, 0, 0, 0, 1, 1 ;
+
+ c_fix = 25.1499996185303, 25.1499996185303, 25.1499996185303, 
+    25.1499996185303, 25.1499996185303, 25.1499996185303, 25.1499996185303, 
+    25.1499996185303, 25.1499996185303, 25.1499996185303, 25.1499996185303, 
+    25.1499996185303, 25.1499996185303, 25.1499996185303, 25.1499996185303, 
+    25.1499996185303, 25.1499996185303, 25.1499996185303, 25.1499996185303, 
+    25.1499996185303, 25.1499996185303, 25.1499996185303, 25.1499996185303, 
+    25.1499996185303, 25.1499996185303, 25.1499996185303, 25.1499996185303, 
+    25.1499996185303, 25.1499996185303, 25.1499996185303, 25.1499996185303, 
+    25.1499996185303, 25.1499996185303, 25.1499996185303, 25.1499996185303, 
+    25.1499996185303, 25.1499996185303, 25.1499996185303, 25.1499996185303, 
+    25.1499996185303, 25.1499996185303, 25.1499996185303, 25.1499996185303, 
+    25.1499996185303, 25.1499996185303, 25.1499996185303, 25.1499996185303, 
+    25.1499996185303, 25.1499996185303, 25.1499996185303, 25.1499996185303, 
+    25.1499996185303, 25.1499996185303, 25.1499996185303, 25.1499996185303, 
+    25.1499996185303, 25.1499996185303, 25.1499996185303, 25.1499996185303, 
+    25.1499996185303, 25.1499996185303, 25.1499996185303, 25.1499996185303, 
+    25.1499996185303, 25.1499996185303, 25.1499996185303, 25.1499996185303, 
+    25.1499996185303, 25.1499996185303, 25.1499996185303, 25.1499996185303, 
+    25.1499996185303, 25.1499996185303, 25.1499996185303, 25.1499996185303, 
+    25.1499996185303, 25.1499996185303, 25.1499996185303, 25.1499996185303 ;
+
+ capthick = 100 ;
+
+ cc_dstem = 0, 0.3, 0.3, 0.3, 0.27, 0.27, 0.27, 0.27, 0.27, 0.35, 0.35, 0.35, 
+    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 
+    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 
+    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 
+    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 
+    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8 ;
+
+ cc_leaf = 0, 0.8, 0.8, 0.8, 0.8, 0.8, 0.5, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 
+    0.8, 0.6, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 
+    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 
+    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 
+    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 
+    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8 ;
+
+ cc_lstem = 0, 0.3, 0.3, 0.3, 0.27, 0.27, 0.27, 0.27, 0.27, 0.35, 0.35, 0.35, 
+    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 
+    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 
+    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 
+    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 
+    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8 ;
+
+ cc_other = 0, 0.5, 0.5, 0.5, 0.4, 0.45, 0.45, 0.45, 0.45, 0.55, 0.55, 0.55, 
+    0.8, 0.8, 0.5, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 
+    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 
+    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 
+    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 
+    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8 ;
+
+ ceta = 358 ;
+
+ ck =
+  0, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 
+    3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 
+    3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 
+    3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 
+    3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 
+    3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 
+    3.95, 3.95, 3.95, 3.95, 3.95, 3.95,
+  0, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 
+    3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 
+    3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 
+    3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 
+    3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 
+    3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 
+    3.95, 3.95, 3.95, 3.95, 3.95, 3.95,
+  0, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 
+    3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 
+    3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 
+    3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 
+    3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 
+    3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 
+    3.95, 3.95, 3.95, 3.95, 3.95, 3.95,
+  0, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 
+    3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 
+    3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 
+    3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 
+    3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 
+    3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 3.95, 
+    3.95, 3.95, 3.95, 3.95, 3.95, 3.95 ;
+
+ clay_pf = 0 ;
+
+ cn_s1 = 12 ;
+
+ cn_s2 = 12 ;
+
+ cn_s3 = 10 ;
+
+ cn_s4 = 10 ;
+
+ cnscalefactor = 1 ;
+
+ compet_decomp_nh4 = 1 ;
+
+ compet_decomp_no3 = 1 ;
+
+ compet_denit = 1 ;
+
+ compet_nit = 1 ;
+
+ compet_plant_nh4 = 1 ;
+
+ compet_plant_no3 = 1 ;
+
+ cp25_yr2000 = 4.275e-05 ;
+
+ cpha = 37830 ;
+
+ crit_dayl = 39300 ;
+
+ crit_dayl_at_high_lat = 54000 ;
+
+ crit_dayl_lat_slope = 720 ;
+
+ crit_offset_fdd = 15 ;
+
+ crit_onset_gdd_sf = 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ;
+
+ crit_offset_swi = 15 ;
+
+ crit_onset_fdd = 15 ;
+
+ crit_onset_swi = 15 ;
+
+ croot_stem = 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ;
+
+ crop = 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
+    1, 1, 1, 1, 1, 1, 1, 1 ;
+
+ cryoturb_diffusion_k = 1.58548959918823e-11 ;
+
+ csoilc = 0.004 ;
+
+ csol_clay = 2.385 ;
+
+ csol_om = 2.5 ;
+
+ csol_sand = 2.128 ;
+
+ cv = 0.01 ;
+
+ cwd_flig = 0.24 ;
+
+ d_max = 15 ;
+
+ dayscrecover = 30 ;
+
+ dbh = 0, 0.3, 0.3, 0.3, 0.4, 0.25, 0.4, 0.25, 0.3, 0.05, 0.05, 0.05, 0.008, 
+    0.008, 0.008, 0.008, 0.008, 0.008, 0.008, 0.008, 0.008, 0.008, 0.008, 
+    0.008, 0.008, 0.008, 0.008, 0.008, 0.008, 0.008, 0.008, 0.008, 0.008, 
+    0.008, 0.008, 0.008, 0.008, 0.008, 0.008, 0.008, 0.008, 0.008, 0.008, 
+    0.008, 0.008, 0.008, 0.008, 0.008, 0.008, 0.008, 0.008, 0.008, 0.008, 
+    0.008, 0.008, 0.008, 0.008, 0.008, 0.008, 0.008, 0.008, 0.008, 0.008, 
+    0.008, 0.008, 0.008, 0.008, 0.008, 0.008, 0.008, 0.008, 0.008, 0.008, 
+    0.008, 0.008, 0.008, 0.008, 0.008, 0.008 ;
+
+ deadwdcn = 1, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 0, 0, 
+    0, 0, 0, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 
+    500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 
+    500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 
+    500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 
+    500, 500, 500, 500, 500, 500, 500 ;
+
+ declfact = _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, 1.05, 1.05, 
+    1.05, 1.05, 1.05, 1.05, 1.05, 1.05, 1.05, 1.05, 1.05, 1.05, 1.05, 1.05, 
+    1.05, 1.05, 1.05, 1.05, 1.05, 1.05, 1.05, 1.05, 1.05, 1.05, 1.05, 1.05, 
+    1.05, 1.05, 1.05, 1.05, 1.05, 1.05, 1.05, 1.05, 1.05, 1.05, 1.05, 1.05, 
+    1.05, 1.05, 1.05, 1.05, 1.05, 1.05, 1.05, 1.05, 1.05, 1.05, 1.05, 1.05, 
+    1.05, 1.05, 1.05, 1.05, 1.05, 1.05, 1.05, 1.05, 1.05, 1.05, 1.05, 1.05 ;
+
+ decomp_depth_efolding = 10 ;
+
+ denitrif_nitrateconc_coefficient = 1.15 ;
+
+ denitrif_nitrateconc_exponent = 0.57 ;
+
+ denitrif_respiration_coefficient = 0.1 ;
+
+ denitrif_respiration_exponent = 1.3 ;
+
+ depth_runoff_Nloss = 0.05 ;
+
+ displar = 0, 0.67, 0.67, 0.67, 0.67, 0.67, 0.67, 0.67, 0.67, 0.68, 0.68, 
+    0.68, 0.68, 0.68, 0.68, 0.68, 0.68, 0.68, 0.68, 0.68, 0.68, 0.68, 0.68, 
+    0.68, 0.68, 0.68, 0.68, 0.68, 0.68, 0.68, 0.68, 0.68, 0.68, 0.68, 0.68, 
+    0.68, 0.68, 0.68, 0.68, 0.68, 0.68, 0.68, 0.68, 0.68, 0.68, 0.68, 0.68, 
+    0.68, 0.68, 0.68, 0.68, 0.68, 0.68, 0.68, 0.68, 0.68, 0.68, 0.68, 0.68, 
+    0.68, 0.68, 0.68, 0.68, 0.68, 0.68, 0.68, 0.68, 0.68, 0.68, 0.68, 0.68, 
+    0.68, 0.68, 0.68, 0.68, 0.68, 0.68, 0.68, 0.68 ;
+
+ dleaf = 0, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 
+    0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 
+    0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 
+    0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 
+    0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 
+    0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 
+    0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04 ;
+
+ dnp = 0.01 ;
+
+ drift_gs = 0.00035 ;
+
+ dsladlai = 0, 0.00125, 0.001, 0.003, 0.00122, 0.0015, 0.0027, 0.0027, 
+    0.0027, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ;
+
+ e_ice = 6 ;
+
+ ef_time = 1 ;
+
+ ekc_active = 0, 0.36, 0.36, 0.036, 0.36, 0.36, 0.036, 0.36, 0.36, 0.36, 
+    0.36, 0.36, 0.36, 0.36, 3.6, 0.36, 0.36, 3.6, 3.6, 0.36, 0.36, 0.36, 
+    0.36, 0.36, 0.36, 0.36, 0.36, 0.36, 0.36, 0.36, 0.36, 0.36, 0.36, 0.36, 
+    0.36, 0.36, 0.36, 0.36, 0.36, 0.36, 0.36, 0.36, 0.36, 0.36, 0.36, 0.36, 
+    0.36, 0.36, 0.36, 0.36, 0.36, 0.36, 0.36, 0.36, 0.36, 0.36, 0.36, 0.36, 
+    0.36, 0.36, 0.36, 0.36, 0.36, 0.36, 0.36, 0.36, 0.36, 3.6, 3.6, 0.36, 
+    0.36, 3.6, 3.6, 3.6, 3.6, 3.6, 3.6, 0.36, 0.36 ;
+
+ ekn_active = 0, 0.06, 0.06, 0.006, 0.06, 0.06, 0.006, 0.06, 0.06, 0.06, 
+    0.06, 0.06, 0.06, 0.06, 0.6, 0.06, 0.06, 0.6, 0.6, 0.06, 0.06, 0.06, 
+    0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 
+    0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 
+    0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 
+    0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.6, 0.6, 0.06, 
+    0.06, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.06, 0.06 ;
+
+ enzyme_turnover_daily = 0.1 ;
+
+ eta0_anderson = 900000 ;
+
+ eta0_vionnet = 7622370 ;
+
+ evergreen = 0, 1, 1, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ;
+
+ f_ch4 = 0.2 ;
+
+ f_sat = 0.95 ;
+
+ fbw = 0, 0.45, 0.45, 0.45, 0.6, 0.6, 0.6, 0.6, 0.45, 0.5, 0.5, 0.5, 0.7, 
+    0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 
+    0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 
+    0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 
+    0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 
+    0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7 ;
+
+ fcur = 0, 1, 1, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
+    1, 1, 1, 1, 1, 1, 1, 1 ;
+
+ fcurdv = 0, 1, 1, 0.5, 1, 1, 0.5, 0.5, 0.5, 1, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 
+    0.5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ;
+
+ fd_pft = 0, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ;
+
+ fff = 0.5 ;
+
+ ffrootcn = 999, 999, 999, 999, 999, 999, 999, 999, 999, 999, 999, 999, 999, 
+    999, 999, 999, 999, 0, 0, 40, 40, 40, 40, 0, 0, 40, 40, 40, 40, 40, 40, 
+    40, 40, 999, 999, 999, 999, 999, 999, 999, 999, 0, 0, 999, 999, 999, 999, 
+    999, 999, 999, 999, 999, 999, 999, 999, 999, 999, 999, 999, 999, 999, 40, 
+    40, 999, 999, 999, 999, 0, 0, 999, 999, 0, 0, 0, 0, 0, 0, 0, 0 ;
+
+ fleafcn = 999, 999, 999, 999, 999, 999, 999, 999, 999, 999, 999, 999, 999, 
+    999, 999, 999, 999, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 
+    65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 
+    65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 
+    65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65 ;
+
+ fleafi = _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, 0.6, 0.6, 
+    0.899999976158142, 0.899999976158142, 0.800000011920929, 
+    0.800000011920929, 0.85, 0.85, 0.75, 0.75, 0.425, 0.425, 0.75, 0.75, 
+    0.425, 0.425, _, _, _, _, _, _, _, _, 0.85, 0.85, _, _, _, _, _, _, _, _, 
+    _, _, _, _, _, _, _, _, _, _, 0.75, 0.75, _, _, _, _, 0.6, 0.6, _, _, 
+    0.9, 0.9, 0.7, 0.7, 0.6, 0.6, 0.85, 0.85 ;
+
+ flivewd = 0, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.5, 0.5, 0.1, 0, 0, 0, 
+    0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ;
+
+ flnr = 0, 0.0509, 0.0466, 0.0546, 0.0461, 0.0515, 0.0716, 0.1007, 0.1007, 
+    0.0517, 0.0943, 0.0943, 0.1365, 0.1365, 0.09, 0.1758, 0.1758, 0.293, 
+    0.293, 0.4102, 0.4102, 0.4102, 0.4102, 0.4102, 0.4102, 0.4102, 0.4102, 
+    0.4102, 0.4102, 0.4102, 0.4102, 0.4102, 0.4102, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0.4102, 0.4102, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0.4102, 0.4102, 0, 0, 0, 0, 0.293, 0.293, 0, 0, 0.293, 0.293, 0.293, 
+    0.293, 0.293, 0.293, 0.4102, 0.4102 ;
+
+ fm_droot = 0, 0.15, 0.15, 0.15, 0.13, 0.13, 0.03, 0.13, 0.13, 0.17, 0.17, 
+    0.17, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 
+    0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 
+    0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 
+    0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 
+    0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2 ;
+
+ fm_dstem = 0, 0.15, 0.15, 0.15, 0.13, 0.13, 0.03, 0.13, 0.13, 0.17, 0.17, 
+    0.17, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 
+    0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 
+    0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 
+    0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 
+    0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2 ;
+
+ fm_leaf = 0, 0.8, 0.8, 0.8, 0.8, 0.8, 0.15, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 
+    0.8, 0.2, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 
+    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 
+    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 
+    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 
+    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8 ;
+
+ fm_lroot = 0, 0.15, 0.15, 0.15, 0.13, 0.13, 0.03, 0.13, 0.13, 0.17, 0.17, 
+    0.17, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 
+    0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 
+    0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 
+    0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 
+    0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2 ;
+
+ fm_lstem = 0, 0.5, 0.5, 0.5, 0.45, 0.45, 0.1, 0.45, 0.45, 0.55, 0.55, 0.55, 
+    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 
+    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 
+    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 
+    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 
+    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8 ;
+
+ fm_other = 0, 0.5, 0.5, 0.5, 0.45, 0.45, 0.1, 0.45, 0.45, 0.55, 0.55, 0.55, 
+    0.8, 0.8, 0.2, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 
+    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 
+    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 
+    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 
+    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8 ;
+
+ fm_root = 0, 0.15, 0.15, 0.15, 0.13, 0.13, 0.03, 0.13, 0.13, 0.17, 0.17, 
+    0.17, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 
+    0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 
+    0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 
+    0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 
+    0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2 ;
+
+ fnitr = 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
+    1, 1, 1, 1, 1, 1, 1, 1 ;
+
+ fnps = 0.15 ;
+
+ fnr = 7.16 ;
+
+ fr_fcel = 0, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 
+    0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 
+    0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 
+    0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 
+    0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 
+    0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 ;
+
+ fr_flab = 0, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 
+    0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 
+    0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 
+    0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 
+    0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 
+    0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 
+    0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25 ;
+
+ fr_flig = 0, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 
+    0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 
+    0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 
+    0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 
+    0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 
+    0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 
+    0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25 ;
+
+ frac_sat_soil_dsl_init = 0.8 ;
+
+ froot_leaf = 0, 1.5, 1.5, 0.75, 1.5, 1.5, 0.5, 1.5, 0.75, 1.5, 1.5, 1.2, 
+    1.2, 1.5, 0.5, 1.5, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 
+    2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 
+    2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 ;
+
+ frootcn = 1, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 
+    42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 
+    42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 
+    42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 
+    42, 42, 42, 42, 42, 42, 42, 42 ;
+
+ frootcn_max = 1, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 
+    52, 52, 52, 52, 52, 52, 52, 52, 52, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 52, 52, 52, 52, 0, 0, 0, 0 ;
+
+ frootcn_min = 1, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 
+    32, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 0, 0, 0, 0 ;
+
+ froz_q10 = 1.5 ;
+
+ fsr_pft = 0, 0.1, 0.1, 0.1, 0.21, 0.1, 0.21, 0.1, 0.1, 0.1, 0.1, 0.11, 0.11, 
+    0.21, 0.31, 0.21, 0.21, 0.21, 0.21, 0.21, 0.21, 0.21, 0.21, 0.21, 0.21, 
+    0.21, 0.21, 0.21, 0.21, 0.21, 0.21, 0.21, 0.21, 0.21, 0.21, 0.21, 0.21, 
+    0.21, 0.21, 0.21, 0.21, 0.21, 0.21, 0.21, 0.21, 0.21, 0.21, 0.21, 0.21, 
+    0.21, 0.21, 0.21, 0.21, 0.21, 0.21, 0.21, 0.21, 0.21, 0.21, 0.21, 0.21, 
+    0.21, 0.21, 0.21, 0.21, 0.21, 0.21, 0.21, 0.21, 0.21, 0.21, 0.21, 0.21, 
+    0.21, 0.21, 0.21, 0.21, 0.21, 0.21 ;
+
+ fstemcn = 999, 999, 999, 999, 999, 999, 999, 999, 999, 999, 999, 999, 999, 
+    999, 999, 999, 999, 120, 120, 100, 100, 100, 100, 130, 130, 100, 100, 
+    100, 100, 100, 100, 100, 100, 999, 999, 999, 999, 999, 999, 999, 999, 
+    130, 130, 999, 999, 999, 999, 999, 999, 999, 999, 999, 999, 999, 999, 
+    999, 999, 999, 999, 999, 999, 100, 100, 999, 999, 999, 999, 120, 120, 
+    999, 999, 120, 120, 120, 120, 120, 120, 130, 130 ;
+
+ fstor2tran = 0.5 ;
+
+ fun_cn_flex_a = 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 
+    5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 
+    5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 
+    5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5 ;
+
+ fun_cn_flex_b = 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 
+    100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 
+    100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 
+    100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 
+    100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 
+    100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100 ;
+
+ fun_cn_flex_c = 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 
+    8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 
+    8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 
+    8, 8, 8, 500, 500, 500, 500, 8, 8, 8, 8 ;
+
+ gddfunc_p1 = 4.8 ;
+
+ gddfunc_p2 = 0.13 ;
+
+ gddmin = _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, 50, 50, 50, 50, 
+    50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 
+    50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 
+    50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 
+    50, 50, 50, 50 ;
+
+ graincn = _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, 50, 50, 50, 50, 
+    50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 
+    50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 
+    50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 
+    50, 50, 50, 50 ;
+
+ grnfill = _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, 0.65, 0.65, 
+    0.6, 0.6, 0.4, 0.4, 0.5, 0.5, 0.6, 0.6, 0.4, 0.4, 0.6, 0.6, 0.4, 0.4, _, 
+    _, _, _, _, _, _, _, 0.5, 0.5, _, _, _, _, _, _, _, _, _, _, _, _, _, _, 
+    _, _, _, _, 0.400000005960464, 0.400000005960464, _, _, _, _, 0.65, 0.65, 
+    _, _, 0.4, 0.4, 0.4, 0.4, 0.5, 0.5, 0.5, 0.5 ;
+
+ grperc = 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 
+    0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 
+    0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 
+    0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 
+    0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 
+    0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 
+    0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11 ;
+
+ grpnow = 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
+    1, 1, 1, 1, 1, 1, 1, 1, 1 ;
+
+ highlatfact = 2 ;
+
+ hksat_adjustfactor = 1 ;
+
+ hksat_sf = 1 ;
+
+ hybgdd = _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, 1700, 1700, 
+    1700, 1700, 1700, 1700, 1900, 1900, 1700, 1700, 1700, 1700, 1700, 1700, 
+    1700, 1700, _, _, _, _, _, _, _, _, 1700, 1700, _, _, _, _, _, _, _, _, 
+    _, _, _, _, _, _, _, _, _, _, 2100, 2100, _, _, _, _, 4300, 4300, _, _, 
+    1700, 1700, 1700, 1700, 1800, 1800, 2100, 2100 ;
+
+ i_flnr = 0, 0.24, 0.24, 0.24, 0.18, 0.24, 0.18, 0.24, 0.24, 0.2, 0.2, 0.2, 
+    0.28, 0.28, 0.28, 0.28, 0.28, 0.28, 0.28, 0.28, 0.28, 0.28, 0.28, 0.28, 
+    0.28, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0.28, 0.28, 0.28, 0.28, 0, 0, 0, 0 ;
+
+ i_vcad = 0, 6.32, 6.32, 6.32, 30.93, 5.73, 4.19, 5.73, 5.73, 14.71, 14.71, 
+    14.71, 6.42, 6.42, 3.21, 4.71, 4.71, 3.21, 3.21, 4.71, 4.71, 4.71, 4.71, 
+    4.71, 4.71, 4.71, 4.71, 4.71, 4.71, 4.71, 4.71, 4.71, 4.71, 4.71, 4.71, 
+    4.71, 4.71, 4.71, 4.71, 4.71, 4.71, 4.71, 4.71, 4.71, 4.71, 4.71, 4.71, 
+    4.71, 4.71, 4.71, 4.71, 4.71, 4.71, 4.71, 4.71, 4.71, 4.71, 4.71, 4.71, 
+    4.71, 4.71, 4.71, 4.71, 4.71, 4.71, 4.71, 4.71, 3.21, 3.21, 4.71, 4.71, 
+    14.71, 14.71, 6.42, 6.42, 3.21, 3.21, 4.71, 4.71 ;
+
+ ignition_efficiency = 0.22 ;
+
+ interception_fraction = 1 ;
+
+ irrigated = 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 
+    0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 
+    0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 
+    0, 1, 0, 1, 0, 1, 0, 1, 0, 1 ;
+
+ jmax25top_sf = 1 ;
+
+ jmaxb0 = _, 0.0311, 0.0311, 0.0311, 0.0311, 0.0311, 0.0311, 0.0311, 0.0311, 
+    0.0311, 0.0311, 0.0311, 0.0311, 0.0311, 0.0311, 0.0311, 0.0311, 0.0311, 
+    0.0311, 0.0311, 0.0311, 0.0311, 0.0311, 0.0311, 0.0311, 0.0311, 0.0311, 
+    0.0311, 0.0311, 0.0311, 0.0311, 0.0311, 0.0311, 0.0311, 0.0311, 0.0311, 
+    0.0311, 0.0311, 0.0311, 0.0311, 0.0311, 0.0311, 0.0311, 0.0311, 0.0311, 
+    0.0311, 0.0311, 0.0311, 0.0311, 0.0311, 0.0311, 0.0311, 0.0311, 0.0311, 
+    0.0311, 0.0311, 0.0311, 0.0311, 0.0311, 0.0311, 0.0311, 0.0311, 0.0311, 
+    0.0311, 0.0311, 0.0311, 0.0311, 0.0311, 0.0311, 0.0311, 0.0311, 0.0311, 
+    0.0311, 0.0311, 0.0311, 0.0311, 0.0311, 0.0311, 0.0311 ;
+
+ jmaxb1 = _, 0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 
+    0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 
+    0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 
+    0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 
+    0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 
+    0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 
+    0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 0.17 ;
+
+ jmaxha = 50000 ;
+
+ jmaxhd = 200000 ;
+
+ jmaxse_sf = 1 ;
+
+ k_l1 = 1.20397280432594 ;
+
+ k_l2 = 0.0725706928348355 ;
+
+ k_l3 = 0.0140989243795016 ;
+
+ k_m = 0.005 ;
+
+ k_m_o2 = 0.02 ;
+
+ k_m_unsat = 0.0005 ;
+
+ k_mort = 0.3 ;
+
+ k_nitr_max_perday = 0.1 ;
+
+ k_s1 = 0.0725706928348355 ;
+
+ k_s2 = 0.0140989243795016 ;
+
+ k_s3 = 0.0014009809156281 ;
+
+ k_s4 = 0.000100005000333347 ;
+
+ kc25_coef = 0.0004049 ;
+
+ kc_nonmyc = 0, 0.012, 0.012, 0.0012, 0.012, 0.012, 0.0012, 0.012, 0.012, 
+    0.012, 0.012, 0.012, 0.012, 0.012, 0.12, 0.012, 0.012, 0.12, 0.12, 0.012, 
+    0.012, 0.012, 0.012, 0.012, 0.012, 0.012, 0.012, 0.012, 0.012, 0.012, 
+    0.012, 0.012, 0.012, 0.012, 0.012, 0.012, 0.012, 0.012, 0.012, 0.012, 
+    0.012, 0.012, 0.012, 0.012, 0.012, 0.012, 0.012, 0.012, 0.012, 0.012, 
+    0.012, 0.012, 0.012, 0.012, 0.012, 0.012, 0.012, 0.012, 0.012, 0.012, 
+    0.012, 0.012, 0.012, 0.012, 0.012, 0.012, 0.012, 0.12, 0.12, 0.012, 
+    0.012, 0.012, 0.012, 0.12, 0.12, 0.12, 0.12, 0.012, 0.012 ;
+
+ kcha = 79430 ;
+
+ kmax =
+  0, 1.60213975517925e-08, 2.23457427614444e-08, 1.79005014185594e-08, 
+    3.31727818325776e-08, 2.60268371088387e-08, 4.02782220022687e-08, 
+    2.47941539987797e-08, 2.73208051350879e-08, 1.14869835499703e-08, 
+    2.5173888751418e-09, 4.11795508633786e-09, 2.41484082231211e-09, 
+    2.00267469397406e-09, 1.29408115480172e-09, 2.05622765331214e-08, 2e-08, 
+    2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 
+    2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 
+    2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 
+    2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 
+    2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 
+    2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 
+    2e-08, 2e-08,
+  0, 1.60213975517925e-08, 2.23457427614444e-08, 1.79005014185594e-08, 
+    3.31727818325776e-08, 2.60268371088387e-08, 4.02782220022687e-08, 
+    2.47941539987797e-08, 2.73208051350879e-08, 1.14869835499703e-08, 
+    2.5173888751418e-09, 4.11795508633786e-09, 2.41484082231211e-09, 
+    2.00267469397406e-09, 1.29408115480172e-09, 2.05622765331214e-08, 2e-08, 
+    2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 
+    2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 
+    2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 
+    2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 
+    2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 
+    2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 
+    2e-08, 2e-08,
+  0, 1.60213975517925e-08, 2.23457427614444e-08, 1.79005014185594e-08, 
+    3.31727818325776e-08, 2.60268371088387e-08, 4.02782220022687e-08, 
+    2.47941539987797e-08, 2.73208051350879e-08, 1.14869835499703e-08, 
+    2.5173888751418e-09, 4.11795508633786e-09, 2.41484082231211e-09, 
+    2.00267469397406e-09, 1.29408115480172e-09, 2.05622765331214e-08, 2e-08, 
+    2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 
+    2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 
+    2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 
+    2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 
+    2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 
+    2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 
+    2e-08, 2e-08,
+  0, 1.60213975517925e-08, 2.23457427614444e-08, 1.79005014185594e-08, 
+    3.31727818325776e-08, 2.60268371088387e-08, 4.02782220022687e-08, 
+    2.47941539987797e-08, 2.73208051350879e-08, 1.14869835499703e-08, 
+    2.5173888751418e-09, 4.11795508633786e-09, 2.41484082231211e-09, 
+    2.00267469397406e-09, 1.29408115480172e-09, 2.05622765331214e-08, 2e-08, 
+    2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 
+    2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 
+    2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 
+    2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 
+    2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 
+    2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 2e-08, 
+    2e-08, 2e-08 ;
+
+ kn_nonmyc = 0, 0.72, 0.72, 0.72, 0.72, 0.72, 0.072, 0.72, 0.72, 0.72, 0.72, 
+    0.72, 0.72, 0.72, 7.2, 0.72, 0.72, 7.2, 7.2, 0.72, 0.72, 0.72, 0.72, 
+    0.72, 0.72, 0.72, 0.72, 0.72, 0.72, 0.72, 0.72, 0.72, 0.72, 0.72, 0.72, 
+    0.72, 0.72, 0.72, 0.72, 0.72, 0.72, 0.72, 0.72, 0.72, 0.72, 0.72, 0.72, 
+    0.72, 0.72, 0.72, 0.72, 0.72, 0.72, 0.72, 0.72, 0.72, 0.72, 0.72, 0.72, 
+    0.72, 0.72, 0.72, 0.72, 0.72, 0.72, 0.72, 0.72, 7.2, 7.2, 0.72, 0.72, 
+    0.72, 0.72, 7.2, 7.2, 7.2, 7.2, 0.72, 0.72 ;
+
+ ko25_coef = 0.2784 ;
+
+ koha = 36380 ;
+
+ kp25ratio = 20000 ;
+
+ kr_resorb = 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 
+    24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 
+    24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 
+    24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 
+    24, 24, 24, 24, 24, 24, 24, 24, 24 ;
+
+ krmax = 0, 1.4927420426307e-10, 1.56779574111855e-10, 1.07745668564285e-10, 
+    1.66095617207273e-10, 8.35222361889775e-11, 3.40432827595368e-09, 
+    1.03778774448923e-10, 1.39396863800964e-10, 1.02865632579853e-09, 
+    3.77530662468072e-08, 4.64543005274104e-11, 8.04984471899925e-11, 
+    2.077389772218e-08, 2.97287081481116e-08, 9.55913787486913e-10, 
+    7.94328234724282e-10, 7.94328234724282e-10, 7.94328234724282e-10, 
+    7.94328234724282e-10, 7.94328234724282e-10, 7.94328234724282e-10, 
+    7.94328234724282e-10, 7.94328234724282e-10, 7.94328234724282e-10, 
+    7.94328234724282e-10, 7.94328234724282e-10, 7.94328234724282e-10, 
+    7.94328234724282e-10, 7.94328234724282e-10, 7.94328234724282e-10, 
+    7.94328234724282e-10, 7.94328234724282e-10, 7.94328234724282e-10, 
+    7.94328234724282e-10, 7.94328234724282e-10, 7.94328234724282e-10, 
+    7.94328234724282e-10, 7.94328234724282e-10, 7.94328234724282e-10, 
+    7.94328234724282e-10, 7.94328234724282e-10, 7.94328234724282e-10, 
+    7.94328234724282e-10, 7.94328234724282e-10, 7.94328234724282e-10, 
+    7.94328234724282e-10, 7.94328234724282e-10, 7.94328234724282e-10, 
+    7.94328234724282e-10, 7.94328234724282e-10, 7.94328234724282e-10, 
+    7.94328234724282e-10, 7.94328234724282e-10, 7.94328234724282e-10, 
+    7.94328234724282e-10, 7.94328234724282e-10, 7.94328234724282e-10, 
+    7.94328234724282e-10, 7.94328234724282e-10, 7.94328234724282e-10, 
+    7.94328234724282e-10, 7.94328234724282e-10, 7.94328234724282e-10, 
+    7.94328234724282e-10, 7.94328234724282e-10, 7.94328234724282e-10, 
+    7.94328234724282e-10, 7.94328234724282e-10, 7.94328234724282e-10, 
+    7.94328234724282e-10, 7.94328234724282e-10, 7.94328234724282e-10, 
+    7.94328234724282e-10, 7.94328234724282e-10, 7.94328234724282e-10, 
+    7.94328234724282e-10, 7.94328234724282e-10, 7.94328234724282e-10 ;
+
+ lai_dl = 0.5 ;
+
+ laimx = _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, 5, 5, 7, 7, 7, 7, 
+    6, 6, 7, 7, 7, 7, 7, 7, 7, 7, _, _, _, _, _, _, _, _, 6, 6, _, _, _, _, 
+    _, _, _, _, _, _, _, _, _, _, _, _, _, _, 7, 7, _, _, _, _, 5, 5, _, _, 
+    10, 10, 6.5, 6.5, 5, 5, 6, 6 ;
+
+ lake_decomp_fact = 9e-11 ;
+
+ leaf_long = 0, 3.30916666666667, 3.30916666666667, 0.506666666666667, 
+    1.4025, 1.4025, 0.483333333333333, 0.483333333333333, 0.483333333333333, 
+    1.32333333333333, 0.39, 0.39, 0.320833333333333, 0.320833333333333, 0.14, 
+    0.320833333333333, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ;
+
+ leafcn = 1, 75.3259, 73.7122, 25.8131130614352, 21.623, 29.603315571344, 
+    23.4521575984991, 23.4521575984991, 23.4521575984991, 36.4166059723234, 
+    23.2558139534884, 27.8027, 26.7099, 28.0269058295964, 35.3606789250354, 
+    25, 25, 25, 25, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 
+    20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 
+    20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 25, 25, 
+    20, 20, 20, 20, 20, 20, 25, 25, 20, 20 ;
+
+ leafcn_co2_base = 310 ;
+
+ leafcn_co2_slope = 0 ;
+
+ leafcn_max = 1, 45, 50, 35, 40, 40, 35, 35, 35, 40, 35, 31.4, 30.7, 35, 35, 
+    35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ;
+
+ leafcn_min = 1, 25, 30, 15, 20, 20, 15, 15, 15, 20, 15, 11.4, 10.7, 15, 15, 
+    15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ;
+
+ lf_fcel = 0, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 
+    0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 
+    0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 
+    0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 
+    0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 
+    0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 ;
+
+ lf_flab = 0, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 
+    0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 
+    0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 
+    0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 
+    0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 
+    0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 
+    0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25 ;
+
+ lf_flig = 0, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 
+    0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 
+    0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 
+    0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 
+    0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 
+    0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 
+    0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25 ;
+
+ lfemerg = _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, 0.03, 0.03, 
+    0.05, 0.05, 0.03, 0.03, 0.03, 0.03, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 
+    0.05, 0.05, _, _, _, _, _, _, _, _, 0.03, 0.03, _, _, _, _, _, _, _, _, 
+    _, _, _, _, _, _, _, _, _, _, 0.00999999977648258, 0.00999999977648258, 
+    _, _, _, _, 0.03, 0.03, _, _, 0.03, 0.03, 0.03, 0.03, 0.03, 0.03, 0.03, 
+    0.03 ;
+
+ lflitcn = 1, 70, 80, 50, 60, 60, 50, 50, 50, 60, 50, 50, 50, 50, 50, 50, 50, 
+    25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 
+    25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 
+    25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 
+    25, 25, 25, 25, 25, 25, 25, 25 ;
+
+ liq_canopy_storage_scalar = 0.1 ;
+
+ livewdcn = 1, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 0, 0, 0, 0, 0, 50, 
+    50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 
+    50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 
+    50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 
+    50, 50, 50, 50, 50, 50, 50 ;
+
+ livewdcn_max = 1, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 0, 0, 0, 0, 0, 
+    60, 60, 60, 60, 60, 60, 60, 60, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 60, 60, 60, 60, 0, 0, 0, 0 ;
+
+ livewdcn_min = 1, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 0, 0, 0, 0, 0, 
+    40, 40, 40, 40, 40, 40, 40, 40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 40, 40, 40, 40, 0, 0, 0, 0 ;
+
+ lmr_intercept_atkin = 0, 1.4995, 1.4995, 1.4995, 1.756, 1.756, 1.756, 1.756, 
+    1.756, 2.0749, 2.0749, 2.0749, 2.1956, 2.1956, 2.1956, 2.1956, 2.1956, 
+    2.1956, 2.1956, 2.1956, 2.1956, 2.1956, 2.1956, 2.1956, 2.1956, 2.1956, 
+    2.1956, 2.1956, 2.1956, 2.1956, 2.1956, 2.1956, 2.1956, 2.1956, 2.1956, 
+    2.1956, 2.1956, 2.1956, 2.1956, 2.1956, 2.1956, 2.1956, 2.1956, 2.1956, 
+    2.1956, 2.1956, 2.1956, 2.1956, 2.1956, 2.1956, 2.1956, 2.1956, 2.1956, 
+    2.1956, 2.1956, 2.1956, 2.1956, 2.1956, 2.1956, 2.1956, 2.1956, 2.1956, 
+    2.1956, 2.1956, 2.1956, 2.1956, 2.1956, 2.1956, 2.1956, 2.1956, 2.1956, 
+    2.1956, 2.1956, 2.1956, 2.1956, 2.1956, 2.1956, 2.1956, 2.1956 ;
+
+ lmrha = 46390 ;
+
+ lmrhd = 150650 ;
+
+ lmrse = 490 ;
+
+ luna_theta_cj = 0.95 ;
+
+ lwtop_ann = 0.7 ;
+
+ manunitro = 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.002, 0.002, 
+    0.002, 0.002, 0.002, 0.002, 0.002, 0.002, 0.002, 0.002, 0.002, 0.002, 
+    0.002, 0.002, 0.002, 0.002, 0.002, 0.002, 0.002, 0.002, 0.002, 0.002, 
+    0.002, 0.002, 0.002, 0.002, 0.002, 0.002, 0.002, 0.002, 0.002, 0.002, 
+    0.002, 0.002, 0.002, 0.002, 0.002, 0.002, 0.002, 0.002, 0.002, 0.002, 
+    0.002, 0.002, 0.002, 0.002, 0.002, 0.002, 0.002, 0.002, 0.002, 0.002, 
+    0.002, 0.002, 0.002, 0.002, 0.002, 0.002, 0.002, 0.002, 0.002, 0.002 ;
+
+ maximum_leaf_wetted_fraction = 0.05 ;
+
+ max_NH_planting_date = _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, 
+    615, 615, 615, 615, 1130, 1130, 615, 615, 615, 615, 1130, 1130, 615, 615, 
+    1130, 1130, _, _, _, _, _, _, _, _, 531, 531, _, _, _, _, _, _, _, _, _, 
+    _, _, _, _, _, _, _, _, _, 228, 228, _, _, _, _, 331, 331, _, _, 615, 
+    615, 615, 615, 415, 415, 701, 701 ;
+
+ max_SH_planting_date = _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, 
+    1215, 1215, 1215, 1215, 530, 530, 1215, 1215, 1215, 1215, 530, 530, 1215, 
+    1215, 530, 530, _, _, _, _, _, _, _, _, 1130, 1130, _, _, _, _, _, _, _, 
+    _, _, _, _, _, _, _, _, _, _, _, 1231, 1231, _, _, _, _, 1031, 1031, _, 
+    _, 1215, 1215, 1215, 1215, 1015, 1015, 1231, 1231 ;
+
+ max_altdepth_cryoturbation = 2 ;
+
+ max_altmultiplier_cryoturb = 3 ;
+
+ maxpsi_hr = -0.002 ;
+
+ mbbopt = 0, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 4, 9, 9, 4, 4, 9, 9, 9, 
+    9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 
+    9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 4, 4, 9, 
+    9, 4, 4, 4, 4, 4, 4, 9, 9 ;
+
+ me_herb = 0.2 ;
+
+ me_woody = 0.3 ;
+
+ medlynintercept = 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 
+    100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 
+    100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 
+    100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 
+    100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 
+    100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100 ;
+
+ medlynslope = 0, 3.096, 3.096, 2.34999990463257, 6.63, 4.11999988555908, 
+    4.44999980926514, 4.44999980926514, 4.44999980926514, 4.69999980926514, 
+    4.69999980926514, 4.69999980926514, 2.22000002861023, 5.25, 
+    1.62000000476837, 5.78999996185303, 5.78999996185303, 1.78999996185303, 
+    1.78999996185303, 5.78999996185303, 5.78999996185303, 5.78999996185303, 
+    5.78999996185303, 5.78999996185303, 5.78999996185303, 5.78999996185303, 
+    5.78999996185303, 5.78999996185303, 5.78999996185303, 5.78999996185303, 
+    5.78999996185303, 5.78999996185303, 5.78999996185303, 5.78999996185303, 
+    5.78999996185303, 5.78999996185303, 5.78999996185303, 5.78999996185303, 
+    5.78999996185303, 5.78999996185303, 5.78999996185303, 5.78999996185303, 
+    5.78999996185303, 5.78999996185303, 5.78999996185303, 5.78999996185303, 
+    5.78999996185303, 5.78999996185303, 5.78999996185303, 5.78999996185303, 
+    5.78999996185303, 5.78999996185303, 5.78999996185303, 5.78999996185303, 
+    5.78999996185303, 5.78999996185303, 5.78999996185303, 5.78999996185303, 
+    5.78999996185303, 5.78999996185303, 5.78999996185303, 5.78999996185303, 
+    5.78999996185303, 5.78999996185303, 5.78999996185303, 5.78999996185303, 
+    5.78999996185303, 1.78999996185303, 1.78999996185303, 5.78999996185303, 
+    5.78999996185303, 1.78999996185303, 1.78999996185303, 1.78999996185303, 
+    1.78999996185303, 1.78999996185303, 1.78999996185303, 5.78999996185303, 
+    5.78999996185303 ;
+
+ mergetoclmpft = _, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 
+    17, 18, 19, 20, 21, 22, 23, 24, 19, 20, 21, 22, 19, 20, 21, 22, 61, 62, 
+    19, 20, 61, 62, 61, 62, 41, 42, 41, 42, 19, 20, 19, 20, 61, 62, 75, 76, 
+    61, 62, 19, 20, 19, 20, 19, 20, 61, 62, 75, 76, 19, 20, 67, 68, 19, 20, 
+    71, 72, 73, 74, 75, 76, 77, 78 ;
+
+ mimics_cn_k = 10 ;
+
+ mimics_cn_mod_num = 0.4 ;
+
+ mimics_cn_r = 6 ;
+
+ mimics_densdep = 1.2 ;
+
+ mimics_desorpQ10 = 1 ;
+
+ mimics_desorp = 5.25e-06, -2 ;
+
+ mimics_fchem_k = 0.9, -3 ;
+
+ mimics_fchem_r = 0.3, -3 ;
+
+ mimics_fi = 0.005, 0.23 ;
+
+ mimics_fmet = 0.75, 0.85, 0.013, 40 ;
+
+ mimics_fphys_k = 0.02, 0.8 ;
+
+ mimics_fphys_r = 0.03, 1.3 ;
+
+ mimics_initial_Cstocks = 1, 1, 200, 200, 200, 1, 1, 1 ;
+
+ mimics_initial_Cstocks_depth = 1.5 ;
+
+ mimics_kint = 3.19, 3.19, 3.19, 3.19, 3.19, 3.19, 0, 0 ;
+
+ mimics_kmod = 0.001953125, 0.0078125, 0.00390625, 0.0078125, 0.00390625, 
+    0.002604167, 0, 0 ;
+
+ mimics_ko_k = 4 ;
+
+ mimics_ko_r = 4 ;
+
+ mimics_kslope = 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0, 0 ;
+
+ mimics_mge = 0.5, 0.25, 0.5, 0.7, 0.35, 0.7, 0, 0 ;
+
+ mimics_nue_into_mic = 0.85 ;
+
+ mimics_p_scalar = 0.8, -3 ;
+
+ mimics_t_soi_ref = 25 ;
+
+ mimics_tau_k = 0.00024, 0.1 ;
+
+ mimics_tau_mod_factor = 0.01 ;
+
+ mimics_tau_mod_max = 1.5 ;
+
+ mimics_tau_mod_min = 1.5 ;
+
+ mimics_tau_r = 0.00052, 0.3 ;
+
+ mimics_vint = 6.6, 6.6, 6.6, 6.6, 6.6, 6.6, 0, 0 ;
+
+ mimics_vmod = 1.25e-07, 2.5e-08, 1.25e-07, 3.75e-08, 3.75e-08, 2.5e-08, 0, 0 ;
+
+ mimics_vslope = 0.0756, 0.0756, 0.0756, 0.0756, 0.0756, 0.0756, 0, 0 ;
+
+ min_NH_planting_date = _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, 
+    401, 401, 401, 401, 901, 901, 501, 501, 401, 401, 901, 901, 401, 401, 
+    901, 901, _, _, _, _, _, _, _, _, 401, 401, _, _, _, _, _, _, _, _, _, _, 
+    _, _, _, _, _, _, _, _, 101, 101, _, _, _, _, 101, 101, _, _, 401, 401, 
+    401, 401, 320, 320, 415, 415 ;
+
+ min_SH_planting_date = _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, 
+    1001, 1001, 1001, 1001, 301, 301, 1101, 1101, 1001, 1001, 301, 301, 1001, 
+    1001, 301, 301, _, _, _, _, _, _, _, _, 901, 901, _, _, _, _, _, _, _, _, 
+    _, _, _, _, _, _, _, _, _, _, 1015, 1015, _, _, _, _, 801, 801, _, _, 
+    1001, 1001, 1001, 1001, 920, 920, 1015, 1015 ;
+
+ min_planting_temp = _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, 
+    279.15, 279.15, 272.15, 272.15, 283.15, 283.15, 279.15, 279.15, 272.15, 
+    272.15, 278.15, 278.15, 272.15, 272.15, 278.15, 278.15, _, _, _, _, _, _, 
+    _, _, 283.15, 283.15, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, 
+    _, 283.15, 283.15, _, _, _, _, 283.15, 283.15, _, _, 279.15, 279.15, 
+    279.15, 279.15, 283.15, 283.15, 283.15, 283.15 ;
+
+ minfuel = 100 ;
+
+ mino2lim = 0.2 ;
+
+ minpsi_hr = -2 ;
+
+ minrelh = 0.25 ;
+
+ mu = 0.13889 ;
+
+ mxmat = _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, 165, 165, 150, 
+    150, 330, 330, 150, 150, 150, 150, 265, 265, 150, 150, 265, 265, _, _, _, 
+    _, _, _, _, _, 160, 160, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, 
+    _, _, 150, 150, _, _, _, _, 300, 300, _, _, 210, 210, 210, 210, 160, 160, 
+    150, 150 ;
+
+ mxtmp = _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, 30, 30, 26, 26, 
+    26, 26, 30, 30, 26, 26, 26, 26, 26, 26, 26, 26, _, _, _, _, _, _, _, _, 
+    30, 30, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, 30, 30, _, 
+    _, _, _, 30, 30, _, _, 30, 30, 30, 30, 30, 30, 30, 30 ;
+
+ n_baseflow = 1 ;
+
+ n_melt_coef = 200 ;
+
+ ndays_off = 15 ;
+
+ ndays_on = 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 
+    30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 
+    30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 
+    30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 
+    30, 30, 30, 30, 30, 30, 30, 30, 30 ;
+
+ nongrassporosratio = 0.33 ;
+
+ nstem = 0, 0.08, 0.08, 0.08, 0.06, 0.035, 0.06, 0.035, 0.08, 0.5, 0.5, 0.5, 
+    100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 
+    100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 
+    100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 
+    100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 
+    100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100 ;
+
+ om_frac_sf = 1 ;
+
+ organic_max = 130 ;
+
+ oxinhib = 400 ;
+
+ pHmax = 9 ;
+
+ pHmin = 2.2 ;
+
+ pc = 0.4 ;
+
+ pconv = 1, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.8, 0.8, 0.8, 1, 1, 1, 
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ;
+
+ pd = 2700 ;
+
+ perched_baseflow_scalar = 1e-05 ;
+
+ perecm = 1, 1, 1, 1, 0, 0, 0, 0.5, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0 ;
+
+ pftname =
+  "not_vegetated                           ",
+  "needleleaf_evergreen_temperate_tree     ",
+  "needleleaf_evergreen_boreal_tree        ",
+  "needleleaf_deciduous_boreal_tree        ",
+  "broadleaf_evergreen_tropical_tree       ",
+  "broadleaf_evergreen_temperate_tree      ",
+  "broadleaf_deciduous_tropical_tree       ",
+  "broadleaf_deciduous_temperate_tree      ",
+  "broadleaf_deciduous_boreal_tree         ",
+  "broadleaf_evergreen_shrub               ",
+  "broadleaf_deciduous_temperate_shrub     ",
+  "broadleaf_deciduous_boreal_shrub        ",
+  "c3_arctic_grass                         ",
+  "c3_non-arctic_grass                     ",
+  "c4_grass                                ",
+  "c3_crop                                 ",
+  "c3_irrigated                            ",
+  "temperate_corn                          ",
+  "irrigated_temperate_corn                ",
+  "spring_wheat                            ",
+  "irrigated_spring_wheat                  ",
+  "winter_wheat                            ",
+  "irrigated_winter_wheat                  ",
+  "temperate_soybean                       ",
+  "irrigated_temperate_soybean             ",
+  "barley                                  ",
+  "irrigated_barley                        ",
+  "winter_barley                           ",
+  "irrigated_winter_barley                 ",
+  "rye                                     ",
+  "irrigated_rye                           ",
+  "winter_rye                              ",
+  "irrigated_winter_rye                    ",
+  "cassava                                 ",
+  "irrigated_cassava                       ",
+  "citrus                                  ",
+  "irrigated_citrus                        ",
+  "cocoa                                   ",
+  "irrigated_cocoa                         ",
+  "coffee                                  ",
+  "irrigated_coffee                        ",
+  "cotton                                  ",
+  "irrigated_cotton                        ",
+  "datepalm                                ",
+  "irrigated_datepalm                      ",
+  "foddergrass                             ",
+  "irrigated_foddergrass                   ",
+  "grapes                                  ",
+  "irrigated_grapes                        ",
+  "groundnuts                              ",
+  "irrigated_groundnuts                    ",
+  "millet                                  ",
+  "irrigated_millet                        ",
+  "oilpalm                                 ",
+  "irrigated_oilpalm                       ",
+  "potatoes                                ",
+  "irrigated_potatoes                      ",
+  "pulses                                  ",
+  "irrigated_pulses                        ",
+  "rapeseed                                ",
+  "irrigated_rapeseed                      ",
+  "rice                                    ",
+  "irrigated_rice                          ",
+  "sorghum                                 ",
+  "irrigated_sorghum                       ",
+  "sugarbeet                               ",
+  "irrigated_sugarbeet                     ",
+  "sugarcane                               ",
+  "irrigated_sugarcane                     ",
+  "sunflower                               ",
+  "irrigated_sunflower                     ",
+  "miscanthus                              ",
+  "irrigated_miscanthus                    ",
+  "switchgrass                             ",
+  "irrigated_switchgrass                   ",
+  "tropical_corn                           ",
+  "irrigated_tropical_corn                 ",
+  "tropical_soybean                        ",
+  "irrigated_tropical_soybean              " ;
+
+ pftnum = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 
+    19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 
+    37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 
+    55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 
+    73, 74, 75, 76, 77, 78 ;
+
+ pftpar20 = _, 15, 15, 15, 15, 15, 15, 15, 15, 5, 5, 5, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ;
+
+ pftpar28 = _, -2, -32.5, _, 15.5, 3, 15.5, -17, -1000, _, -17, -1000, -1000, 
+    -17, 15.5, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, 
+    _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, 
+    _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ ;
+
+ pftpar29 = _, 22, -2, -2, _, 18.8, _, 15.5, -2, _, _, -2, -17, 15.5, _, _, 
+    _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, 
+    _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, 
+    _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ ;
+
+ pftpar30 = 0, 900, 600, 350, 0, 1200, 0, 1200, 350, 0, 1200, 350, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ;
+
+ pftpar31 = _, _, 23, 23, _, _, _, _, 23, _, _, 23, _, _, _, _, _, _, _, _, 
+    _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, 
+    _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, 
+    _, _, _, _, _, _, _, _, _, _, _ ;
+
+ phenology_soil_depth = 0.08 ;
+
+ planting_temp = _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, 283.15, 
+    283.15, 280.15, 280.15, _, _, 286.15, 286.15, 280.15, 280.15, _, _, 
+    280.15, 280.15, _, _, _, _, _, _, _, _, _, _, 294.15, 294.15, _, _, _, _, 
+    _, _, _, _, _, _, _, _, _, _, _, _, _, _, 294.15, 294.15, _, _, _, _, 
+    294.15, 294.15, _, _, 283.15, 283.15, 283.15, 283.15, 294.15, 294.15, 
+    294.15, 294.15 ;
+
+ porosmin = 0.05 ;
+
+ pprod10 = 0, 0.3, 0.3, 0.3, 0.4, 0.3, 0.4, 0.3, 0.3, 0.2, 0.2, 0.2, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ;
+
+ pprod100 = 0, 0.1, 0.1, 0.1, 0, 0.1, 0, 0.1, 0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ;
+
+ pprodharv10 = _, 0.75, 0.75, 0.75, 1, 0.75, 1, 0.75, 0.75, _, _, _, _, _, _, 
+    _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, 
+    _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, 
+    _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ ;
+
+ prh30 = 0.6 ;
+
+ psi50 =
+  -150000, -530000, -400000, -380000, -250000, -270000, -340000, -270000, 
+    -200000, -400000, -390000, -390000, -340000, -340000, -340000, -340000, 
+    -340000, -340000, -340000, -340000, -340000, -340000, -340000, -340000, 
+    -340000, -340000, -340000, -340000, -340000, -340000, -340000, -340000, 
+    -340000, -340000, -340000, -340000, -340000, -340000, -340000, -340000, 
+    -340000, -340000, -340000, -340000, -340000, -340000, -340000, -340000, 
+    -340000, -340000, -340000, -340000, -340000, -340000, -340000, -340000, 
+    -340000, -340000, -340000, -340000, -340000, -340000, -340000, -340000, 
+    -340000, -340000, -340000, -340000, -340000, -340000, -340000, -340000, 
+    -340000, -340000, -340000, -340000, -340000, -340000, -340000,
+  -150000, -530000, -400000, -380000, -250000, -270000, -340000, -270000, 
+    -200000, -400000, -390000, -390000, -340000, -340000, -340000, -340000, 
+    -340000, -340000, -340000, -340000, -340000, -340000, -340000, -340000, 
+    -340000, -340000, -340000, -340000, -340000, -340000, -340000, -340000, 
+    -340000, -340000, -340000, -340000, -340000, -340000, -340000, -340000, 
+    -340000, -340000, -340000, -340000, -340000, -340000, -340000, -340000, 
+    -340000, -340000, -340000, -340000, -340000, -340000, -340000, -340000, 
+    -340000, -340000, -340000, -340000, -340000, -340000, -340000, -340000, 
+    -340000, -340000, -340000, -340000, -340000, -340000, -340000, -340000, 
+    -340000, -340000, -340000, -340000, -340000, -340000, -340000,
+  -200000, -530000, -400000, -380000, -250000, -270000, -340000, -270000, 
+    -200000, -400000, -390000, -390000, -340000, -340000, -340000, -340000, 
+    -340000, -340000, -340000, -340000, -340000, -340000, -340000, -340000, 
+    -340000, -340000, -340000, -340000, -340000, -340000, -340000, -340000, 
+    -340000, -340000, -340000, -340000, -340000, -340000, -340000, -340000, 
+    -340000, -340000, -340000, -340000, -340000, -340000, -340000, -340000, 
+    -340000, -340000, -340000, -340000, -340000, -340000, -340000, -340000, 
+    -340000, -340000, -340000, -340000, -340000, -340000, -340000, -340000, 
+    -340000, -340000, -340000, -340000, -340000, -340000, -340000, -340000, 
+    -340000, -340000, -340000, -340000, -340000, -340000, -340000,
+  -200000, -530000, -400000, -380000, -250000, -270000, -340000, -270000, 
+    -200000, -400000, -390000, -390000, -340000, -340000, -340000, -340000, 
+    -340000, -340000, -340000, -340000, -340000, -340000, -340000, -340000, 
+    -340000, -340000, -340000, -340000, -340000, -340000, -340000, -340000, 
+    -340000, -340000, -340000, -340000, -340000, -340000, -340000, -340000, 
+    -340000, -340000, -340000, -340000, -340000, -340000, -340000, -340000, 
+    -340000, -340000, -340000, -340000, -340000, -340000, -340000, -340000, 
+    -340000, -340000, -340000, -340000, -340000, -340000, -340000, -340000, 
+    -340000, -340000, -340000, -340000, -340000, -340000, -340000, -340000, 
+    -340000, -340000, -340000, -340000, -340000, -340000, -340000 ;
+
+ q10_ch4oxid = 1.9 ;
+
+ q10_hr = 1.5 ;
+
+ q10_mr = 1.5 ;
+
+ q10ch4 = 1.33 ;
+
+ q10ch4base = 295 ;
+
+ q10lakebase = 298 ;
+
+ qflxlagd = 30 ;
+
+ r_mort = 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 
+    0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 
+    0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 
+    0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 
+    0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 
+    0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 
+    0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02 ;
+
+ rc_npool = 10 ;
+
+ redoxlag = 30 ;
+
+ redoxlag_vertical = 0 ;
+
+ relhExp = 6.0999 ;
+
+ rf_cwdl2 = 0.5 ;
+
+ rf_l1s1 = 0.39 ;
+
+ rf_l2s2 = 0.55 ;
+
+ rf_l3s3 = 0.29 ;
+
+ rf_s1s2 = 0.28 ;
+
+ rf_s2s3 = 0.46 ;
+
+ rf_s3s4 = 0.55 ;
+
+ rho_max = 350 ;
+
+ rholnir = 0, 0.41, 0.41, 0.39, 0.46, 0.46, 0.41, 0.41, 0.41, 0.46, 0.41, 
+    0.41, 0.28, 0.28, 0.28, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 
+    0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 
+    0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 
+    0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 
+    0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 
+    0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42 ;
+
+ rholvis = 0, 0.09, 0.09, 0.08, 0.11, 0.11, 0.08, 0.08, 0.08, 0.11, 0.08, 
+    0.08, 0.05, 0.05, 0.05, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 
+    0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 
+    0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 
+    0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 
+    0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 
+    0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08 ;
+
+ rhosnir = 0, 0.36, 0.36, 0.36, 0.49, 0.49, 0.49, 0.49, 0.49, 0.49, 0.49, 
+    0.49, 0.53, 0.53, 0.53, 0.53, 0.53, 0.53, 0.53, 0.53, 0.53, 0.53, 0.53, 
+    0.53, 0.53, 0.53, 0.53, 0.53, 0.53, 0.53, 0.53, 0.53, 0.53, 0.53, 0.53, 
+    0.53, 0.53, 0.53, 0.53, 0.53, 0.53, 0.53, 0.53, 0.53, 0.53, 0.53, 0.53, 
+    0.53, 0.53, 0.53, 0.53, 0.53, 0.53, 0.53, 0.53, 0.53, 0.53, 0.53, 0.53, 
+    0.53, 0.53, 0.53, 0.53, 0.53, 0.53, 0.53, 0.53, 0.53, 0.53, 0.53, 0.53, 
+    0.53, 0.53, 0.53, 0.53, 0.53, 0.53, 0.53, 0.53 ;
+
+ rhosvis = 0, 0.12, 0.12, 0.12, 0.21, 0.21, 0.21, 0.21, 0.21, 0.21, 0.21, 
+    0.21, 0.31, 0.31, 0.31, 0.31, 0.31, 0.31, 0.31, 0.31, 0.31, 0.31, 0.31, 
+    0.31, 0.31, 0.31, 0.31, 0.31, 0.31, 0.31, 0.31, 0.31, 0.31, 0.31, 0.31, 
+    0.31, 0.31, 0.31, 0.31, 0.31, 0.31, 0.31, 0.31, 0.31, 0.31, 0.31, 0.31, 
+    0.31, 0.31, 0.31, 0.31, 0.31, 0.31, 0.31, 0.31, 0.31, 0.31, 0.31, 0.31, 
+    0.31, 0.31, 0.31, 0.31, 0.31, 0.31, 0.31, 0.31, 0.31, 0.31, 0.31, 0.31, 
+    0.31, 0.31, 0.31, 0.31, 0.31, 0.31, 0.31, 0.31 ;
+
+ rij_kro_a = 1.5e-10 ;
+
+ rij_kro_alpha = 1.26 ;
+
+ rij_kro_beta = 0.6 ;
+
+ rij_kro_delta = 0.85 ;
+
+ rij_kro_gamma = 0.6 ;
+
+ rob = 3 ;
+
+ root_dmx = 999, 999, 999, 999, 999, 999, 999, 999, 999, 999, 999, 999, 999, 
+    999, 999, 999, 999, 1.20000004768372, 1.20000004768372, 
+    0.899999976158142, 0.899999976158142, 0.899999976158142, 
+    0.899999976158142, 1.60000002384186, 1.60000002384186, 1.60000002384186, 
+    1.60000002384186, 1.60000002384186, 1.60000002384186, 1.60000002384186, 
+    1.60000002384186, 1.60000002384186, 1.60000002384186, 1.60000002384186, 
+    1.60000002384186, 1.60000002384186, 1.60000002384186, 1.60000002384186, 
+    1.60000002384186, 1.60000002384186, 1.60000002384186, 1.60000002384186, 
+    1.60000002384186, 1.60000002384186, 1.60000002384186, 1.60000002384186, 
+    1.60000002384186, 1.60000002384186, 1.60000002384186, 1.60000002384186, 
+    1.60000002384186, 1.60000002384186, 1.60000002384186, 1.60000002384186, 
+    1.60000002384186, 1.60000002384186, 1.60000002384186, 1.60000002384186, 
+    1.60000002384186, 1.60000002384186, 1.60000002384186, 1.60000002384186, 
+    1.60000002384186, 1.60000002384186, 1.60000002384186, 1.60000002384186, 
+    1.60000002384186, 1.60000002384186, 1.60000002384186, 1.60000002384186, 
+    1.60000002384186, 1.20000004768372, 1.20000004768372, 1.20000004768372, 
+    1.20000004768372, 1.60000002384186, 1.60000002384186, 1.60000002384186, 
+    1.60000002384186 ;
+
+ roota_par = 7, 7, 7, 7, 7, 7, 6, 6, 6, 7, 7, 7, 11, 11, 11, 6, 6, 6, 6, 6, 
+    6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 
+    6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 
+    6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6 ;
+
+ rootb_par = 2, 2, 2, 2, 1, 1, 2, 2, 2, 1.5, 1.5, 1.5, 2, 2, 2, 3, 3, 3, 3, 
+    3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 
+    3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 
+    3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3 ;
+
+ rootlitfrac = 0.5 ;
+
+ rootprof_beta =
+  0.976, 0.976, 0.943, 0.943, 0.993, 0.966, 0.993, 0.966, 0.943, 0.964, 
+    0.964, 0.914, 0.914, 0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 
+    0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 
+    0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 
+    0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 
+    0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 
+    0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 
+    0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 0.943,
+  0.976, 0.976, 0.943, 0.943, 0.962, 0.966, 0.961, 0.966, 0.943, 0.964, 
+    0.964, 0.914, 0.914, 0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 
+    0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 
+    0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 
+    0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 
+    0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 
+    0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 
+    0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 0.943, 0.943 ;
+
+ rstem = 0, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 
+    1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 
+    1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 
+    1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 
+    1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 
+    1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 
+    1000, 1000, 1000, 1000, 1000, 1000, 1000 ;
+
+ rswf_max = 0.7, 0.55, 0.7, 0.55, 0.75, 0.7, 0.7, 0.7, 0.7, 0.55, 0.55, 0.7, 
+    0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 
+    0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 
+    0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 
+    0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 
+    0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7 ;
+
+ rswf_min = 0.25, 0.25, 0.35, 0.15, 0.35, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.35, 
+    0.35, 0.3, 0.4, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 
+    0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 
+    0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 
+    0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 
+    0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3 ;
+
+ s_fix = -6, -6, -6, -6, -6, -6, -6, -6, -6, -6, -6, -6, -6, -6, -6, -6, -6, 
+    -6, -6, -6, -6, -6, -6, -6, -6, -6, -6, -6, -6, -6, -6, -6, -6, -6, -6, 
+    -6, -6, -6, -6, -6, -6, -6, -6, -6, -6, -6, -6, -6, -6, -6, -6, -6, -6, 
+    -6, -6, -6, -6, -6, -6, -6, -6, -6, -6, -6, -6, -6, -6, -6, -6, -6, -6, 
+    -6, -6, -6, -6, -6, -6, -6, -6 ;
+
+ s_flnr = 0, -0.22, -0.22, -0.22, -0.38, -0.22, -0.38, -0.22, -0.22, -0.01, 
+    -0.01, -0.01, -0.03, -0.03, -0.03, -0.03, -0.03, -0.03, -0.03, -0.03, 
+    -0.03, -0.03, -0.03, -0.03, -0.03, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, -0.03, -0.03, -0.03, -0.03, 0, 0, 0, 0 ;
+
+ s_vcad = 0, 18.15, 18.15, 18.15, 5.5, 29.81, 26.19, 29.81, 29.81, 23.15, 
+    23.15, 23.15, 40.96, 40.96, 20.48, 59.23, 59.23, 20.48, 20.48, 59.23, 
+    59.23, 59.23, 59.23, 59.23, 59.23, 59.23, 59.23, 59.23, 59.23, 59.23, 
+    59.23, 59.23, 59.23, 59.23, 59.23, 59.23, 59.23, 59.23, 59.23, 59.23, 
+    59.23, 59.23, 59.23, 59.23, 59.23, 59.23, 59.23, 59.23, 59.23, 59.23, 
+    59.23, 59.23, 59.23, 59.23, 59.23, 59.23, 59.23, 59.23, 59.23, 59.23, 
+    59.23, 59.23, 59.23, 59.23, 59.23, 59.23, 59.23, 20.48, 20.48, 59.23, 
+    59.23, 59.23, 59.23, 40.96, 40.96, 20.48, 20.48, 59.23, 59.23 ;
+
+ sand_pf = 0 ;
+
+ satpow = 2 ;
+
+ scale_factor_aere = 1 ;
+
+ scale_factor_gasdiff = 1 ;
+
+ scale_factor_liqdiff = 1 ;
+
+ scvng_fct_mlt_sf = 0.5 ;
+
+ scvng_fct_mlt_bcphi = 0.2 ;
+
+ scvng_fct_mlt_bcpho = 0.03 ;
+
+ scvng_fct_mlt_dst1 = 0.02 ;
+
+ scvng_fct_mlt_dst2 = 0.02 ;
+
+ scvng_fct_mlt_dst3 = 0.01 ;
+
+ scvng_fct_mlt_dst4 = 0.01 ;
+
+ season_decid = 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ;
+
+ season_decid_temperate = 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ;
+
+ segment =
+  "sunlit                                  ",
+  "shaded                                  ",
+  "xylem                                   ",
+  "root                                    " ;
+
+ sf_minn = 0.1 ;
+
+ sf_no3 = 1 ;
+
+ shape_fluxprof_param1 = 10000000000 ;
+
+ slatop = 0, 0.0075, 0.0074, 0.02018, 0.017, 0.019, 0.0308, 0.0308, 0.0308, 
+    0.01798, 0.03072, 0.0249, 0.0183, 0.04024, 0.03846, 0.04024, 0.04024, 
+    0.05, 0.05, 0.035, 0.035, 0.035, 0.035, 0.035, 0.035, 0.035, 0.035, 
+    0.035, 0.035, 0.035, 0.035, 0.035, 0.035, 0.035, 0.035, 0.035, 0.035, 
+    0.035, 0.035, 0.035, 0.035, 0.035, 0.035, 0.035, 0.035, 0.035, 0.035, 
+    0.035, 0.035, 0.035, 0.035, 0.035, 0.035, 0.035, 0.035, 0.035, 0.035, 
+    0.035, 0.035, 0.035, 0.035, 0.035, 0.035, 0.035, 0.035, 0.035, 0.035, 
+    0.05, 0.05, 0.035, 0.035, 0.035, 0.035, 0.035, 0.035, 0.05, 0.05, 0.035, 
+    0.035 ;
+
+ slopebeta = -3 ;
+
+ slopemax = 0.4 ;
+
+ smp_crit = -240000 ;
+
+ smpsc = 0, -255000, -255000, -255000, -255000, -255000, -224000, -224000, 
+    -224000, -428000, -428000, -428000, -275000, -275000, -275000, -275000, 
+    -275000, -275000, -275000, -275000, -275000, -275000, -275000, -275000, 
+    -275000, -275000, -275000, -275000, -275000, -275000, -275000, -275000, 
+    -275000, -275000, -275000, -275000, -275000, -275000, -275000, -275000, 
+    -275000, -275000, -275000, -275000, -275000, -275000, -275000, -275000, 
+    -275000, -275000, -275000, -275000, -275000, -275000, -275000, -275000, 
+    -275000, -275000, -275000, -275000, -275000, -275000, -275000, -275000, 
+    -275000, -275000, -275000, -275000, -275000, -275000, -275000, -275000, 
+    -275000, -275000, -275000, -275000, -275000, -275000, -275000 ;
+
+ smpso = 0, -66000, -66000, -66000, -66000, -66000, -35000, -35000, -35000, 
+    -83000, -83000, -83000, -74000, -74000, -74000, -74000, -74000, -74000, 
+    -74000, -74000, -74000, -74000, -74000, -74000, -74000, -74000, -74000, 
+    -74000, -74000, -74000, -74000, -74000, -74000, -74000, -74000, -74000, 
+    -74000, -74000, -74000, -74000, -74000, -74000, -74000, -74000, -74000, 
+    -74000, -74000, -74000, -74000, -74000, -74000, -74000, -74000, -74000, 
+    -74000, -74000, -74000, -74000, -74000, -74000, -74000, -74000, -74000, 
+    -74000, -74000, -74000, -74000, -74000, -74000, -74000, -74000, -74000, 
+    -74000, -74000, -74000, -74000, -74000, -74000, -74000 ;
+
+ snow_canopy_storage_scalar = 6 ;
+
+ snowcan_unload_temp_fact = 187000 ;
+
+ snowcan_unload_wind_fact = 0.5 ;
+
+ snow5d_thresh_for_onset = 0.2 ;
+
+ snw_rds_refrz = 1500 ;
+
+ snw_rds_min = 54.526 ;
+
+ fresh_snw_rds_max = 400 ;
+
+ soilpsi_off = -0.8 ;
+
+ soilpsi_on = -0.6 ;
+
+ som_diffus = 3.17097919837646e-12 ;
+
+ ssi = 0.033 ;
+
+ stem_leaf = 0, 2.3, 2.3, 1, 2.3, 1.5, 1, 2.3, 2.3, 1.4, 0.24, 0.24, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ;
+
+ stress_decid = 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ;
+
+ sucsat_adjustfactor = 1 ;
+
+ sucsat_sf = 1.05384516283293 ;
+
+ surface_tension_water = 0.073 ;
+
+ taper = 200, 200, 200, 200, 200, 200, 200, 200, 200, 10, 10, 10, 200, 200, 
+    200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 
+    200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 
+    200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 
+    200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 
+    200, 200, 200, 200, 200, 200, 200, 200, 200 ;
+
+ tau_cwd = 3.33333325386047 ;
+
+ tau_ref = 172800 ;
+
+ taulnir = 0, 0.32, 0.32, 0.42, 0.33, 0.33, 0.43, 0.43, 0.43, 0.33, 0.43, 
+    0.43, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 
+    0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 
+    0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 
+    0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 
+    0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4 ;
+
+ taulvis = 0, 0.04, 0.04, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 
+    0.06, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 
+    0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 
+    0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 
+    0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 
+    0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 
+    0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05 ;
+
+ tausnir = 0, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 
+    0.001, 0.001, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 
+    0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 
+    0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 
+    0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 
+    0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 
+    0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25 ;
+
+ tausvis = 0, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 
+    0.001, 0.001, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 
+    0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 
+    0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 
+    0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 
+    0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 
+    0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12 ;
+
+ theta_cj = 0, 0.98, 0.98, 0.98, 0.98, 0.98, 0.98, 0.98, 0.98, 0.98, 0.98, 
+    0.98, 0.98, 0.98, 0.8, 0.98, 0.98, 0.8, 0.8, 0.98, 0.98, 0.98, 0.98, 
+    0.98, 0.98, 0.98, 0.98, 0.98, 0.98, 0.98, 0.98, 0.98, 0.98, 0.98, 0.98, 
+    0.98, 0.98, 0.98, 0.98, 0.98, 0.98, 0.98, 0.98, 0.98, 0.98, 0.98, 0.98, 
+    0.98, 0.98, 0.98, 0.98, 0.98, 0.98, 0.98, 0.98, 0.98, 0.98, 0.98, 0.98, 
+    0.98, 0.98, 0.98, 0.98, 0.98, 0.98, 0.98, 0.98, 0.8, 0.8, 0.98, 0.98, 
+    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.98, 0.98 ;
+
+ theta_ip = 0.95 ;
+
+ theta_psii = 0.7 ;
+
+ tkd_clay = 2.92 ;
+
+ tkd_om = 0.05 ;
+
+ tkd_sand = 8.8 ;
+
+ tkm_om = 0.25 ;
+
+ tpu25ratio = 0.167 ;
+
+ tpuha = 72000 ;
+
+ tpuhd = 200000 ;
+
+ tpuse_sf = 1 ;
+
+ unsat_aere_ratio = 0.166666666666667 ;
+
+ upplim_destruct_metamorph = 175 ;
+
+ variantnames =
+  "water                                   ",
+  "carbon                                  " ;
+
+ vcmaxha = 72000 ;
+
+ vcmaxhd = 200000 ;
+
+ vcmaxse_sf = 1 ;
+
+ vgc_max = 0.15 ;
+
+ vmax_ch4_oxid = 1.25e-05 ;
+
+ vmax_oxid_unsat = 1.25e-06 ;
+
+ watsat_adjustfactor = 1 ;
+
+ watsat_sf = 0.912714770356152 ;
+
+ wc2wjb0 = 0.8054, 0.8054, 0.8054, 0.8054, 0.8054, 0.8054, 0.8054, 0.8054, 
+    0.8054, 0.8054, 0.8054, 0.8054, 0.8054, 0.8054, 0.8054, 0.8054, 0.8054, 
+    0.8054, 0.8054, 0.8054, 0.8054, 0.8054, 0.8054, 0.8054, 0.8054, 0.8054, 
+    0.8054, 0.8054, 0.8054, 0.8054, 0.8054, 0.8054, 0.8054, 0.8054, 0.8054, 
+    0.8054, 0.8054, 0.8054, 0.8054, 0.8054, 0.8054, 0.8054, 0.8054, 0.8054, 
+    0.8054, 0.8054, 0.8054, 0.8054, 0.8054, 0.8054, 0.8054, 0.8054, 0.8054, 
+    0.8054, 0.8054, 0.8054, 0.8054, 0.8054, 0.8054, 0.8054, 0.8054, 0.8054, 
+    0.8054, 0.8054, 0.8054, 0.8054, 0.8054, 0.8054, 0.8054, 0.8054, 0.8054, 
+    0.8054, 0.8054, 0.8054, 0.8054, 0.8054, 0.8054, 0.8054, 0.8054 ;
+
+ wcf = 0.4 ;
+
+ wimp = 0.05 ;
+
+ wind_min = 1 ;
+
+ wind_snowcompact_fact = 5 ;
+
+ wood_density = 0, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 
+    500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 
+    500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 
+    500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 
+    500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 
+    500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500 ;
+
+ woody = 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0 ;
+
+ xdrdt = 5 ;
+
+ xl = 0, 0.01, 0.01, 0.01, 0.32, 0.32, 0.2, 0.59, 0.59, 0.32, 0.59, 0.59, 
+    -0.23, -0.23, -0.23, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 
+    0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0, 0, 0, 0, 0, 0, 0, 0, 0.3, 0.3, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.3, 0.3, 0, 0, 0, 
+    0, 0.3, 0.3, 0, 0, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3 ;
+
+ z0mr = 0, 0.055, 0.055, 0.055, 0.075, 0.075, 0.055, 0.055, 0.055, 0.12, 
+    0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 
+    0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 
+    0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 
+    0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 
+    0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 
+    0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12 ;
+
+ z_dl = 0.05 ;
+
+ zlnd = 0.00085 ;
+
+ zsno = 0.000775 ;
+
+ ztopmx = _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, 2.5, 2.5, 1.2, 
+    1.2, 1.2, 1.2, 0.75, 0.75, 1.2, 1.2, 1.2, 1.2, 1.2, 1.2, 1.2, 1.2, _, _, 
+    _, _, _, _, _, _, 1.5, 1.5, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, 
+    _, _, _, 1.8, 1.8, _, _, _, _, 4, 4, _, _, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 
+    1, 1 ;
+
+ z0v_Cr = 0, 0.0500000007, 0.0500000007, 0.0500000007, 0.140000001, 
+    0.140000001, 0.129999995, 0.129999995, 0.129999995, 0.0599999987, 
+    0.0599999987, 0.0599999987, 0.0399999991, 0.0399999991, 0.0399999991, 
+    0.0500000007, 0.0500000007, 0.0500000007, 0.0500000007, 0.0500000007, 
+    0.0500000007, 0.0500000007, 0.0500000007, 0.0500000007, 0.0500000007, 
+    0.0500000007, 0.0500000007, 0.0500000007, 0.0500000007, 0.0500000007, 
+    0.0500000007, 0.0500000007, 0.0500000007, 0.0500000007, 0.0500000007, 
+    0.0500000007, 0.0500000007, 0.0500000007, 0.0500000007, 0.0500000007, 
+    0.0500000007, 0.0500000007, 0.0500000007, 0.0500000007, 0.0500000007, 
+    0.0500000007, 0.0500000007, 0.0500000007, 0.0500000007, 0.0500000007, 
+    0.0500000007, 0.0500000007, 0.0500000007, 0.0500000007, 0.0500000007, 
+    0.0500000007, 0.0500000007, 0.0500000007, 0.0500000007, 0.0500000007, 
+    0.0500000007, 0.0500000007, 0.0500000007, 0.0500000007, 0.0500000007, 
+    0.0500000007, 0.0500000007, 0.0500000007, 0.0500000007, 0.0500000007, 
+    0.0500000007, 0.0500000007, 0.0500000007, 0.0500000007, 0.0500000007, 
+    0.0500000007, 0.0500000007, 0.0500000007, 0.0500000007 ;
+
+ z0v_Cs = 0, 0.00300000003, 0.00300000003, 0.00300000003, 0.00999999978, 
+    0.00999999978, 0.0130000003, 0.0130000003, 0.0130000003, 0.00100000005, 
+    0.00100000005, 0.00100000005, 0.00100000005, 0.00100000005, 
+    0.00100000005, 0.00100000005, 0.00100000005, 0.00100000005, 
+    0.00100000005, 0.00100000005, 0.00100000005, 0.00100000005, 
+    0.00100000005, 0.00100000005, 0.00100000005, 0.00100000005, 
+    0.00100000005, 0.00100000005, 0.00100000005, 0.00100000005, 
+    0.00100000005, 0.00100000005, 0.00100000005, 0.00100000005, 
+    0.00100000005, 0.00100000005, 0.00100000005, 0.00100000005, 
+    0.00100000005, 0.00100000005, 0.00100000005, 0.00100000005, 
+    0.00100000005, 0.00100000005, 0.00100000005, 0.00100000005, 
+    0.00100000005, 0.00100000005, 0.00100000005, 0.00100000005, 
+    0.00100000005, 0.00100000005, 0.00100000005, 0.00100000005, 
+    0.00100000005, 0.00100000005, 0.00100000005, 0.00100000005, 
+    0.00100000005, 0.00100000005, 0.00100000005, 0.00100000005, 
+    0.00100000005, 0.00100000005, 0.00100000005, 0.00100000005, 
+    0.00100000005, 0.00100000005, 0.00100000005, 0.00100000005, 
+    0.00100000005, 0.00100000005, 0.00100000005, 0.00100000005, 
+    0.00100000005, 0.00100000005, 0.00100000005, 0.00100000005, 0.00100000005 ;
+
+ z0v_LAImax = 0, 4.55000019, 4.55000019, 4.55000019, 7.86999989, 7.86999989, 
+    8.88000011, 8.88000011, 8.88000011, 3.06999993, 3.06999993, 3.06999993, 
+    4.61000013, 4.61000013, 4.61000013, 5.30000019, 5.30000019, 5.30000019, 
+    5.30000019, 5.30000019, 5.30000019, 5.30000019, 5.30000019, 5.30000019, 
+    5.30000019, 5.30000019, 5.30000019, 5.30000019, 5.30000019, 5.30000019, 
+    5.30000019, 5.30000019, 5.30000019, 5.30000019, 5.30000019, 5.30000019, 
+    5.30000019, 5.30000019, 5.30000019, 5.30000019, 5.30000019, 5.30000019, 
+    5.30000019, 5.30000019, 5.30000019, 5.30000019, 5.30000019, 5.30000019, 
+    5.30000019, 5.30000019, 5.30000019, 5.30000019, 5.30000019, 5.30000019, 
+    5.30000019, 5.30000019, 5.30000019, 5.30000019, 5.30000019, 5.30000019, 
+    5.30000019, 5.30000019, 5.30000019, 5.30000019, 5.30000019, 5.30000019, 
+    5.30000019, 5.30000019, 5.30000019, 5.30000019, 5.30000019, 5.30000019, 
+    5.30000019, 5.30000019, 5.30000019, 5.30000019, 5.30000019, 5.30000019, 
+    5.30000019 ;
+
+ z0v_LAIoff = 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ;
+
+ z0v_c = 0, 0.0900000036, 0.0900000036, 0.0900000036, 0.00999999978, 
+    0.00999999978, 0.0599999987, 0.0599999987, 0.0599999987, 0.119999997, 
+    0.119999997, 0.119999997, 0.0799999982, 0.0799999982, 0.0799999982, 
+    0.0399999991, 0.0399999991, 0.0399999991, 0.0399999991, 0.0399999991, 
+    0.0399999991, 0.0399999991, 0.0399999991, 0.0399999991, 0.0399999991, 
+    0.0399999991, 0.0399999991, 0.0399999991, 0.0399999991, 0.0399999991, 
+    0.0399999991, 0.0399999991, 0.0399999991, 0.0399999991, 0.0399999991, 
+    0.0399999991, 0.0399999991, 0.0399999991, 0.0399999991, 0.0399999991, 
+    0.0399999991, 0.0399999991, 0.0399999991, 0.0399999991, 0.0399999991, 
+    0.0399999991, 0.0399999991, 0.0399999991, 0.0399999991, 0.0399999991, 
+    0.0399999991, 0.0399999991, 0.0399999991, 0.0399999991, 0.0399999991, 
+    0.0399999991, 0.0399999991, 0.0399999991, 0.0399999991, 0.0399999991, 
+    0.0399999991, 0.0399999991, 0.0399999991, 0.0399999991, 0.0399999991, 
+    0.0399999991, 0.0399999991, 0.0399999991, 0.0399999991, 0.0399999991, 
+    0.0399999991, 0.0399999991, 0.0399999991, 0.0399999991, 0.0399999991, 
+    0.0399999991, 0.0399999991, 0.0399999991, 0.0399999991 ;
+
+ z0v_cw = 0, 9, 9, 9, 3, 3, 1, 1, 1, 20, 20, 20, 19, 19, 19, 3.5, 3.5, 3.5, 
+    3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 
+    3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 
+    3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 
+    3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 
+    3.5, 3.5, 3.5, 3.5, 3.5 ;
+
+ zglc = 0.00230000005 ;
+
+ bgc_till_decompk_multipliers =
+  1, 1,
+  1.5, 1.8,
+  1.5, 1.8,
+  1, 1.2,
+  3, 4.8,
+  3, 4.8,
+  1, 1,
+  1, 1,
+  1, 1,
+  1.5, 1.5,
+  1.5, 1.5,
+  1, 1,
+  1.6, 3.5,
+  1.6, 3.5,
+  1, 1,
+  1, 1,
+  1, 1,
+  1.1, 1.1,
+  1.1, 1.1,
+  1, 1,
+  1.3, 2.5,
+  1.3, 2.5,
+  1, 1,
+  1, 1 ;
+
+ mimics_till_decompk_multipliers =
+  1, 1,
+  1, 1,
+  1.5, 1.8,
+  1, 1.2,
+  3, 4.8,
+  3, 4.8,
+  1, 1,
+  1, 1,
+  1, 1,
+  1, 1,
+  1.5, 1.5,
+  1, 1,
+  1.6, 3.5,
+  1.6, 3.5,
+  1, 1,
+  1, 1,
+  1, 1,
+  1, 1,
+  1.1, 1.1,
+  1, 1,
+  1.3, 2.5,
+  1.3, 2.5,
+  1, 1,
+  1, 1 ;
+
+ zbedrock = -1 ;
+
+ zbedrock_sf = 1 ;
+
+ nfix_tmax = 43.98, 43.98, 43.98, 43.98, 45.35, 43.98, 45.35, 43.98, 43.98, 
+    43.98, 43.98, 43.98, 43.98, 43.98, 45.35, 43.98, 43.98, 43.98, 43.98, 
+    43.98, 43.98, 43.98, 43.98, 43.98, 43.98, 43.98, 43.98, 43.98, 43.98, 
+    43.98, 43.98, 43.98, 43.98, 43.98, 43.98, 43.98, 43.98, 43.98, 43.98, 
+    43.98, 43.98, 43.98, 43.98, 43.98, 43.98, 43.98, 43.98, 43.98, 43.98, 
+    43.98, 43.98, 43.98, 43.98, 43.98, 43.98, 43.98, 43.98, 43.98, 43.98, 
+    43.98, 43.98, 43.98, 43.98, 43.98, 43.98, 43.98, 43.98, 43.98, 43.98, 
+    43.98, 43.98, 43.98, 43.98, 43.98, 43.98, 43.98, 43.98, 45.35, 45.35 ;
+
+ nfix_tmin = -2.04, -2.04, -2.04, -2.04, 7.04, -2.04, 7.04, -2.04, -2.04, 
+    -2.04, -2.04, -2.04, -2.04, -2.04, 7.04, -2.04, -2.04, -2.04, -2.04, 
+    -2.04, -2.04, -2.04, -2.04, -2.04, -2.04, -2.04, -2.04, -2.04, -2.04, 
+    -2.04, -2.04, -2.04, -2.04, -2.04, -2.04, -2.04, -2.04, -2.04, -2.04, 
+    -2.04, -2.04, -2.04, -2.04, -2.04, -2.04, -2.04, -2.04, -2.04, -2.04, 
+    -2.04, -2.04, -2.04, -2.04, -2.04, -2.04, -2.04, -2.04, -2.04, -2.04, 
+    -2.04, -2.04, -2.04, -2.04, -2.04, -2.04, -2.04, -2.04, -2.04, -2.04, 
+    -2.04, -2.04, -2.04, -2.04, -2.04, -2.04, -2.04, -2.04, 7.04, 7.04 ;
+
+ nfix_topt = 32.1, 32.1, 32.1, 32.1, 33.22, 32.1, 33.22, 32.1, 32.1, 32.1, 
+    32.1, 32.1, 32.1, 32.1, 33.22, 32.1, 32.1, 32.1, 32.1, 32.1, 32.1, 32.1, 
+    32.1, 32.1, 32.1, 32.1, 32.1, 32.1, 32.1, 32.1, 32.1, 32.1, 32.1, 32.1, 
+    32.1, 32.1, 32.1, 32.1, 32.1, 32.1, 32.1, 32.1, 32.1, 32.1, 32.1, 32.1, 
+    32.1, 32.1, 32.1, 32.1, 32.1, 32.1, 32.1, 32.1, 32.1, 32.1, 32.1, 32.1, 
+    32.1, 32.1, 32.1, 32.1, 32.1, 32.1, 32.1, 32.1, 32.1, 32.1, 32.1, 32.1, 
+    32.1, 32.1, 32.1, 32.1, 32.1, 32.1, 32.1, 33.22, 33.22 ;
+}
