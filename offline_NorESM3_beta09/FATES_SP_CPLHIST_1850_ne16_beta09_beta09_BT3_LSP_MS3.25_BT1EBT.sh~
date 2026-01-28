@@ -1,0 +1,153 @@
+#!/bin/bash 
+
+#Scrip to clone, build and run NorESM on Betzy
+
+dosetup1=1 #do first part of setup
+dosetup2=1 #do second part of setup (after first manual modifications)
+dosetup3=1 #do second part of setup (after namelist manual modifications)
+dosubmit=1 #do the submission stage
+forcenewcase=1 #scurb all the old cases and start again
+doanalysis=0 #analyze output (not yet coded up)
+numCPUs=0 #Specify number of cpus. 0: use default
+
+echo "setup1, setup2, setup3, submit, forcenewcase, analysis:", $dosetup1, $dosetup2, $dosetup3, $dosubmit, $forcenewcase, $doanalysis 
+
+USER="rosief"
+project='nn9560k' #nn8057k: EMERALD, nn2806k: METOS, nn9188k: CICERO, nn9560k: NorESM (INES2), nn9039k: NorESM (UiB: Climate predition unit?), nn2345k: NorESM (EU projects)
+machine='betzy'
+
+#NorESM dir
+noresmrepo="noresm3_0_beta_09"
+noresmversion="noresm3_0_beta09"
+
+
+resolution="ne16pg3_tn14" #f19_g17, ne30pg3_tn14, f45_f45_mg37, ne16pg3_tn14 
+casename="i1850.$resolution.fatesSP.$noresmversion.CPLHIST.`date +"%Y-%m-%d"`"
+echo "casename: $casename"
+compset="1850_DATM%CPLHIST_CLM60%FATES-SP_SICE_SOCN_SROF_SGLC_SWAV_SESP"
+
+
+# aka where do you want the code?
+workpath="/cluster/work/users/$USER/" 
+
+# some more derived path names to simplify scripts
+scriptsdir=$workpath$noresmrepo/cime/scripts/
+
+#case dir
+casedir=$scriptsdir$casename
+
+#where are we now?
+startdr=$(pwd)
+
+#Download code and checkout externals
+if [ $dosetup1 -eq 1 ] 
+then
+    cd $workpath
+
+    pwd
+    #go to repo, or checkout code
+    if [[ -d "$noresmrepo" ]] 
+    then
+        cd $noresmrepo
+        echo "Already have NorESM repo"
+    else
+        echo "Cloning NorESM"
+        
+        if [[ $noresmversion == ctsm* ]] ; then
+            echo "Using CTSM version $noresmversion"
+            git clone https://github.com/NorESMhub/CTSM/ $noresmrepo
+        else
+            echo "Using NorESM version $noresmversion"
+            git clone https://github.com/NorESMhub/NorESM/ $noresmrepo
+        fi
+        cd $noresmrepo
+        git checkout $noresmversion
+        ./bin/git-fleximod update
+        echo "Built model here: $workpath$noresmrepo"        
+	
+    fi
+fi
+
+#Make case
+if [[ $dosetup2 -eq 1 ]] 
+then
+    cd $scriptsdir
+
+    if [[ $forcenewcase -eq 1 ]]
+    then
+	echo "making a new case"
+        if [[ -d "$casedir" ]] 
+        then    
+        echo "$casedir exists on your filesystem. Removing it!"
+        rm -rf $casedir
+        rm -r $casedir
+        rm -r $workpath/archive/$casename
+        rm -r $casename
+        fi
+    fi
+    if [[ -d "$scriptsdir" ]] 
+    then    
+        echo "scriptsdir:" $scriptsdir
+	cd $scriptsdir
+        ./create_newcase --case $casedir --compset $compset --res $resolution --project $project --run-unsupported --mach betzy --pecount L
+        cd $casename
+        echo "created new case"
+#        cp /cluster/home/kjetisaa/Trendy_2025_scripts/SourceModFiles_S3rerun/BalanceCheckMod.F90 $workpath$casename/SourceMods/src.clm/
+
+        #XML changes
+        echo 'updating settings'        
+DATM_CPLHIST_CASE=n1850.ne30_tn14.cplhist.3_0_a03b.20250606
+        #./xmlchange 
+        ./xmlchange DATM_CPLHIST_CASE=n1850.ne16pg3_tn14.noresm3_0_beta03b.CPLHIST.2025-10-29
+        ./xmlchange DATM_CPLHIST_DIR=/cluster/work/users/kjetisaa/archive/n1850.ne16pg3_tn14.noresm3_0_beta03b.CPLHIST.2025-10-29/cpl/hist/
+        ./xmlchange DATM_PRESNDEP=none
+        ./xmlchange DATM_YR_START=293
+        ./xmlchange DATM_YR_END=340
+        ./xmlchange RUN_STARTDATE=0000-01-01
+        ./xmlchange STOP_OPTION=nyears
+        ./xmlchange STOP_N=10
+        ./xmlchange RESUBMIT=1
+        ./xmlchange --subgroup case.run JOB_WALLCLOCK_TIME=03:00:00
+        ./xmlchange --subgroup case.st_archive JOB_WALLCLOCK_TIME=00:30:00        
+        ./xmlchange DATM_YR_ALIGN=1
+        ./xmlchange RUN_STARTDATE=0001-01-01        
+        echo 'done with xmlchanges'        
+        
+        ./case.setup
+        echo ' '
+        echo "Done with Setup. Update namelists in $workpath$casename/user_nl_*"
+
+        #Add following lines to user_nl_clm    
+        echo "glacier_region_behavior = 'single_at_atm_topo','UNSET','virtual','virtual'" >> $workpath$casename/user_nl_clm
+	echo " use_fates_nocomp = .true." >> $casedir/user_nl_clm
+ 	echo " use_fates_fixed_biogeog = .true." >> $casedir/user_nl_clm
+        echo " fates_paramfile ='/cluster/shared/noresm/inputdata/lnd/clm2/paramdata/fates_params_sci.1.88.6_api.42.0.0_14pft_nor_sci3_api1_c260123.nc'" >> $casedir/user_nl_clm
+    fi
+fi
+
+#Build case case
+if [[ $dosetup3 -eq 1 ]] 
+then
+    cd $casedir
+    echo "casedir", $casedir
+    echo "Currently in" $(pwd)
+    ./case.build
+    echo ' '    
+    echo "Done with Build"
+fi
+
+#Submit job
+if [[ $dosubmit -eq 1 ]] 
+then
+    cd $casedir
+    ./case.submit
+    echo " "
+    echo 'done submitting'       
+fi
+
+#After it has finised:
+# - copy to NIRD: https://noresm-docs.readthedocs.io/en/noresm2/output/archive_output.html
+# - run land diag: https://github.com/NorESMhub/xesmf_clm_fates_diagnostic 
+    # python run_diagnostic_full_from_terminal.py /nird/datalake/NS9560K/kjetisaa/i1850.FATES-NOCOMP-coldstart.ne30pg3_tn14.alpha08d.20250130/lnd/hist/ pamfile=short_nocomp.json outpath=/datalake/NS9560K/www/diagnostics/noresm/kjetisaa/
+#Useful commands: 
+# - cdo -fldmean -mergetime -apply,selvar,FATES_GPP,TOTSOMC,TLAI,TWS,TOTECOSYSC [ n1850.FATES-NOCOMP-AD.ne30_tn14.alpha08d.20250127_fixFincl1.clm2.h0.00* ] simple_mean_of_gridcells.nc
