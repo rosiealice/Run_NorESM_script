@@ -1,0 +1,137 @@
+#!/bin/bash 
+
+#Script to clone, build and run NorESM on Betzy
+
+#Arguments
+workpath=$1
+noresmrepo=$2
+noresmversion=$3
+resolution=$4
+casename=$5
+
+dosetup1=1 #do first part of setup
+dosetup2=1 #do second part of setup (after first manual modifications)
+dosetup3=1 #do second part of setup (after namelist manual modifications)
+forcenewcase=0 #scurb all the old cases and start again
+
+echo "setup1, setup2, setup3,  forcenewcase, analysis:", $dosetup1, $dosetup2, $dosetup3, $forcenewcase
+
+USER="rosief"
+project='nn9560k' #nn8057k: EMERALD, nn2806k: METOS, nn9188k: CICERO, nn9560k: NorESM (INES2), nn9039k: NorESM (UiB: Climate predition unit?), nn2345k: NorESM (EU projects)
+machine='betzy'
+
+compset="2000_DATM%CRUJRA2024_CLM60%FATES-NOCOMP_SICE_SOCN_SROF_SGLC_SWAV_SESP"
+
+# some more derived path names to simplify scripts
+scriptsdir=$workpath$noresmrepo/cime/scripts/
+
+#case dir
+casedir=$scriptsdir$casename
+
+echo $casedir
+
+#where are we now?
+startdr=$(pwd)
+
+#Download code and checkout externals
+if [ $dosetup1 -eq 1 ] 
+then
+    cd $workpath
+
+    pwd
+    #go to repo, or checkout code
+    if [[ -d "$noresmrepo" ]] 
+    then
+        cd $noresmrepo
+        echo "Already have NorESM repo"
+    else
+        echo "Cloning NorESM"
+        
+        if [[ $noresmversion == ctsm* ]] ; then
+            echo "Using CTSM version $noresmversion"
+            git clone https://github.com/NorESMhub/CTSM/ $noresmrepo
+        else
+            echo "Using NorESM version $noresmversion"
+            git clone https://github.com/NorESMhub/NorESM/ $noresmrepo
+        fi
+        cd $noresmrepo
+        git checkout $noresmversion
+        ./bin/git-fleximod update
+        echo "Built model here: $workpath$noresmrepo"        
+        cd components/clm/src/fates/
+    fi
+fi
+
+#Make case
+if [[ $dosetup2 -eq 1 ]] 
+then
+    # do we need the new case? 
+    makecase=0
+    if [[ -d "$casedir" ]]
+    then
+       if [[ $forcenewcase -eq 1 ]]
+       then
+	   makecase=1
+       fi
+    else
+	makecase=1
+    fi
+	
+    cd $scriptsdir
+    if [[ $makecase -eq 1 ]]
+    then   
+	echo "making a new case, makecase is" ,$makecase
+        echo "$casedir exists on your filesystem. Removing it!"
+        rm -rf $casedir
+        rm -r $casedir
+        rm -r $workpath/archive/$casename
+        rm -r $casename
+
+        echo "scriptsdir:" $scriptsdir
+	cd $scriptsdir
+        ./create_newcase --case $casedir --compset $compset --res $resolution --project $project --run-unsupported --mach betzy --pecount L
+        cd $casename
+        echo "created new case"
+
+        #XML changes
+        echo 'updating settings'        
+        ./xmlchange RUN_STARTDATE=0000-01-01
+        ./xmlchange STOP_OPTION=nyears
+        ./xmlchange STOP_N=10
+        ./xmlchange RESUBMIT=2
+        ./xmlchange --subgroup case.run JOB_WALLCLOCK_TIME=03:00:00
+        ./xmlchange --subgroup case.st_archive JOB_WALLCLOCK_TIME=00:30:00        
+        ./xmlchange DATM_YR_ALIGN=1
+        ./xmlchange RUN_STARTDATE=0001-01-01        
+        echo 'done with xmlchanges'        
+        
+        ./case.setup
+        echo ' '
+        echo "Done with Setup. Update namelists in $casedir/user_nl_*"
+
+        #Add following lines to user_nl_clm    
+        echo "glacier_region_behavior = 'single_at_atm_topo','UNSET','virtual','virtual'" >> $workpath$casename/user_nl_clm
+	echo "fates_paramfile='/cluster/work/users/rosief/NorESM_3_0_beta01_ctsm_v9/cime/scripts/fates_params_api.noresm_42.0.0_14pft__noresm_v28v.nc'" >> $casedir/user_nl_clm   
+
+        #Land use changes 
+        echo "use_fates_luh = .true."  >> $casedir/user_nl_clm
+        echo "use_fates_lupft = .true."  >> $casedir/user_nl_clm
+        echo "fates_harvest_mode = 'luhdata_area'"  >> $casedir/user_nl_clm
+        echo "use_fates_potentialveg = .false."  >> $casedir/user_nl_clm
+        echo "fluh_timeseries='/cluster/shared/noresm/inputdata/LU_data_CMIP7/LUH3_states_transitions_management.timeseries_4x5_hist_steadystate_2000_2025-10-09_cdf5.nc'"      >> $casedir/user_nl_clm
+        echo "flandusepftdat='/cluster/shared/noresm/inputdata/LU_data_CMIP7/fates_landuse_pft_map_to_surfdata_4x5_hist_1850_16pfts_c241007_251009.nc'">> $casedir/user_nl_clm	
+
+   #Build case case
+      if [[ $dosetup3 -eq 1 ]] 
+      then
+         cd $casedir
+         echo "casedir", $casedir
+         echo "Currently in" $(pwd)
+         ./case.build
+         echo ' '    
+         echo "Done with Build"
+      fi
+   fi 
+fi
+
+
