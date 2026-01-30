@@ -22,7 +22,7 @@ noresmversion="noresm3_0_beta09"
 
 
 resolution="ne16pg3_tn14" #f19_g17, ne30pg3_tn14, f45_f45_mg37, ne16pg3_tn14 
-casename="i2000.$resolution.fatesnocomp.$noresmversion.CRUJRA_BT3_LSP_MS3.25_BT1EBT_bias28j.`date +"%Y-%m-%d"`"
+casename="i2000.$resolution.fatesnocomp.$noresmversion.CRUJRA_BT3_LSP_MS3.25_BT1EBT_bias28j_LU2000.`date +"%Y-%m-%d"`"
 echo "casename: $casename"
 compset="2000_DATM%CRUJRA2024_CLM60%FATES_SICE_SOCN_SROF_SGLC_SWAV_SESP"
 
