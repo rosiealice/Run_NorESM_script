@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+
+## update this as needed
+NSAMP=9
+
+# What version are we using?
+noresmrepo="noresm3_0_beta_09"
+noresmversion="noresm3_0_beta09"
+
+# Where is the code?
+workpath="/cluster/work/users/$USER/"
+sourcedir=$workpath$noresmrepo
+
+
+
+nums=(01 02 03 04 05 06 07 08 09 )
+
+cd $sourcedir
+cd cime/scripts
+pwd
+for n in "${nums[@]}"; do
+    CASENAME=noresm_beta07_crujra_ppe_2000_v12_n$n
+    cd $CASENAME
+    pwd
+    ./case.submit
+    cd ../
+    pwd
+done
+

@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+
+# #########################
+# Purpose: Clone a case for PPE
+# Author: Adrianna C. Foster & Rosie Fisher
+# #########################
+
+SAMPLE=$1
+SRCDIR=$2
+BASECASE=$3
+
+
+## create file and folder names
+CASENAME=noresm_beta07_crujra_ppe_2000_v12_n$SAMPLE
+
+## Parameter files 
+PARAM_DIR=/cluster/work/users/rosief/git/PPE_Run_NorESM_script/PPE_CRU_2000_initD_scripts/PPE_param_files/lhs_params/
+FATES_PARAM_FILE=${PARAM_DIR}fates_params_lhs_20260203_1920_0$SAMPLE.nc
+
+echo "FATES_PARAM_FILE",$FATES_PARAM_FILE,$SAMPLE
+
+# Where is the scratch dir? 
+SCRDIR=/cluster/work/users/rosief/noresm/
+
+## full path of case
+case_path=${SRCDIR}/cime/scripts/${CASENAME}
+
+## clone from the base case
+cd ${SRCDIR}/cime/scripts
+
+echo "base case"  ${BASECASE}
+echo "case"  ${case_name}
+ echo 'making case', $case_name
+
+ rm -rf $case_name
+./create_clone --case ${case_path} --clone ${BASECASE} --keepexe
+cd ${case_path}
+
+./case.setup
+
+./xmlchange --id RESUBMIT --val 3
+
+# Remove any existing restart files from run dirs. 
+rxsfiles=$SCRDIR/${CASENAME}/run/${CASENAME}.clm2.r.*
+rhxsfiles=$SCRDIR/${CASENAME}/run/${CASENAME}.clm2.rh0.*
+rm -f $rxsfiles
+rm -f rm -f $rhxsfiles
+
+target="user_nl_clm"
+sed -i "/fates_param/d" "$target"
+sed -i "/param/d" "$target"
+
+echo "fates_paramfile='$FATES_PARAM_FILE'" >> "$target"
+
+## submit the case - no need to build
+./case.submit
