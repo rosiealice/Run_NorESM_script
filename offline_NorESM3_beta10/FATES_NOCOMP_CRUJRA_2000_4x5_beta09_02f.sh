@@ -21,8 +21,8 @@ noresmrepo="noresm3_0_beta_10"
 noresmversion="noresm3_0_beta10"
 
 
-resolution="ne16pg3_tn14" #f19_g17, ne30pg3_tn14, f45_f45_mg37, ne16pg3_tn14 
-casename="i2000.$resolution.fatesnocomp.$noresmversion.CRUJRA.06f_14hp_noLUC.`date +"%Y-%m-%d"`"
+resolution="f45_f45_mg37" #f19_g17, ne30pg3_tn14, f45_f45_mg37, ne16pg3_tn14 
+casename="i2000.$resolution.fatesnocomp.$noresmversion.CRUJRA.30j.`date +"%Y-%m-%d"`"
 echo "casename: $casename"
 compset="2000_DATM%CRUJRA2024_CLM60%FATES_SICE_SOCN_SROF_SGLC_SWAV_SESP"
 
@@ -98,7 +98,7 @@ then
         echo 'updating settings'        
         ./xmlchange RUN_STARTDATE=0000-01-01
         ./xmlchange STOP_OPTION=nyears
-        ./xmlchange STOP_N=6
+        ./xmlchange STOP_N=10
         ./xmlchange RESUBMIT=4
         ./xmlchange --subgroup case.run JOB_WALLCLOCK_TIME=03:00:00
         ./xmlchange --subgroup case.st_archive JOB_WALLCLOCK_TIME=00:30:00        
@@ -115,9 +115,15 @@ then
 	echo " use_fates_nocomp = .true." >> $casedir/user_nl_clm
  	echo " use_fates_fixed_biogeog = .true." >> $casedir/user_nl_clm
 
-echo " fsurdat='/cluster/shared/noresm/inputdata/lnd/clm2/surfdata_esmf/ctsm5.4.0/surfdata_ne16np4.pg3_hist_1850_16pfts_c260209.nc' " >> $casedir/user_nl_clm     
+        #Land use changes 
+        echo "use_fates_luh = .true."  >> $casedir/user_nl_clm
+        echo "use_fates_lupft = .true."  >> $casedir/user_nl_clm
+        echo "fates_harvest_mode = 'luhdata_area'"  >> $casedir/user_nl_clm
+        echo "use_fates_potentialveg = .false."  >> $casedir/user_nl_clm
+        echo "fluh_timeseries='/cluster/shared/noresm/inputdata/LU_data_CMIP7/LUH3_states_transitions_management.timeseries_4x5_hist_steadystate_2000_2025-10-09_cdf5.nc'">> $casedir/user_nl_clm
+        echo "flandusepftdat='/cluster/shared/noresm/inputdata/LU_data_CMIP7/fates_landuse_pft_map_to_surfdata_4x5_hist_1850_16pfts_c241007_251009.nc'"  >> $casedir/user_nl_clm
 	echo " fates_paramfile ='/cluster/work/users/rosief/paramscratch/fates_params_sci.1.88.6_api.42.0.0_14pft_nor_sci2_api1_c260130.nc'" >> $casedir/user_nl_clm
-echo "hist_fincl1='FATES_VEGC_SZPF','FATES_DDBH_SZPF','FATES_MORTALITY_BACKGROUND_SZPF','FATES_MORTALITY_HYDRAULIC_SZPF','FATES_MORTALITY_CSTARV_SZPF','FATES_MORTALITY_WILDFIRE_SZPF','FATES_MORTALITY_LOGGING_SZPF','FATES_MORTALITY_FREEZING_SZPF','FATES_MORTALITY_SENESCENCE_SZPF','FATES_NPP_SZPF','FATES_NPLANT_SZAPPF'">> $casedir/user_nl_clm
+        echo "hist_fincl1='FATES_VEGC_SZPF' ">> $casedir/user_nl_clm
     fi
 fi
 

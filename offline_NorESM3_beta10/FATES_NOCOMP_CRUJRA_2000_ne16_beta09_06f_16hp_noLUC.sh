@@ -98,7 +98,7 @@ then
         echo 'updating settings'        
         ./xmlchange RUN_STARTDATE=0000-01-01
         ./xmlchange STOP_OPTION=nyears
-        ./xmlchange STOP_N=10
+        ./xmlchange STOP_N=6
         ./xmlchange RESUBMIT=4
         ./xmlchange --subgroup case.run JOB_WALLCLOCK_TIME=03:00:00
         ./xmlchange --subgroup case.st_archive JOB_WALLCLOCK_TIME=00:30:00        
@@ -117,7 +117,7 @@ then
 
 echo " fsurdat='/cluster/shared/noresm/inputdata/lnd/clm2/surfdata_esmf/ctsm5.4.0/surfdata_ne16np4.pg3_hist_1850_16pfts_c260209.nc' " >> $casedir/user_nl_clm     
 	echo " fates_paramfile ='/cluster/work/users/rosief/paramscratch/fates_params_sci.1.88.6_api.42.0.0_14pft_nor_sci2_api1_c260206_16hlmpft.nc'" >> $casedir/user_nl_clm
-        echo "hist_fincl1='FATES_VEGC_SZPF' ">> $casedir/user_nl_clm
+        echo "hist_fincl1='FATES_VEGC_SZPF','FATES_DDBH_SZPF','FATES_MORTALITY_BACKGROUND_SZPF','FATES_MORTALITY_HYDRAULIC_SZPF','FATES_MORTALITY_CSTARV_SZPF','FATES_MORTALITY_WILDFIRE_SZPF','FATES_MORTALITY_LOGGING_SZPF','FATES_MORTALITY_FREEZING_SZPF','FATES_MORTALITY_SENESCENCE_SZPF','FATES_NPP_SZPF','FATES_NPLANT_SZAPPF'">> $casedir/user_nl_clm
     fi
 fi
 
