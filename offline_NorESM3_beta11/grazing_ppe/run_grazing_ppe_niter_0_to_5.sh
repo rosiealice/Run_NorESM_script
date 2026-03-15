@@ -10,7 +10,7 @@ if [[ ! -f "$target_script" ]]; then
     exit 1
 fi
 
-for niter in {3..5}; do
+for niter in {25..25}; do
     echo "Running with niter=$niter"
     bash "$target_script" "$niter"
 done
