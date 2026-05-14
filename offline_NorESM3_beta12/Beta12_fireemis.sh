@@ -1,5 +1,9 @@
 #!/bin/bash 
 
+
+module load NRIS/CPU
+module load Python/3.12.3-GCCcore-13.3.0
+
 #Scrip to clone, build and run NorESM on Betzy
 
 dosetup1=1 #do first part of setup
@@ -14,22 +18,22 @@ echo "setup1, setup2, setup3, submit, forcenewcase, analysis:", $dosetup1, $dose
 
 USER="rosief"
 project='nn9560k' #nn8057k: EMERALD, nn2806k: METOS, nn9188k: CICERO, nn9560k: NorESM (INES2), nn9039k: NorESM (UiB: Climate predition unit?), nn2345k: NorESM (EU projects)
-machine='betzy'
+machine='olivia'
 
 #NorESM dir
-noresmrepo="noresm3_0_beta_12_fire"
+noresmrepo="noresm3_0_beta_12fire"
 noresmversion="noresm3_0_beta12"
 
 
 resolution="f45_f45_mg37" #f19_g17, ne30pg3_tn14, f45_f45_mg37, ne16pg3_tn14 
 
-casename="$noresmversion.CRUJRA.fireemis.`date +"%Y-%m-%d"`"
+casename="i1850_$noresmversion.CRUJRA.fireemis.`date +"%Y-%m-%d"`"
 echo "casename: $casename"
-compset="2000_DATM%CRUJRA2024_CLM60%FATES_SICE_SOCN_SROF_SGLC_SWAV_SESP"
+compset="1850_DATM%CRUJRA2024_CLM60%FATES_SICE_SOCN_SROF_SGLC_SWAV_SESP"
 
 
 # aka where do you want the code?
-workpath="/cluster/work/users/$USER/" 
+workpath="/cluster/work/projects/nn9560k/$USER/" 
 
 # some more derived path names to simplify scripts
 scriptsdir=$workpath$noresmrepo/cime/scripts/
@@ -65,10 +69,15 @@ then
         git checkout $noresmversion
         ./bin/git-fleximod update
         echo "Built model here: $workpath$noresmrepo"  
-        cd components/clm/src/fates 
-        git remote add rosiefates https://github.com/rosiealice/fates
-        git fetch rosiefates
-        git switch --track rosiefates/fire_emissions_calcs_rebased_noresm
+#	cd components/clm/src/#
+#	git remote add rosiectsm https://github.com/rosiealice/ctsm
+#	git fetch rosiectsm
+#	git switch --track rosiectsm/fire_emissions_may26
+#        cd fates 
+#        git remote add rosiefates https://github.com/rosiealice/fates
+#        git fetch rosiefates
+#        git switch --track rosiefates/fix-fates-fire-emissions
+
        
       
 	
@@ -96,7 +105,7 @@ then
     then    
         echo "scriptsdir:" $scriptsdir
 	cd $scriptsdir
-        ./create_newcase --case $casedir --compset $compset --res $resolution --project $project --run-unsupported --mach betzy --pecount L
+        ./create_newcase --case $casedir --compset $compset --res $resolution --project $project --run-unsupported --mach $machine  --pecount L
         cd $casename
         echo "created new case"
 
